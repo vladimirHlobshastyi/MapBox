@@ -13,48 +13,38 @@ const defaultsLocation = {
   zoom: 5.4,
 };
 
-const fillStyleLayer = {
-  id: "point1",
-  type: "fill",
-  paint: {
-    "fill-color": "#0055ff",
-    "fill-opacity": 0.3,
-  },
-};
-const lineLayer = {
-  id: "outline",
-  type: "line",
-  source: "maine",
-  layout: {},
-  paint: {
-    "line-color": "#000",
-    "line-width": 1,
-    "line-blur": 5,
-  },
-};
+const lokationData = [
+  { id: "Chernihiv", name: "Chernihiv", color: "red" },
+  { id: "Lviv", name: "Lviv", color: "blue" },
+  { id: "KyivSity", name: "KyivCity", color: "green" },
+  { id: "Vinnytsia", name: "Vinnytsia" },
+];
 
 export const MapView = () => {
-  //will do this func
-  const LokationData = [
-    { id: "Lviv", name: "Lviv" /* color: "red"  */ },
-    { id: "KyivSity", name: "KyivCity" /* color: "red"  */ },
-  ];
   const layerRendering = (geoJsonArray) => {
-    const layerStyle = {
-      id: "point1",
-      type: "fill",
-      paint: {
-        "fill-color": "#00ffff",
-        "fill-opacity": 0.3,
-      },
+    const layerStyle = (id, color = "#00ffff", opacity = 0.3) => {
+      return {
+        id,
+        type: "fill",
+        paint: {
+          "fill-color": color,
+          "fill-opacity": opacity,
+        },
+      };
     };
 
-    return geoJsonArray.map((item) => (
-      <Source key={item.id} type="geojson" data={geojsonData[item.name]}>
-        <Layer {...layerStyle} />
+    return geoJsonArray.map((activeRegion) => (
+      <Source
+        id={activeRegion.id}
+        key={activeRegion.id}
+        type="geojson"
+        data={geojsonData[activeRegion.name]}
+      >
+        <Layer {...layerStyle(activeRegion.id, activeRegion.color)} />
       </Source>
     ));
   };
+
   return (
     <div className={style.Container}>
       <Map
@@ -63,11 +53,7 @@ export const MapView = () => {
         style={{ width: 1200, height: 800 }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
-        <Source key={1} type="geojson" data={geojsonData.AllRegions}>
-          <Layer {...fillStyleLayer} />
-          <Layer {...lineLayer} />
-        </Source>
-        {/*     {layerRendering(LokationData)} */}
+        {layerRendering(lokationData)}
       </Map>
     </div>
   );
