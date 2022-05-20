@@ -28,7 +28,7 @@
   "browserslist": {
     "production": [
       ">0.25%",
-      "not dead",
+      "not dead"
     
     ],
     "development": [
