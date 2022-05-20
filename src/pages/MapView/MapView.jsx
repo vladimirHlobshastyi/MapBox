@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./MapView.module.css";
 import Map, { Source, Layer } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -44,6 +44,25 @@ export const MapView = () => {
       </Source>
     ));
   };
+
+  /* const ws = new WebSocket("wss:/www.com");
+
+  useEffect(() => {
+    ws.onopen = () => {
+      console.log("server is open");
+    };
+    ws.addEventListener("message", (event) => {
+      const message = JSON.parse(event.data);
+      setMessage(message);
+    });
+
+    ws.onclose = (event) => {
+      console.log("Server closed");
+    };
+    ws.onerror = (event) => {
+      console.log("Server get an error");
+    };
+  }, []); */
 
   return (
     <div className={style.Container}>
