@@ -21,7 +21,8 @@ export const MapView = () => {
 
   const layerRendering = (geoJsonArray) => {
     const layerStyle = (id, alert) => {
-      const color = alert === "false" ? "green" : "red";
+      const color = (alert === "false") ? "green" : "red";
+      
       return {
         id: id + " Layer",
         type: "fill",
