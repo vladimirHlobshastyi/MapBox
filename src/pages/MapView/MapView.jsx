@@ -21,7 +21,7 @@ export const MapView = () => {
 
   const layerRendering = (geoJsonArray) => {
     const layerStyle = (id, alert) => {
-      const color = alert ? "green" : "red";
+      const color = alert === "false" ? "green" : "red";
       return {
         id: id + " Layer",
         type: "fill",
@@ -55,11 +55,11 @@ export const MapView = () => {
     });
     const res = await request.json();
     setIsClosed(true);
+    console.log(res.states);
     return setData(res.states);
   };
 
   const host = "https://alerts.com.ua/api/states/live";
-  
 
   useEffect(() => {
     console.log(isClosed);
