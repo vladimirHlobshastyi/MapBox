@@ -2,11 +2,12 @@ import { Layer, Source } from "react-map-gl";
 import geojsonData from "../../geoJson/geojsonData";
 
 const layerRendering = (geoJsonArray) => {
-  const layerStyle = (id, alert) => {
+  const layerStyle = (id, alert, activeRegion) => {
     const color = alert === "false" ? "#228B22" : "#FF0000";
 
     return {
-      id: id + " Layer",
+      id: id + "Layer" + activeRegion.changed,
+      key: id + "Layer" + activeRegion.changed,
       type: "fill",
       paint: {
         "fill-color": color,
@@ -25,7 +26,8 @@ const layerRendering = (geoJsonArray) => {
       <Layer
         {...layerStyle(
           activeRegion.id.toString(),
-          activeRegion.alert.toString()
+          activeRegion.alert.toString(),
+          activeRegion.changed.toString()
         )}
       />
     </Source>

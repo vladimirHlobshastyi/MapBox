@@ -16,15 +16,22 @@ const realTimeConnect = (allRegions, setData, setIsClosed) => {
     credentials: "include",
   });
 
-  es.addEventListener("open", (e) => console.log("open"));
+  es.addEventListener("open", (e) => {
+    console.log("open");
+    setIsClosed(false);
+  });
 
   es.addEventListener("error", (e) => {
     setIsClosed(true);
     es.close();
   });
+
   es.addEventListener("update", (e) => {
+    console.log(JSON.parse(e.data));
     updateRegionsState(allRegions, JSON.parse(e.data));
   });
+
+  
 };
 
 export default realTimeConnect;
