@@ -3,8 +3,8 @@ import style from "./MapView.module.css";
 import Map, { Source, Layer } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import geojsonData from "./../../geoJson/geojsonData";
-import { EventSourcePolyfill } from "event-source-polyfill";
 import realTimeConnect from "../../api/realTimeConnect";
+import apiKeyHeaders from "../../api/apiKeyHeaders";
 
 const token =
   "pk.eyJ1IjoidmxhZGltaXJwMzAwIiwiYSI6ImNsMnNva3BpazAwcnozZHFtemdmOG9td3IifQ.e-pV7a1zt65sBmnfnb8cmQ";
@@ -16,19 +16,19 @@ const defaultsLocation = {
 };
 
 export const MapView = () => {
-  const [isClosed, setIsClosed] = useState(false);
-  const [data, setData] = useState([]);
+  const [isClosed, setIsClosed] = useState(true);
+  const [regionsData, setRegionsData] = useState([]);
 
   const layerRendering = (geoJsonArray) => {
     const layerStyle = (id, alert) => {
-      const color = (alert === "false") ? "green" : "red";
-      
+      const color = alert === "false" ? "#228B22" : "#FF0000";
+
       return {
         id: id + " Layer",
         type: "fill",
         paint: {
           "fill-color": color,
-          "fill-opacity": 0.3,
+          "fill-opacity": color === "#228B22" ? 0.2 : 0.5,
         },
       };
     };
@@ -52,19 +52,18 @@ export const MapView = () => {
 
   const getRegions = async () => {
     const request = await fetch("https://alerts.com.ua/api/states", {
-      headers: { "X-API-Key": "cc3698331afa6f399b17bcf21a33c1faa6bda749" },
+      headers: apiKeyHeaders,
     });
-    const res = await request.json();
-    setIsClosed(true);
-    console.log(res.states);
-    return setData(res.states);
+    const requesRegions = await request.json();
+    setIsClosed(false);
+    console.log(requesRegions.states);
+    return setRegionsData(requesRegions.states);
   };
 
-  const host = "https://alerts.com.ua/api/states/live";
-
   useEffect(() => {
-    console.log(isClosed);
-    !isClosed ? getRegions() : realTimeConnect(data, setData);
+    isClosed
+      ? getRegions()
+      : realTimeConnect(regionsData, setRegionsData, setIsClosed);
   }, [isClosed]);
 
   return (
@@ -75,7 +74,7 @@ export const MapView = () => {
         style={{ width: 1200, height: 800 }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
-        {layerRendering(data)}
+        {layerRendering(regionsData)}
       </Map>
     </div>
   );

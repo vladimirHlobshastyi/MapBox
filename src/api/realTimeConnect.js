@@ -1,39 +1,37 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { EventSourcePolyfill } from "event-source-polyfill";
+import apiKeyHeaders from "./apiKeyHeaders";
 
 const host = "https://alerts.com.ua/api/states/live";
 
-const realTimeConnect = (data, setData) => {
-  const logEvent = ((data, dataNew) => {
-    const result = data.filter((item) => {
-      if (item.id === dataNew.id) {
-        return dataNew;
-      } else {
-        return item;
-      }
+const realTimeConnect = (allRegions, setData, setIsClosed) => {
+  const updateStateRegions = (allRegions, newParamRegion) => {
+    const updateRegions = allRegions.map((region) => {
+      debugger;
+      console.log("newParamRegion." + newParamRegion);
+
+      return region.id === newParamRegion.id ? newParamRegion : region;
     });
-    setData(result);
-  });
+    setData(updateRegions);
+  };
 
   const es = new EventSourcePolyfill(host, {
-    headers: { "X-API-Key": "cc3698331afa6f399b17bcf21a33c1faa6bda749" },
+    headers: apiKeyHeaders,
     credentials: "include",
   });
+
   es.addEventListener("open", (e) => console.log("open"));
+
   es.addEventListener("error", (e) => {
     console.log(`error = > ${e.error}`);
+    setIsClosed(true);
     es.close();
   });
-  ["hello", "ping", "update"].map((type) =>
-    es.addEventListener(type, (e) => {
-      if (!e.data && type === "update") {
-        console.log(e.data.state);
-        logEvent(data, e.data.state);
-      } else {
-        console.log(e);
-      }
-    })
-  );
+  es.addEventListener("update", (e) => {
+    debugger;
+    console.log(e.data);
+    updateStateRegions(allRegions, e.data);
+  });
 };
 
 export default realTimeConnect;
