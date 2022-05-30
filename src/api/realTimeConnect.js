@@ -24,8 +24,6 @@ const realTimeConnect = (allRegions, setData, setIsClosed) => {
   es.addEventListener("error", (e) => {
     es.close();
     setIsClosed(true);
-    console.log(e);
-    console.log(e.error);
   });
 
   es.addEventListener("update", (e) => {
