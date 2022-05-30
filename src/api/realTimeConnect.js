@@ -27,7 +27,6 @@ const realTimeConnect = (allRegions, setData, setIsClosed) => {
   });
 
   es.addEventListener("update", (e) => {
-    console.log(JSON.parse(e));
     updateRegionsState(allRegions, JSON.parse(e.data));
   });
 };
