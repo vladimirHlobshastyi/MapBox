@@ -6,8 +6,8 @@ const layerRendering = (geoJsonArray) => {
     const color = alert === false ? "#228B22" : "#FF0000";
 
     return {
-      id: ` ${id}/${Math.random()}`,
-      key: `${id}/${Math.random()}`,
+      id: ` ${id}/${alert}/Layer}`,
+      key: `${id}/${alert}/Layer}`,
       type: "fill",
       paint: {
         "fill-color": color,
@@ -18,8 +18,8 @@ const layerRendering = (geoJsonArray) => {
 
   return geoJsonArray.map((activeRegion) => (
     <Source
-      id={activeRegion.id + "/" + Math.random()}
-      key={activeRegion.id + "/" + Math.random()}
+      id={`${activeRegion.id}/${activeRegion.alert}/Source`}
+      key={`${activeRegion.id}/${activeRegion.alert}/Source`}
       type="geojson"
       data={geojsonData[activeRegion.id]}
     >
