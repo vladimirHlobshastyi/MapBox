@@ -3,6 +3,12 @@ import apiKeyHeaders from "./apiKeyHeaders";
 
 const host = "https://alerts.com.ua/api/states/live";
 
+const useFunc = () => {
+
+
+  
+};
+
 const realTimeConnect = (allRegions, setData, setIsClosed) => {
   const updateRegionsState = (allRegions, newParamRegion) => {
     const updateRegions = allRegions.map((region) =>

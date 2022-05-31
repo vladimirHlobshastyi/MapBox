@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import style from "./MapView.module.css";
 import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -15,10 +15,12 @@ const defaultsLocation = {
   zoom: 5.4,
 };
 
+
+
 export const MapView = () => {
   const [isClosed, setIsClosed] = useState(true);
   const [regionsData, setRegionsData] = useState([]);
-
+/* 
   useEffect(() => {
     console.log(
       "isClosed>>>" + isClosed + "     regionsData>>>>" + regionsData
@@ -28,10 +30,10 @@ export const MapView = () => {
       : realTimeConnect(regionsData, setRegionsData, setIsClosed);
   }, [isClosed, regionsData]);
 
-  const layerRenderingCallb = useCallback(
+  const layerRenderingCallb = useMemo(
     () => layerRendering(regionsData),
     [regionsData]
-  );
+  ); */
 
   return (
     <div className={style.Container}>
@@ -41,7 +43,7 @@ export const MapView = () => {
         style={{ width: 1200, height: 800 }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
-        {layerRenderingCallb()}
+        {layerRenderingCallb}
       </Map>
     </div>
   );
