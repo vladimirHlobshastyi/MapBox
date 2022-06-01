@@ -18,9 +18,10 @@ export const MapView = () => {
             longitude: 31,
             latitude: 48.5,
             zoom: 5.4,
+            interactive: false,
           }}
           style={{ width: 1200, height: 800 }}
-          mapStyle="mapbox://styles/mapbox/streets-v9"
+          mapStyle="mapbox://styles/vladimirp300/cl3vgtnci000r14o3sifkvrvx/draft"
         >
           {layerRendering(contextRegionsData)}
         </Map>

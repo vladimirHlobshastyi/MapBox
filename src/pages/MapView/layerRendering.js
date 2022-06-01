@@ -11,7 +11,7 @@ const layerRendering = (geoJsonArray) => {
       type: "fill",
       paint: {
         "fill-color": color,
-        "fill-opacity": color === "#228B22" ? 0.2 : 0.5,
+        "fill-opacity": color === "#228B22" ? 0.5 : 0.7,
       },
     };
   };
