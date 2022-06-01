@@ -20,7 +20,7 @@ export const MapView = () => {
             zoom: 5.4,
             interactive: false,
           }}
-          style={{ width: 1200, height: 800 }}
+          style={{ "max-width": "100%", "max-height": "100%" }}
           mapStyle="mapbox://styles/vladimirp300/cl3vgtnci000r14o3sifkvrvx/draft"
         >
           {layerRendering(contextRegionsData)}

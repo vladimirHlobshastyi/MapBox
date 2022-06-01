@@ -1,5 +1,6 @@
 .Container {
   max-width: 80%;
+  width: 80%;
+  height: 100%;
   height: 100vh;
- 
 }
