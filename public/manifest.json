@@ -1,6 +1,7 @@
 {
   "short_name": "Alert Map",
   "name": "Ukraine alert map",
+  "description": "This application will help you to know which areas are dangerous.",
   "icons": [
     {
       "src": "windows11/SmallTile.scale-100.png",

@@ -1,17 +1,19 @@
 .TagContainer {
   display: flex;
   justify-content: space-between;
-  margin: 5px 25px;
   align-items: center;
+  margin-bottom: 1vh;
 }
 .TagContainer span {
-  font-size: 20px;
+  display: flex;
+  font-size: 1.5vw;
   font-family: "Arial Black", Gadget, sans-serif;
+  word-wrap: break-word;
 }
 
 .Square {
-  width: 5px;
-  height: 5px;
+  width: 0.5vw;
+  height: 0.5vw;
   border-radius: 25px;
   padding: 5px;
 }
@@ -20,4 +22,40 @@
 }
 .green {
   background: rgb(111, 255, 98);
+}
+@media (min-width: 280px) {
+  .TagContainer span {
+    font-size: 2vh;
+  }
+  /* galaxy fold */
+}
+@media (min-width: 320px) {
+  .TagContainer span {
+    font-size: 3vw;
+  }
+  /* smartphones, iPhone, portrait 480x320 phones */
+}
+@media (min-width: 481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+}
+@media (min-width: 641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+@media (min-width: 961px) {
+  .TagContainer span {
+    font-size: 2vw;
+  }
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1025px) {
+  .TagContainer span {
+    font-size: 1.5vw;
+  }
+  /* big landscape tablets, laptops, and desktops */
+}
+@media (min-width: 1281px) {
+  .TagContainer span {
+    font-size: 1.5vw;
+  }
+  /* hi-res laptops and desktops */
 }
