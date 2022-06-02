@@ -1,0 +1,23 @@
+.TagContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 25px;
+  align-items: center;
+}
+.TagContainer span {
+  font-size: 20px;
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.Square {
+  width: 5px;
+  height: 5px;
+  border-radius: 25px;
+  padding: 5px;
+}
+.red {
+  background: rgb(255, 0, 0);
+}
+.green {
+  background: rgb(111, 255, 98);
+}

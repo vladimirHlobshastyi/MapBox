@@ -11,7 +11,7 @@ mapboxgl.accessToken =
 const Home = () => {
   return (
     <div className={style.HomeContainer}>
-      <SideBar />
+     {/*  <SideBar /> */}
       <MapView />
     </div>
   );

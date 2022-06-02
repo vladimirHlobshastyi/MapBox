@@ -1,6 +1,17 @@
 .Container {
-  max-width: 80%;
-  width: 80%;
-  height: 100%;
+  max-width: 100%;
+  width: 100%;
+  min-width: 200px;
   height: 100vh;
+}
+.Legend {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  bottom: 10%;
+  left: 5%;
+  width: 20%;
+  height: 15%;
+  background: #d6d6d6;
 }

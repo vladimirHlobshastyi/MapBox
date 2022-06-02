@@ -4,6 +4,7 @@ import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import layerRendering from "./layerRendering";
 import { EventsContext } from "../../providers/AlertProvider";
+import Tag from "../../components/Tag";
 
 export const MapView = () => {
   const contextRegionsData = useContext(EventsContext);
@@ -11,7 +12,7 @@ export const MapView = () => {
 
   if (contextRegionsData) {
     return (
-      <div className={style.Container}>
+      <div className={style.Container} i>
         <Map
           mapboxAccessToken={token}
           initialViewState={{
@@ -19,11 +20,15 @@ export const MapView = () => {
             latitude: 48.5,
             zoom: 5.4,
             interactive: false,
+            trackResize: true,
           }}
-          style={{ "max-width": "100%", "max-height": "100%" }}
           mapStyle="mapbox://styles/vladimirp300/cl3vgtnci000r14o3sifkvrvx/draft"
         >
           {layerRendering(contextRegionsData)}
+          <div className={style.Legend}>
+            <Tag Tagcolor={"red"} text={"Alarm in region"} />
+            <Tag Tagcolor={"green"} text={"No air raid alert"} />
+          </div>
         </Map>
       </div>
     );
