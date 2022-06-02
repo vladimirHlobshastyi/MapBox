@@ -18,7 +18,7 @@ export const MapView = () => {
           initialViewState={{
             longitude: 31,
             latitude: 48.5,
-            zoom: 5.4,
+            zoom: 3.8,
             interactive: false,
             trackResize: true,
           }}
