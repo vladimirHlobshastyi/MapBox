@@ -17,7 +17,7 @@ const FrontLineLayer = () => {
           type: "line",
 
           paint: {
-            "line-dasharray": [2, 2],
+            "line-dasharray": [0.8, 0.5],
             "line-width": 1.8,
             "line-color": "#000000",
           },
