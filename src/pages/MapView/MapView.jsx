@@ -17,6 +17,9 @@ export const MapView = () => {
         <Map
           mapboxAccessToken={token}
           initialViewState={{
+            longitude: 31,
+            latitude: 48.5,
+            zoom: 3.8,
             interactive: false,
             trackResize: true,
           }}
