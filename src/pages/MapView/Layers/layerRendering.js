@@ -1,5 +1,5 @@
 import { Layer, Source } from "react-map-gl";
-import geojsonData from "../../geoJson/geojsonData";
+import geojsonData from "../../../geoJson/geojsonData";
 
 const layerRendering = (geoJsonArray) => {
   const layerStyle = (id, alert, changed) => {
@@ -29,6 +29,18 @@ const layerRendering = (geoJsonArray) => {
           activeRegion.alert,
           activeRegion.changed
         )}
+      />
+      <Layer
+        {...{
+          id: `${activeRegion.id}`,
+          key: `${activeRegion.id}`,
+          type: "line",
+
+          paint: {
+            "line-width": 0.2,
+            "line-color": "#808080",
+          },
+        }}
       />
     </Source>
   ));

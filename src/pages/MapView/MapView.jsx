@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import style from "./MapView.module.css";
 import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import layerRendering from "./layerRendering";
+import layerRendering from "./Layers/layerRendering";
 import { EventsContext } from "../../providers/AlertProvider";
 import Tag from "../../components/Tag";
+import FrontLineLayer from "./Layers/FronLineLayer";
 
 export const MapView = () => {
   const contextRegionsData = useContext(EventsContext);
@@ -16,14 +17,12 @@ export const MapView = () => {
         <Map
           mapboxAccessToken={token}
           initialViewState={{
-            longitude: 31,
-            latitude: 48.5,
-            zoom: 3.8,
             interactive: false,
             trackResize: true,
           }}
-          mapStyle="mapbox://styles/vladimirp300/cl3vgtnci000r14o3sifkvrvx/draft"
+          mapStyle="mapbox://styles/vladimirp300/cl3vgtnci000r14o3sifkvrvx"
         >
+          <FrontLineLayer />
           {layerRendering(contextRegionsData)}
           <div className={style.Legend}>
             <Tag Tagcolor={"red"} text={"Alarm in region"} />
