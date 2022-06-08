@@ -34,7 +34,7 @@
   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
   .Legend {
     width: 30%;
-    height: 25%;
+    height: 20%;
   }
 }
 @media (min-width: 641px) {
