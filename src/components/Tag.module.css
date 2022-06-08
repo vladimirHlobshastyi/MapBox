@@ -31,31 +31,31 @@
 
 @media (min-width: 280px) {
   .TagContainer span {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
   /* galaxy fold */
 }
 @media (min-width: 320px) {
   .TagContainer span {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
   /* smartphones, iPhone, portrait 480x320 phones */
 }
 @media (min-width: 481px) {
   .TagContainer span {
-    font-size: 1.8vw;
+    font-size: 2.5vw;
   }
   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 }
 @media (min-width: 641px) {
   .TagContainer span {
-    font-size: 1.5vw;
+    font-size: 2vw;
   }
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 }
 @media (min-width: 961px) {
   .TagContainer span {
-    font-size: 1.5vw;
+    font-size: 1.8vw;
   }
   /* tablet, landscape iPad, lo-res laptops ands desktops */
 }
