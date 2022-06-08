@@ -11,7 +11,7 @@
   bottom: 10%;
   left: 5%;
   width: 15%;
-  height: 10%;
+  height: 15%;
   padding: 1.5vh;
   border-radius: 15px;
 
@@ -28,41 +28,41 @@
   /* smartphones, iPhone, portrait 480x320 phones */
   .Legend {
     width: 35%;
-    height: 8%;
+    height: 12%;
   }
 }
 @media (min-width: 481px) {
   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
   .Legend {
     width: 30%;
-    height: 10%;
+    height: 15%;
   }
 }
 @media (min-width: 641px) {
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
   .Legend {
     width: 23%;
-    height: 10%;
+    height: 15%;
   }
 }
 @media (min-width: 961px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
   .Legend {
     width: 20%;
-    height: 10%;
+    height: 15%;
   }
 }
 @media (min-width: 1025px) {
   .Legend {
     width: 20%;
-    height: 10%;
+    height: 15%;
   }
   /* big landscape tablets, laptops, and desktops */
 }
 @media (min-width: 1281px) {
   .Legend {
     width: 20%;
-    height: 10%;
+    height: 15%;
   }
   /* hi-res laptops and desktops */
 }

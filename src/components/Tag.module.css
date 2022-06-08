@@ -1,6 +1,6 @@
 .TagContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 1vh;
 }
@@ -9,6 +9,7 @@
   font-size: 1.5vw;
   font-family: "Roboto", sans-serif;
   word-wrap: break-word;
+  margin-right: 3vh;
 }
 
 .Square {
@@ -16,6 +17,7 @@
   height: 0.5vw;
   border-radius: 25px;
   padding: 5px;
+  margin-left: 3vh;
 }
 .red {
   background: rgb(255, 0, 0);
@@ -23,6 +25,10 @@
 .green {
   background: rgb(111, 255, 98);
 }
+.grey {
+  background: rgb(118, 118, 118);
+}
+
 @media (min-width: 280px) {
   .TagContainer span {
     font-size: 2vh;

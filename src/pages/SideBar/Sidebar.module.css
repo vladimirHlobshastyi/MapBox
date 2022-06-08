@@ -1,9 +1,0 @@
-.SidebarWrapper {
-  width: 25%;
-  max-height: 100%;
-  background-color: rgb(105, 105, 105);
-  border: 1px solid black;
-}
-.SidebarContent {
-  background-color: rgb(105, 105, 105);
-}

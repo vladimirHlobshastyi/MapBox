@@ -1,5 +1,4 @@
 import React from "react";
-import SideBar from "../SideBar/Sidebar";
 import style from "./Home.module.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
@@ -11,7 +10,6 @@ mapboxgl.accessToken =
 const Home = () => {
   return (
     <div className={style.HomeContainer}>
-     {/*  <SideBar /> */}
       <MapView />
     </div>
   );
