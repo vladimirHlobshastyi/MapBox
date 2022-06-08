@@ -50,6 +50,7 @@
 @media (min-width: 481px) {
   .TagContainer span {
     font-size: 2.5vw;
+    margin-left: 1vh;
   }
   .Square {
     margin-left: 1.5vh;
