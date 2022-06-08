@@ -34,7 +34,7 @@ export const MapView = () => {
             longitude: 31,
             latitude: 48.5,
             zoom: resizeZoom(),
-            /*   interactive: false, */
+            interactive: false,
           }}
           mapStyle="mapbox://styles/vladimirp300/cl3vgtnci000r14o3sifkvrvx"
         >
