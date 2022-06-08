@@ -39,7 +39,7 @@ const renderAlertsInRegions = (geoJsonArray) => {
             type: "line",
 
             paint: {
-              "line-width": 0.8,
+              "line-width": 0.5,
               "line-color": "#ffffff",
             },
           }}

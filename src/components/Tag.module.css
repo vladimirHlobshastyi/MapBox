@@ -31,13 +31,13 @@
 
 @media (min-width: 280px) {
   .TagContainer span {
-    font-size: 2vh;
+    font-size: 2vw;
   }
   /* galaxy fold */
 }
 @media (min-width: 320px) {
   .TagContainer span {
-    font-size: 3vw;
+    font-size: 2vw;
   }
   /* smartphones, iPhone, portrait 480x320 phones */
 }
@@ -49,7 +49,7 @@
 }
 @media (min-width: 641px) {
   .TagContainer span {
-    font-size: 1.8vw;
+    font-size: 1.5vw;
   }
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 }
@@ -59,9 +59,15 @@
   }
   /* tablet, landscape iPad, lo-res laptops ands desktops */
 }
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .TagContainer span {
     font-size: 1.5vw;
+  }
+  .Square {
+    margin-left: 2vh;
+  }
+  .TagContainer span {
+    margin-right: 3vh;
   }
   /* big landscape tablets, laptops, and desktops */
 }
