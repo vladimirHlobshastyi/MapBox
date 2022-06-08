@@ -10,8 +10,8 @@
   justify-content: space-around;
   bottom: 10%;
   left: 5%;
-  width: 15%;
-  height: 15%;
+  width: 15vh;
+  height: 15vh;
   padding: 1.5vh;
   border-radius: 15px;
   background: #d6d6d6;
@@ -41,27 +41,27 @@
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
   .Legend {
     width: 23%;
-    height: 25%;
+    height: 20%;
   }
 }
 @media (min-width: 961px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
   .Legend {
     width: 20%;
-    height: 25%;
+    height: 20%;
   }
 }
 @media (min-width: 1025px) {
   .Legend {
     width: 20%;
-    height: 30%;
+    height: 20%;
   }
   /* big landscape tablets, laptops, and desktops */
 }
 @media (min-width: 1281px) {
   .Legend {
     width: 20%;
-    height: 30%;
+    height: 20%;
   }
   /* hi-res laptops and desktops */
 }
