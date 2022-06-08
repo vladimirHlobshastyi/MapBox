@@ -31,7 +31,10 @@
 
 @media (min-width: 280px) {
   .TagContainer span {
-    font-size: 2.5vw;
+    font-size: 3vw;
+  }
+  .Square {
+    margin-left: 1.5vh;
   }
   /* galaxy fold */
 }
@@ -39,11 +42,17 @@
   .TagContainer span {
     font-size: 2.8vw;
   }
+  .Square {
+    margin-left: 1.5vh;
+  }
   /* smartphones, iPhone, portrait 480x320 phones */
 }
 @media (min-width: 481px) {
   .TagContainer span {
     font-size: 2.5vw;
+  }
+  .Square {
+    margin-left: 1.5vh;
   }
   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 }
@@ -51,23 +60,27 @@
   .TagContainer span {
     font-size: 2vw;
   }
+  .Square {
+    margin-left: 1.5vh;
+  }
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 }
 @media (min-width: 961px) {
   .TagContainer span {
     font-size: 1.8vw;
   }
+  .Square {
+    margin-left: 1.5vh;
+  }
   /* tablet, landscape iPad, lo-res laptops ands desktops */
 }
 @media (min-width: 1024px) {
   .TagContainer span {
     font-size: 1.5vw;
+    margin-right: 3vh;
   }
   .Square {
     margin-left: 2vh;
-  }
-  .TagContainer span {
-    margin-right: 3vh;
   }
   /* big landscape tablets, laptops, and desktops */
 }
