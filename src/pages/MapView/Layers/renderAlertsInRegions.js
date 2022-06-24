@@ -1,13 +1,7 @@
 import { Layer, Source } from "react-map-gl";
-import testFile from "../../../api/testApi/testFile";
 import geojsonData from "../../../geoJson/geojsonData";
 
-
-
-
 const renderAlertsInRegions = (geoJsonArray) => {
-
-
   const layerStyle = (id, alert) => {
     const color = alert === false ? "#228B22" : "#FF0000";
 

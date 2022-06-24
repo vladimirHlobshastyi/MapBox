@@ -7,7 +7,7 @@ import { EventsContext } from "../../providers/AlertProvider";
 import Tag from "../../components/Tag";
 import occupiedRegions from "../../geoJson/geojsonOccupiedRegion";
 import renderOccupiedRegions from "./Layers/renderOccupiedRegions";
-import { alertRegionsMoc } from "../../moc/alertRegions";
+
 
 export const MapView = () => {
   const contextRegionsData = useContext(EventsContext);
@@ -39,7 +39,7 @@ export const MapView = () => {
           }}
           mapStyle="mapbox://styles/vladimirp300/cl3vgtnci000r14o3sifkvrvx"
         >
-          {renderAlertsInRegions(contextRegionsData /* alertRegionsMoc */)}
+          {renderAlertsInRegions(contextRegionsData)}
           {renderOccupiedRegions(occupiedRegions)}
           <div className={style.Legend}>
             <Tag Tagcolor={"red"} text={"Alarm in region"} />

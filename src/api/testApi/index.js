@@ -55,7 +55,7 @@ let stringSession = new StringSession(
 
 const client = new TelegramClient(stringSession, apiId, apiHash, {});
 
-let pts = 15250; // TODO: get the pts value from previously saved message
+let pts = 15487; // TODO: get the pts value from previously saved message
 let messagesToPoll = 1;
 let pollingInterval = 10 * 1000; // 2 min
 
