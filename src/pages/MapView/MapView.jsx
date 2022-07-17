@@ -8,7 +8,6 @@ import Tag from "../../components/Tag";
 import occupiedRegions from "../../geoJson/geojsonOccupiedRegion";
 import renderOccupiedRegions from "./Layers/renderOccupiedRegions";
 
-
 export const MapView = () => {
   const contextRegionsData = useContext(EventsContext);
   const token = process.env.REACT_APP_MAPBOX_TOKEN;
