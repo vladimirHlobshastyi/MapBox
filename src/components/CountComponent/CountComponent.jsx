@@ -6,7 +6,6 @@ const CountComponent = ({ onChange }) => {
   let [count, setCount] = useState(0);
 
   useEffect(() => {
-    debugger;
     if (onChange) {
       setCount(0);
     }
