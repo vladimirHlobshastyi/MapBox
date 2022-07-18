@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import getAllRegions from "./getAllRegions";
 
 const api = () => {
-  const ws = new WebSocket("bla bla");
+  const ws = new WebSocket("enter address");
   const [isWsClose, setIsWsClose] = useState(true);
 
   useEffect(() => {

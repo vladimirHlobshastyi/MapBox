@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import testFile from "../api/testApi/newMesageSelector";
+import getAllRegions from "../api/getAllRegions";
 
 export const EventsContext = createContext();
 
@@ -183,13 +183,18 @@ const regionsDataMoc = [
 const AlertProvider = ({ children }) => {
   const [regionsData, setRegionsData] = useState(regionsDataMoc);
 
+  const getAlertRegions = async () => {
+    const data = await getAllRegions();
+    return setRegionsData(data);
+  };
+
   useEffect(() => {
     setInterval(() => {
-      return updateRegions();
+      return getAlertRegions();
     }, 10000);
   }, []);
 
-  const updateRegions = () => {
+  /*   const updateRegions = () => {
     let initialDataRegions = testFile();
     let newRegionsData = [...regionsData];
     initialDataRegions.map(
@@ -197,12 +202,6 @@ const AlertProvider = ({ children }) => {
         (newRegionsData[regionData.id - 1].alert = regionData.alert)
     );
     setRegionsData(newRegionsData);
-  };
-
-  /*   const getAlertRegions = async () => {
-    const data = await getAllRegions();
-    console.log(JSON.stringify(data));
-    return setRegionsData(data);
   }; */
 
   return (

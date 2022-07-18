@@ -1,0 +1,55 @@
+.TimerContainer {
+  font-family: "Roboto", sans-serif;
+  word-wrap: break-word;
+  font-size: 1.5vw;
+  padding: 0 0.5vw;
+}
+
+@media (min-width: 280px) {
+  .TimerContainer {
+    font-size: 3vw;
+  }
+
+  /* galaxy fold */
+}
+@media (min-width: 320px) {
+  .TimerContainer {
+    font-size: 2.8vw;
+  }
+
+  /* smartphones, iPhone, portrait 480x320 phones */
+}
+@media (min-width: 481px) {
+  .TimerContainer {
+    font-size: 2.5vw;
+  }
+
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+}
+@media (min-width: 641px) {
+  .TimerContainer {
+    font-size: 2vw;
+  }
+
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+@media (min-width: 961px) {
+  .TimerContainer {
+    font-size: 2.2vw;
+  }
+
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1024px) {
+  .TimerContainer {
+    font-size: 1.5vw;
+  }
+
+  /* big landscape tablets, laptops, and desktops */
+}
+@media (min-width: 1281px) {
+  .TimerContainer {
+    font-size: 1.5vw;
+  }
+  /* hi-res laptops and desktops */
+}

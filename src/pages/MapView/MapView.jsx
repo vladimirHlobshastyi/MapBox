@@ -4,14 +4,18 @@ import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import renderAlertsInRegions from "./Layers/renderAlertsInRegions";
 import { EventsContext } from "../../providers/AlertProvider";
-import Tag from "../../components/Tag";
+import Tag from "../../components/Tag/Tag";
 import occupiedRegions from "../../geoJson/geojsonOccupiedRegion";
 import renderOccupiedRegions from "./Layers/renderOccupiedRegions";
+import { useState } from "react";
+import CountComponent from "../../components/CountComponent/CountComponent";
+import TagCounter from "../../components/TagCounter/TagCounter";
 
 export const MapView = () => {
   const contextRegionsData = useContext(EventsContext);
   const token = process.env.REACT_APP_MAPBOX_TOKEN;
   const windowWidth = window.innerWidth;
+  const [isGetUpdate, setIsGetUpdate] = useState(false);
 
   const resizeZoom = () => {
     if (windowWidth <= 380) {
@@ -40,10 +44,12 @@ export const MapView = () => {
         >
           {renderAlertsInRegions(contextRegionsData)}
           {renderOccupiedRegions(occupiedRegions)}
+
           <div className={style.Legend}>
             <Tag Tagcolor={"red"} text={"Alarm in region"} />
             <Tag Tagcolor={"green"} text={"No air raid alert"} />
             <Tag Tagcolor={"grey"} text={"Occupied region"} />
+            <TagCounter />
           </div>
         </Map>
       </div>
