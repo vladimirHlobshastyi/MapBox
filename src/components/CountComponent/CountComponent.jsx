@@ -2,8 +2,15 @@ import React from "react";
 import { useEffect, useState } from "react";
 import style from "./CountComponent.module.css";
 
-const CountComponent = ({ isGetUpdate }) => {
+const CountComponent = ({ onChange }) => {
   let [count, setCount] = useState(0);
+
+  useEffect(() => {
+    debugger;
+    if (onChange) {
+      setCount(0);
+    }
+  }, [onChange]);
 
   useEffect(() => {
     const interval = setInterval(() => {
