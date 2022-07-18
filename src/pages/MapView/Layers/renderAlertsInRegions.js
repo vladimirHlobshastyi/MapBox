@@ -1,3 +1,4 @@
+import React from "react";
 import { Layer, Source } from "react-map-gl";
 import geojsonData from "../../../geoJson/geojsonData";
 
