@@ -8,6 +8,7 @@ import Tag from "../../components/Tag/Tag";
 import occupiedRegions from "../../geoJson/geojsonOccupiedRegion";
 import renderOccupiedRegions from "./Layers/renderOccupiedRegions";
 import TagCounter from "../../components/TagCounter/TagCounter";
+import Loader from "../Loader/Loader";
 
 export const MapView = () => {
   const contextRegionsData = useContext(EventsContext);
@@ -25,7 +26,7 @@ export const MapView = () => {
       return 5.4;
     }
   };
-
+  
   if (contextRegionsData) {
     return (
       <div className={style.Container}>
@@ -52,7 +53,7 @@ export const MapView = () => {
       </div>
     );
   } else {
-    return <div>LOADING</div>;
+    return <Loader/>;
   }
 };
 
