@@ -188,10 +188,12 @@ const AlertProvider = ({ children }) => {
 
   const getAlertRegions = async () => {
     const data = await getAllRegions();
+    debugger;
     return setRegionsData({ data, onChange: new Date() });
   };
 
   useEffect(() => {
+    getAlertRegions();
     setInterval(() => {
       return getAlertRegions();
     }, 10000);
