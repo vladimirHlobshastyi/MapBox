@@ -26,7 +26,7 @@ export const MapView = () => {
       return 5.4;
     }
   };
-  
+
   if (contextRegionsData) {
     return (
       <div className={style.Container}>
@@ -53,7 +53,7 @@ export const MapView = () => {
       </div>
     );
   } else {
-    return <Loader/>;
+    return <Loader />;
   }
 };
 

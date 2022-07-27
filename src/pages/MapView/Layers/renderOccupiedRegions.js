@@ -1,7 +1,7 @@
 import React from "react";
 import { Layer, Source } from "react-map-gl";
 
-const renderOccupiedRegions = (occupiedRegions) =>
+const renderOccupiedRegions =  (occupiedRegions) =>
   occupiedRegions.map((occupiedRegion) => {
     return (
       <Source
