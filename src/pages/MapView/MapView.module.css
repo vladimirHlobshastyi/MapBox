@@ -18,11 +18,23 @@
   background: #d6d6d6;
 }
 
+@media (min-width: 450px) and (max-width: 1024px) {
+  .Legend {
+    width: 32%;
+    height: 20%;
+  }
+}
 
-@media (min-width: 280px) and (max-width: 1200px) {
+@media (max-width: 450px) {
   .Legend {
     width: 35%;
     height: 20%;
   }
 }
 
+@media (max-width: 375px) {
+  .Legend {
+    width: 40%;
+    height: 20%;
+  }
+}
