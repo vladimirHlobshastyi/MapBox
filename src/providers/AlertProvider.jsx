@@ -188,7 +188,7 @@ const AlertProvider = ({ children }) => {
 
   const getAlertRegions = async () => {
     const data = await getAllRegions();
-    debugger;
+  
     return setRegionsData({ data, onChange: new Date() });
   };
 

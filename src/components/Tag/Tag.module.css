@@ -1,15 +1,13 @@
 .TagContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin-bottom: 1vh;
 }
 .TagContainer span {
   display: flex;
-  font-size: 1.5vw;
+  font-size: 20px;
   font-family: "Roboto", sans-serif;
   word-wrap: break-word;
-  margin-right: 3vh;
 }
 
 .Square {
@@ -17,7 +15,6 @@
   height: 0.5vw;
   border-radius: 25px;
   padding: 5px;
-  margin-left: 3vh;
 }
 .red {
   background: rgb(255, 0, 0);
@@ -29,65 +26,9 @@
   background: rgb(118, 118, 118);
 }
 
-@media (min-width: 280px) {
+
+@media (max-width: 768px) {
   .TagContainer span {
-    font-size: 3vw;
+    font-size: 10px;
   }
-  .Square {
-    margin-left: 1.5vh;
-  }
-  /* galaxy fold */
-}
-@media (min-width: 320px) {
-  .TagContainer span {
-    font-size: 2.8vw;
-  }
-  .Square {
-    margin-left: 1.5vh;
-  }
-  /* smartphones, iPhone, portrait 480x320 phones */
-}
-@media (min-width: 481px) {
-  .TagContainer span {
-    font-size: 2.5vw;
-    margin-left: 1vh;
-  }
-  .Square {
-    margin-left: 1.5vh;
-  }
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-}
-@media (min-width: 641px) {
-  .TagContainer span {
-    font-size: 2vw;
-  }
-  .Square {
-    margin-left: 1.5vh;
-  }
-  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-}
-@media (min-width: 961px) {
-  .TagContainer span {
-    font-size: 1.8vw;
-  }
-  .Square {
-    margin-left: 1.5vh;
-  }
-  /* tablet, landscape iPad, lo-res laptops ands desktops */
-}
-@media (min-width: 1024px) {
-  .TagContainer span {
-    font-size: 1.5vw;
-    margin-right: 3vh;
-  }
-  .Square {
-    margin-left: 2vh;
-  }
-  /* big landscape tablets, laptops, and desktops */
-}
-@media (min-width: 1281px) {
-  .TagContainer span {
-    font-size: 1.5vw;
-  }
-  /* hi-res laptops and desktops */
 }
