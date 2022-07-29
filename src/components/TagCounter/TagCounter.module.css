@@ -15,7 +15,7 @@
 
 @media (max-width: 768px) {
   .TagCounterContainer span {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 @media (max-width: 370px) {
