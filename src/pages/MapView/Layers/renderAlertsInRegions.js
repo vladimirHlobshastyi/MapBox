@@ -17,35 +17,37 @@ const renderAlertsInRegions = (geoJsonArray) => {
     };
   };
 
-  return geoJsonArray.map((activeRegion) => (
-    <Source
-      id={`${activeRegion.id}/${activeRegion.alert}/Source`}
-      key={`${activeRegion.id}/${activeRegion.alert}/Source`}
-      type="geojson"
-      data={geojsonData[activeRegion.id]}
-    >
-      <Layer
-        {...layerStyle(
-          activeRegion.id,
-          activeRegion.alert,
-          activeRegion.changed
-        )}
-      />
+  return geoJsonArray.map((activeRegion) => {
+    return (
+      <Source
+        id={`${activeRegion.id}/${activeRegion.alert}/Source`}
+        key={`${activeRegion.id}/${activeRegion.alert}/Source`}
+        type="geojson"
+        data={geojsonData[activeRegion.id]}
+      >
+        <Layer
+          {...layerStyle(
+            activeRegion.id,
+            activeRegion.alert,
+            activeRegion.changed
+          )}
+        />
 
-      <Layer
-        {...{
-          id: `${activeRegion.id}`,
-          key: `${activeRegion.id}`,
-          type: "line",
+        <Layer
+          {...{
+            id: `${activeRegion.id}`,
+            key: `${activeRegion.id}`,
+            type: "line",
 
-          paint: {
-            "line-width": 0.5,
-            "line-color": "#ffffff",
-          },
-        }}
-      />
-    </Source>
-  ));
+            paint: {
+              "line-width": 0.5,
+              "line-color": "#ffffff",
+            },
+          }}
+        />
+      </Source>
+    );
+  });
 };
 
 export default renderAlertsInRegions;
