@@ -6,6 +6,9 @@ import "./index.css";
 import AlertProvider from "./providers/AlertProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// possibly we will need to switch off strict mode to prevent extra rerender or we should handle this behaviour
+
 root.render(
   <React.StrictMode>
     <AlertProvider>

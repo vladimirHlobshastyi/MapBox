@@ -1,22 +1,18 @@
 .TagContainer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 .TagContainer span {
-  display: flex;
-  font-size: 20px;
-  font-family: "Roboto", sans-serif;
-  word-wrap: break-word;
-  margin-right: 30px;
 }
 
 .Square {
-  width: 0.5vw;
-  height: 0.5vw;
+  width: 14px;
+  height: 14px;
   border-radius: 25px;
   padding: 5px;
-  margin-left: 30px;
+  /*margin-left: 30px;*/
 }
 .red {
   background: rgb(255, 0, 0);
@@ -26,33 +22,4 @@
 }
 .grey {
   background: rgb(118, 118, 118);
-}
-
-@media (max-width: 768px) {
-  .TagContainer span {
-    font-size: 12px;
-  }
-  .Square {
-    margin-left: 3px;
-  }
-  .TagContainer span {
-    margin-right: 3px;
-  }
-}
-@media (max-width: 360px) {
-  .TagContainer span {
-    font-size: 11px;
-  }
-  .Square {
-    margin-left: 0;
-  }
-  .TagContainer span {
-    margin-right: 0;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .TagContainer span {
-    font-size: 22px
-  }
 }

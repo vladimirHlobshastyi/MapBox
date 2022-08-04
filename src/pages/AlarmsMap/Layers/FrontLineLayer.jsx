@@ -2,13 +2,12 @@ import { Layer, Source } from "react-map-gl";
 import Line from "./../../../geoJson/Line.json";
 
 const FrontLineLayer = () => {
-  const FrontLineGeojson = Line;
   return (
     <Source
       id={`FrontLineSource`}
       key={`FrontLineSource`}
       type="geojson"
-      data={FrontLineGeojson}
+      data={Line}
     >
       <Layer
         {...{
