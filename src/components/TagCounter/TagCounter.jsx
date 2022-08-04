@@ -6,9 +6,9 @@ const TagCounter = ({ onChange }) => {
   return (
     <div className={style.TagCounterContainer}>
       <span>
-        Information was updated
+        Інфорація оновилась
         {<CountComponent onChange={onChange} />}
-        seconds ago
+        секунд тому
       </span>
     </div>
   );

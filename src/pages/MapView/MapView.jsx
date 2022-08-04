@@ -44,9 +44,9 @@ export const MapView = () => {
           {renderOccupiedRegions(occupiedRegions)}
 
           <div className={style.Legend}>
-            <Tag Tagcolor={"red"} text={"Alarm in region"} />
-            <Tag Tagcolor={"green"} text={"No air raid alert"} />
-            <Tag Tagcolor={"grey"} text={"Occupied region"} />
+            <Tag Tagcolor={"red"} text={"Тривога в регіоні"} />
+            <Tag Tagcolor={"green"} text={"Тривога відсутня"} />
+            <Tag Tagcolor={"grey"} text={"Окуповані регіони"} />
             <TagCounter onChange={contextRegionsData.onChange} />
           </div>
         </Map>
