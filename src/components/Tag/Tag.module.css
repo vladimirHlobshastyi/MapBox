@@ -1,6 +1,6 @@
 .TagContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .TagContainer span {
@@ -8,6 +8,7 @@
   font-size: 20px;
   font-family: "Roboto", sans-serif;
   word-wrap: break-word;
+  margin-right: 30px;
 }
 
 .Square {
@@ -15,6 +16,7 @@
   height: 0.5vw;
   border-radius: 25px;
   padding: 5px;
+  margin-left: 30px;
 }
 .red {
   background: rgb(255, 0, 0);
@@ -30,10 +32,22 @@
   .TagContainer span {
     font-size: 15px;
   }
+  .Square {
+    margin-left: 3px;
+  }
+  .TagContainer span {
+    margin-right: 3px;
+  }
 }
 @media (max-width: 360px) {
   .TagContainer span {
     font-size: 11px;
+  }
+  .Square {
+    margin-left: 0;
+  }
+  .TagContainer span {
+    margin-right: 0;
   }
 }
 

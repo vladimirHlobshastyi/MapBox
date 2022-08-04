@@ -8,10 +8,10 @@ const Home = () => {
   return (
     <div className={style.HomeContainer}>
       <Helmet>
-        <title>Checking alert map in Ukraine regions</title>
+        <title>Карта повітряних тривог України</title>
         <meta
           name="description"
-          content="Checking information on air alert warning in Ukraine. Find out which region has an air raid alert and view up-to-date information about dangers"
+          content="Перевірка інформації про мапу повітряних тривог в Україні. Дізнатися, у якому регіоні оголошено про повітряну тривогу, і перегляньте актуальну інформацію про небезпеку"
         />
         <meta name="theme-color" content="#008f68" />
       </Helmet>
