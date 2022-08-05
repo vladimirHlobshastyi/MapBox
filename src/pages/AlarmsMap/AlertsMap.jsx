@@ -4,15 +4,14 @@ import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import AlertsInRegionsLayer from "./Layers/AlertsInRegionsLayer";
 import { EventsContext } from "../../providers/AlertProvider";
-import Tag from "../../components/Tag/Tag";
 import occupiedRegions from "../../geoJson/geojsonOccupiedRegion";
 import OccupiedRegionsLayer from "./Layers/OccupiedRegionsLayer";
-import Counter from "../../components/Counter/Counter";
-import Loader from "../../components/Loader/Loader";
+import Legend from "../../components/Legend/Legend";
 
 export const AlertsMap = () => {
-  const { alerts, lastUpdate, timerValue, isLoading } = useContext(EventsContext);
+  const { alerts } = useContext(EventsContext);
   const token = process.env.REACT_APP_MAPBOX_TOKEN;
+  const mapStyleLink = process.env.REACT_APP_MAP_STYLE;
   const windowWidth = window.innerWidth;
 
   const resizeZoom = () => {
@@ -37,19 +36,11 @@ export const AlertsMap = () => {
           zoom: resizeZoom(),
           interactive: false,
         }}
-        // Move map style link to .env variables
-        mapStyle="mapbox://styles/vladimirp300/cl3vgtnci000r14o3sifkvrvx"
+        mapStyle={mapStyleLink}
       >
         <AlertsInRegionsLayer alertsRegions={alerts} />
         <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
-
-        {/*Move legend to separate component*/}
-        <div className={style.Legend}>
-          <Tag color={"red"} text={"Тривога в регіоні"} />
-          <Tag color={"green"} text={"Тривога відсутня"} />
-          <Tag color={"grey"} text={"Окуповані регіони"} />
-          <Counter value={timerValue} isLoading={isLoading} />
-        </div>
+        <Legend />
       </Map>
     </div>
   );

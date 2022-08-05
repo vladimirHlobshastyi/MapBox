@@ -4,16 +4,3 @@
   height: 100vh;
   background-color: #d6d6d6;
 }
-.Legend {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  bottom: 25px;
-  left: 25px;
-  padding: 15px;
-  border-radius: 15px;
-  background: #d6d6d6;
-  min-width: 300px;
-}
-
