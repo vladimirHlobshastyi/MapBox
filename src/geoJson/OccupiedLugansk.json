@@ -1,4 +1,4 @@
-{
+{ "type": "Feature",
   "geometry": {
     "type": "Polygon",
     "coordinates": [
@@ -1012,7 +1012,7 @@
       ]
     ]
   },
-  "type": "Feature",
+ 
   "properties": {
     "shapeName": "Luhansk Oblast",
     "Level": "ADM1",

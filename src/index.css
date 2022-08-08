@@ -82,8 +82,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
+  font-size: 16px;
   vertical-align: baseline;
 }
 article,
@@ -104,8 +103,7 @@ html {
 }
 body {
   line-height: 1;
-  background-color: #d6d6d6;
-  font-size: 20px;
+  font-size: 16px;
   font-family: "Roboto", sans-serif;
 }
 ol,
@@ -127,4 +125,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+
+/*Download font and put it locally*/
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Roboto:wght@300&display=swap");
