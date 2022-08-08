@@ -1,9 +1,8 @@
 import React from 'react';
 import style from './Counter.module.css';
+import { CounterPropTypes } from "./Counter.types";
 
-type counterProps = { value: number, isLoading: boolean };
-
-const Counter = ({ value, isLoading }: counterProps) => {
+const Counter = ({ value = 0, isLoading }: CounterPropTypes) => {
   return (
     <div className={style.TagCounterContainer}>
       {isLoading && <span>Оновлюється</span>}

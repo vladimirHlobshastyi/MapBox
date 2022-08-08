@@ -1,7 +1,10 @@
 import { useEffect, useRef } from 'react';
 
-const useInterval = (callback, isActive) => {
-  const savedCallback = useRef();
+const useInterval = (
+  callback: () => void,
+  isActive: boolean,
+) => {
+  const savedCallback = useRef<() => void>();
 
   useEffect(() => {
     savedCallback.current = callback;

@@ -1,15 +1,16 @@
 import React, { FC } from 'react';
 import { Layer, Source } from 'react-map-gl';
-import { alertType } from '../../../api/getAllRegions';
-import geojsonData from '../../../geoJson/geojsonData';
+import geoData from '../../../geoJson/geojsonData';
+import {Alert} from "../../../commonTypes/alert";
 
-type alertsType = alertType[] | [];
-type alertsRegionsType = { alertsRegions: alertsType };
+type AlertsInRegionsLayerPropTypes = {
+  alertsRegions: Alert[];
+}
 
-const AlertsInRegionsLayer: FC<alertsRegionsType> = ({ alertsRegions }) => {
-  const geoJson: any = geojsonData;
-  const layerStyle: any = (id: number, alert: boolean) => {
-    const color = alert === false ? '#228B22' : '#FF0000';
+const AlertsInRegionsLayer = ({ alertsRegions }: AlertsInRegionsLayerPropTypes) => {
+  const geoJson: any = geoData; // replace any
+  const layerStyle: any = (id: number, alert: boolean) => {  // replace any
+    const color = !alert ? '#228B22' : '#FF0000';
 
     return {
       id: ` ${id}/${alert}/Layer}`,

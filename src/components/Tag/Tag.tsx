@@ -1,9 +1,9 @@
 import React from 'react';
 import style from './Tag.module.css';
+import {TagPropsTypes} from "./Tag.types";
 
-type tagProps = { color: string, text: string };
 
-const Tag = ({ color, text }: tagProps) => {
+const Tag = ({ color, text }: TagPropsTypes) => {
   return (
     <div className={style.TagContainer}>
       <div className={`${style.Square} ${style[color]}`} />

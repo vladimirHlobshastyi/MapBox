@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import './Loader.css';
+import style from './Loader.module.css';
 
-const Loader: FC<JSX.Element> = () => <div className="loader">Loading...</div>;
+const Loader: FC<JSX.Element> = () => <div className={style.Loader}>Loading...</div>;
 
 export default Loader;
