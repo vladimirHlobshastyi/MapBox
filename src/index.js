@@ -1,13 +1,11 @@
-import * as React from "react";
-import ReactDOM from "react-dom/client";
-import reportWebVitals from "./reportWebVitals";
-import Home from "./pages/Home";
-import "./index.css";
-import AlertProvider from "./providers/AlertProvider";
+import * as React from 'react';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
+import './index.css';
+import AlertProvider from './providers/AlertProvider.tsx';
+import Home from './pages/Home/Home';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-// possibly we will need to switch off strict mode to prevent extra rerender or we should handle this behaviour
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>

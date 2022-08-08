@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import style from "./AlertsMap.module.css";
-import Map from "react-map-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
-import AlertsInRegionsLayer from "./Layers/AlertsInRegionsLayer";
-import { EventsContext } from "../../providers/AlertProvider";
-import occupiedRegions from "../../geoJson/geojsonOccupiedRegion";
-import OccupiedRegionsLayer from "./Layers/OccupiedRegionsLayer";
-import Legend from "../../components/Legend/Legend";
+import React, { useContext } from 'react';
+import style from './AlertsMap.module.css';
+import Map from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import AlertsInRegionsLayer from './Layers/AlertsInRegionsLayer';
+import { EventsContext } from '../../providers/AlertProvider';
+import occupiedRegions from '../../geoJson/geojsonOccupiedRegion';
+import OccupiedRegionsLayer from './Layers/OccupiedRegionsLayer';
+import Legend from '../../components/Legend/Legend';
 
 export const AlertsMap = () => {
-  const { alerts } = useContext(EventsContext);
+  const { alerts }: any = useContext(EventsContext);
   const token = process.env.REACT_APP_MAPBOX_TOKEN;
   const mapStyleLink = process.env.REACT_APP_MAP_STYLE;
   const windowWidth = window.innerWidth;
@@ -34,8 +34,8 @@ export const AlertsMap = () => {
           longitude: 31,
           latitude: 48.5,
           zoom: resizeZoom(),
-          interactive: false,
         }}
+        interactive={false}
         mapStyle={mapStyleLink}
       >
         <AlertsInRegionsLayer alertsRegions={alerts} />

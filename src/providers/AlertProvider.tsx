@@ -1,48 +1,44 @@
-import React, { createContext, useState, useEffect, FC } from "react";
-import useInterval from "../hooks/useInterval";
-import getAllRegions from "../api/getAllRegions";
+import React, { createContext, useState, useEffect } from 'react';
+import useInterval from '../hooks/useInterval';
+import getAllRegions, { alertType, dataType } from '../api/getAllRegions';
+
+export type contextTypes = {
+  alerts: Array<alertType> | [],
+  lastUpdate: string | undefined,
+  isLoading: boolean,
+  errorMessage: string,
+  timerValue: number,
+};
+type childrenProps = {
+  children?: JSX.Element | JSX.Element[],
+};
+
+export const EventsContext = createContext<contextTypes | null>(null);
 
 // Minor: Split timer and fetching regions. Move timer to separate context/provider.
-type dataType = { states: Array<alertType>; last_update: string };
-type alertType = {
-  id: number;
-  name: string;
-  name_en: string;
-  alert: Boolean;
-  changed: string;
-};
-interface contextTypeS {
-  alerts: Array<alertType> | [];
-  lastUpdate: string | undefined;
-  isLoading: boolean;
-  errorMessage: string;
-  timerValue: number;
-}
-export const EventsContext = createContext<contextTypeS | null>(null);
 
-const AlertProvider = ({ children }) => {
+const AlertProvider = ({ children }: childrenProps) => {
   const [timerValue, srtTimerValue] = useState(10);
   const [alerts, setAlerts] = useState<[] | Array<alertType>>([]);
   const [lastUpdate, setLastUpdate] = useState<undefined | string>(undefined);
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
 
   const getAlertRegions = async () => {
     try {
       if (errorMessage) {
-        setErrorMessage("");
+        setErrorMessage('');
       }
 
       setIsLoading(true);
       const data: dataType = await getAllRegions();
-      console.log(data);
       if (data?.states) {
         setAlerts(data?.states);
         setLastUpdate(data?.last_update);
       }
 
       setIsLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       setErrorMessage(error.message);
       setIsLoading(false);
     }
@@ -56,7 +52,7 @@ const AlertProvider = ({ children }) => {
 
   useInterval(() => {
     if (timerValue > 0) {
-      srtTimerValue((old) => old - 1);
+      srtTimerValue(old => old - 1);
     } else {
       getAlertRegions();
       srtTimerValue(10);

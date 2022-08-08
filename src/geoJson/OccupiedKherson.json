@@ -1,4 +1,4 @@
-{
+{ "type": "Feature",
   "geometry": {
     "coordinates": [
       [
@@ -420,7 +420,7 @@
     ],
     "type": "Polygon"
   },
-  "type": "Feature",
+ 
   "properties": {
     "shapeName": "Kherson Oblast",
     "Level": "ADM1",

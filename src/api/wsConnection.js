@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from "react";
-import getAllRegions from "./getAllRegions";
+import { useEffect, useMemo, useState } from 'react';
+import getAllRegions from './getAllRegions';
 
-const api = () => {
-  const ws = new WebSocket("enter address");
+const WsChannel = () => {
+  const ws = useMemo(() => new WebSocket('enter address'), []);
   const [isWsClose, setIsWsClose] = useState(true);
 
   useEffect(() => {
     if (isWsClose) getAllRegions();
 
-    ws.onopen = (event) => {
-      console.log("server is open");
+    ws.onopen = event => {
+      console.log('server is open');
     };
-    ws.onmessage = function (event) {
+    ws.onmessage = function(event) {
       let incomingMessage = event.data;
       console.log(incomingMessage);
     };
 
-    ws.onclose = (event) => {
+    ws.onclose = event => {
       setIsWsClose(true);
       if (event.wasClean) {
         alert(
           `[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`
         );
       } else {
-        alert("[close] Соединение прервано");
+        alert('[close] Соединение прервано');
       }
     };
-    ws.onerror = function (error) {
+    ws.onerror = function(error) {
       setIsWsClose(true);
       alert(`[error] ${error.message}`);
     };
@@ -34,4 +34,4 @@ const api = () => {
   }, [ws, isWsClose]);
 };
 
-export default api;
+export default WsChannel;

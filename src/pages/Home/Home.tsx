@@ -1,13 +1,12 @@
-import React from "react";
-import style from "./Home.module.css";
-import "mapbox-gl/dist/mapbox-gl.css";
-import { AlertsMap } from "../AlarmsMap/AlertsMap";
-import { Helmet } from "react-helmet";
+import React from 'react';
+import style from './Home.module.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { AlertsMap } from '../AlarmsMap/AlertsMap';
+import { Helmet } from 'react-helmet';
 
-const Home = () => {
+const Home = (): JSX.Element => {
   return (
     <div className={style.HomeContainer}>
-      {/*Should we move Helmet to root element?*/}
       <Helmet>
         <title>Карта повітряних тривог України</title>
         <meta
