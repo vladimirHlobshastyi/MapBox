@@ -1,4 +1,4 @@
-{
+{  "type": "Feature",
   "geometry": {
     "coordinates": [
       [
@@ -532,9 +532,9 @@
     ],
     "type": "Polygon"
   },
-  "type": "Feature",
+
   "properties": {
-    "2": 2,
+  
     "shapeName": "Kharkiv Oblast",
     "Level": "ADM1",
     "shapeISO": "UA-63",

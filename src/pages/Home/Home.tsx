@@ -1,10 +1,10 @@
-import React from "react";
-import style from "./Home.module.css";
-import "mapbox-gl/dist/mapbox-gl.css";
-import { MapView } from "../MapView/MapView";
-import { Helmet } from "react-helmet";
+import React from 'react';
+import style from './Home.module.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { AlertsMap } from '../AlarmsMap/AlertsMap';
+import { Helmet } from 'react-helmet';
 
-const Home = () => {
+const Home = (): JSX.Element => {
   return (
     <div className={style.HomeContainer}>
       <Helmet>
@@ -15,7 +15,7 @@ const Home = () => {
         />
         <meta name="theme-color" content="#008f68" />
       </Helmet>
-      <MapView />
+      <AlertsMap />
     </div>
   );
 };

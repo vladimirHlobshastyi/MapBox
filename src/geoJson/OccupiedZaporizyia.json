@@ -1,4 +1,4 @@
-{
+{  "type": "Feature",
   "geometry": {
     "coordinates": [
       [
@@ -366,7 +366,6 @@
     ],
     "type": "Polygon"
   },
-  "type": "Feature",
   "properties": {
     "shapeName": "Zaporizhia Oblast",
     "Level": "ADM1",

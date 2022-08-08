@@ -1,4 +1,4 @@
-{
+{  "type": "Feature",
   "geometry": {
     "type": "Polygon",
     "coordinates": [
@@ -151,7 +151,6 @@
       ]
     ]
   },
-  "type": "Feature",
   "properties": {
     "shapeName": "Mykolaiv Oblast",
     "Level": "ADM1",
