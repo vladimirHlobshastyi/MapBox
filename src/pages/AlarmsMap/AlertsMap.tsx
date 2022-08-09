@@ -8,7 +8,7 @@ import occupiedRegions from '../../geoJson/geojsonOccupiedRegion';
 import OccupiedRegionsLayer from './Layers/OccupiedRegionsLayer';
 import Legend from '../../components/Legend/Legend';
 
-export const AlertsMap = () => {
+const AlertsMap = () => {
   const { alerts }: any = useContext(EventsContext);
   const token = process.env.REACT_APP_MAPBOX_TOKEN;
   const mapStyleLink = process.env.REACT_APP_MAP_STYLE;

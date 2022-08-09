@@ -4,7 +4,7 @@ import { Layer, Source } from 'react-map-gl';
 type geojsonType = {
   type: string,
   geometry: {
-    coordinates: number[][][],
+    coordinates: string | undefined | GeoJSON.Feature,
     type: string,
   },
   properties: {
@@ -21,7 +21,6 @@ type occupiedRegionsType = {
 };
 
 const OccupiedRegionsLayer: FC<occupiedRegionsType> = ({ occupiedRegions }) => {
-  debugger;
   return (
     <>
       {occupiedRegions?.map((occupiedRegion: any) => {

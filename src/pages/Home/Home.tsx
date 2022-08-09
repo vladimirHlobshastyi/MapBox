@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Home.module.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { AlertsMap } from '../AlarmsMap/AlertsMap';
+import  AlertsMap  from '../AlarmsMap/AlertsMap';
 import { Helmet } from 'react-helmet';
 
 const Home = (): JSX.Element => {

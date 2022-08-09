@@ -4,7 +4,7 @@ import getAllRegions, { alertType, dataType } from '../api/getAllRegions';
 
 export type contextTypes = {
   alerts: Array<alertType> | [],
-  lastUpdate: string | undefined,
+  lastUpdate: string | null | undefined,
   isLoading: boolean,
   errorMessage: string,
   timerValue: number,
@@ -20,11 +20,13 @@ export const EventsContext = createContext<contextTypes | null>(null);
 const AlertProvider = ({ children }: childrenProps) => {
   const [timerValue, srtTimerValue] = useState(10);
   const [alerts, setAlerts] = useState<[] | Array<alertType>>([]);
-  const [lastUpdate, setLastUpdate] = useState<undefined | string>(undefined);
+  const [lastUpdate, setLastUpdate] = useState<undefined | string | null>(
+    undefined
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const getAlertRegions = async () => {
+  const getAlertRegions: () => Promise<void> = async () => {
     try {
       if (errorMessage) {
         setErrorMessage('');
@@ -39,7 +41,7 @@ const AlertProvider = ({ children }: childrenProps) => {
 
       setIsLoading(false);
     } catch (error: any) {
-      setErrorMessage(error.message);
+      setErrorMessage(error?.message);
       setIsLoading(false);
     }
   };

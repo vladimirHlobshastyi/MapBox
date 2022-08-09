@@ -1,6 +1,7 @@
-const API_KEY: any = process.env.REACT_APP_ALERTS_API_KEY;
-const API_ALERTS: any = process.env.REACT_APP_API_ALERTS;
-
+const headers: HeadersInit = {
+  'X-API-Key': process.env.REACT_APP_ALERTS_API_KEY as string
+}
+const API_ALERTS= new URL(process.env.REACT_APP_API_ALERTS as string);
 export type dataType = { states: Array<alertType>, last_update: string };
 export type alertType = {
   id: number,
@@ -10,12 +11,10 @@ export type alertType = {
   changed: string,
 };
 
-const getAllRegions = async () => {
+const getAllRegions = async (): Promise<dataType> => {
   try {
-    const request: any = await fetch(API_ALERTS, {
-      headers: {
-        'X-API-Key': API_KEY,
-      },
+    const request: Response = await fetch(API_ALERTS  , {
+      headers
     });
     const requestRegions: dataType = await request.json();
     return requestRegions;
