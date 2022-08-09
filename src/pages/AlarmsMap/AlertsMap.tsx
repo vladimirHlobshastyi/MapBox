@@ -13,7 +13,6 @@ const AlertsMap = () => {
   const token = process.env.REACT_APP_MAPBOX_TOKEN;
   const mapStyleLink = process.env.REACT_APP_MAP_STYLE;
   const windowWidth = window.innerWidth;
-
   const resizeZoom = () => {
     if (windowWidth <= 380) {
       return 3.4;
@@ -25,7 +24,6 @@ const AlertsMap = () => {
       return 5.4;
     }
   };
-
   return (
     <div className={style.Container}>
       <Map

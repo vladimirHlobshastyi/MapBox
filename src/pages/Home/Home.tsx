@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import style from './Home.module.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import  AlertsMap  from '../AlarmsMap/AlertsMap';
+import AlertsMap from '../AlarmsMap/AlertsMap';
 import { Helmet } from 'react-helmet';
+import { EventsContext } from '../../providers/AlertProvider';
+import Loader from '../../components/Loader/Loader';
 
 const Home = (): JSX.Element => {
+  const context = useContext(EventsContext);
+
+  if (context?.lastUpdate === undefined) {
+    return (
+      <>
+        <Loader />
+      </>
+    );
+  }
+
   return (
     <div className={style.HomeContainer}>
       <Helmet>
