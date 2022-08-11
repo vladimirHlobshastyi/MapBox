@@ -5,18 +5,31 @@ import AlertsMap from '../AlarmsMap/AlertsMap';
 import { Helmet } from 'react-helmet';
 import { EventsContext } from '../../providers/AlertProvider';
 import Loader from '../../components/Loader/Loader';
+import ErrorBoundary from '../../utils/ErrorBoundary/ErrorBoundary';
 
-const Home = (): JSX.Element => {
+const ButtonComponent = () => {
+  throw Error('error!');
+  return <></>;
+};
+
+const Home = () /*: JSX.Element */ => {
   const context = useContext(EventsContext);
 
-  if (context?.lastUpdate === undefined) {
+  /*   if (context?.lastUpdate === undefined) {
     return (
       <>
         <Loader />
       </>
     );
   }
-
+ */
+  const myErrorHandler = (error, info) => {
+    // Сделайте что-нибудь с ошибкой
+    // Например, запишите сюда клиент регистрации ошибок
+  };
+  const ErrorFallback = () => {
+    return <div>ERRRRRRROR</div>;
+  };
   return (
     <div className={style.HomeContainer}>
       <Helmet>

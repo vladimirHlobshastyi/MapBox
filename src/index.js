@@ -4,13 +4,16 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import AlertProvider from './providers/AlertProvider.tsx';
 import Home from './pages/Home/Home';
+import ErrorBoundary from './utils/ErrorBoundary/ErrorBoundary';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
     <AlertProvider>
-      <Home />
+      <ErrorBoundary>
+        <Home />
+      </ErrorBoundary>
     </AlertProvider>
   </React.StrictMode>
 );
