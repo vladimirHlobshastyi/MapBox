@@ -4,7 +4,7 @@ import geoData from '../../../geoJson/geojsonData';
 import {Alert} from "../../../commonTypes/alert";
 
 type AlertsInRegionsLayerPropTypes = {
-  alertsRegions: Alert[];
+  alertsRegions?: Alert[];
 }
 
 const AlertsInRegionsLayer = ({ alertsRegions }: AlertsInRegionsLayerPropTypes) => {

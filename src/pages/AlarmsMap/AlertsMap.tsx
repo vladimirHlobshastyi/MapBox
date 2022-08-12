@@ -1,42 +1,49 @@
 import React, { useContext } from 'react';
 import style from './AlertsMap.module.css';
 import Map from 'react-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import AlertsInRegionsLayer from './Layers/AlertsInRegionsLayer';
 import { EventsContext } from '../../providers/AlertProvider';
 import occupiedRegions from '../../geoJson/geojsonOccupiedRegion';
 import OccupiedRegionsLayer from './Layers/OccupiedRegionsLayer';
 import Legend from '../../components/Legend/Legend';
+import LastUpdate from '../../components/LastUpdate/LastUpdate';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 export const AlertsMap = () => {
-  const { alerts }: any = useContext(EventsContext);
-  const token = process.env.REACT_APP_MAPBOX_TOKEN;
-  const mapStyleLink = process.env.REACT_APP_MAP_STYLE;
-  const windowWidth = window.innerWidth;
+  const { alerts, lastUpdate }: any = useContext(EventsContext);
 
   const resizeZoom = () => {
-    if (windowWidth <= 380) {
-      return 3.4;
-    } else if (windowWidth <= 400) {
-      return 3.7;
-    } else if (windowWidth <= 850) {
-      return 4;
-    } else {
-      return 5.4;
+    if (window.innerWidth < 860) {
+      return 3.5;
+    }
+
+    if (window.innerWidth < 640) {
+      return 4.5;
+    }
+
+    if (window.innerWidth < 460) {
+      return 4.5;
+    }
+
+    else {
+      return 5;
     }
   };
 
   return (
     <div className={style.Container}>
+      <LastUpdate
+        date={lastUpdate}
+      />
       <Map
-        mapboxAccessToken={token}
+        mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         initialViewState={{
           longitude: 31,
           latitude: 48.5,
           zoom: resizeZoom(),
         }}
         interactive={false}
-        mapStyle={mapStyleLink}
+        mapStyle={process.env.REACT_APP_MAP_STYLE}
       >
         <AlertsInRegionsLayer alertsRegions={alerts} />
         <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />

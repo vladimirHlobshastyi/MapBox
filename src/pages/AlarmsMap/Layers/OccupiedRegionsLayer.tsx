@@ -21,7 +21,6 @@ type occupiedRegionsType = {
 };
 
 const OccupiedRegionsLayer: FC<occupiedRegionsType> = ({ occupiedRegions }) => {
-  debugger;
   return (
     <>
       {occupiedRegions?.map((occupiedRegion: any) => {

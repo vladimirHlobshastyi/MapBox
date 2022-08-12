@@ -44,13 +44,13 @@ const AlertProvider = ({ children }: AlertProviderPropTypes) => {
   }, [alerts, isLoading]);
 
   useInterval(() => {
-    if (timerValue > 0) {
+    if (timerValue > 1) {
       srtTimerValue(old => old - 1);
     } else {
       getAlertRegions();
       srtTimerValue(10);
     }
-  }, timerValue >= 0);
+  }, timerValue >= 1);
 
   return (
     <EventsContext.Provider
