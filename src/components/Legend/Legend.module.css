@@ -1,0 +1,10 @@
+.Legend {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  bottom: 25px;
+  left: 25px;
+  padding: 15px;
+  min-width: 300px;
+}

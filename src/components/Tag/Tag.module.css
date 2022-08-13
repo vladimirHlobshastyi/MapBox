@@ -1,0 +1,23 @@
+.TagContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+
+.Square {
+  width: 14px;
+  height: 14px;
+  border-radius: 25px;
+
+}
+.red {
+  background: rgb(255, 0, 0);
+}
+.green {
+  background: rgb(111, 255, 98);
+}
+.grey {
+  background: rgb(118, 118, 118);
+}
