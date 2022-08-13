@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@sentry/react": "^7.10.0",
+    "@sentry/tracing": "^7.10.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -16,10 +18,10 @@
     "mapbox-gl": "^2.8.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-error-boundary": "^3.1.4",
     "react-helmet": "^6.1.0",
     "react-map-gl": "^7.0.11",
     "react-scripts": "5.0.1",
+    "react-service-worker": "^0.1.1",
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4"
   },

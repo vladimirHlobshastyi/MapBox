@@ -13,7 +13,7 @@ export type alertType = {
 
 const getAllRegions = async (): Promise<dataType> => {
   try {
-    const request: Response = await fetch(API_ALERTS  , {
+    const request: Response = await fetch(/* API_ALERTS */ 'ss' , {
       headers
     });
     const requestRegions: dataType = await request.json();
