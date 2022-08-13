@@ -9,14 +9,14 @@ import Loader from '../../components/Loader/Loader';
 const Home = (): JSX.Element => {
   const context = useContext(EventsContext);
 
- /*  if (context?.lastUpdate === undefined) {
+  if (context?.lastUpdate === undefined) {
     return (
       <>
         <Loader />
       </>
     );
   }
- */
+
   return (
     <div className={style.HomeContainer}>
       <Helmet>

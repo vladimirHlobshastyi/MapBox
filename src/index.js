@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Sentry from '@sentry/react';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { BrowserTracing } from '@sentry/tracing';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
@@ -7,7 +8,6 @@ import './index.css';
 import AlertProvider from './providers/AlertProvider.tsx';
 import Home from './pages/Home/Home';
 import ErrorComponent from './components/ErrorComponent/ErrorComponent';
-import registerServiceWorker from 'react-service-worker';
 
 Sentry.init({
   dsn:
@@ -25,7 +25,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AlertProvider>
-      <Sentry.ErrorBoundary fallback={<ErrorComponent typeError={'ывавы'} />}>
+      <Sentry.ErrorBoundary
+        fallback={<ErrorComponent typeError={'technical'} />}
+      >
         <Home />
       </Sentry.ErrorBoundary>
     </AlertProvider>
@@ -34,4 +36,4 @@ root.render(
 
 reportWebVitals();
 
-registerServiceWorker.register();
+serviceWorkerRegistration.register();
