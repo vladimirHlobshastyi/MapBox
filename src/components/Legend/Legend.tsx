@@ -12,7 +12,10 @@ const Legend = () => {
       <Tag color={'red'} text={'Тривога в регіоні'} />
       <Tag color={'green'} text={'Тривога відсутня'} />
       <Tag color={'grey'} text={'Окуповані регіони'} />
-      <Counter value={timerValue} isLoading={!!isLoading} />
+
+      <div className={style.RefreshMessage}>
+        <Counter value={timerValue} isLoading={!!isLoading} />
+      </div>
     </div>
   );
 };

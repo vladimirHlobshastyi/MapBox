@@ -7,4 +7,9 @@
   left: 25px;
   padding: 15px;
   min-width: 300px;
+  font-size: 16px;
+}
+
+.RefreshMessage {
+  margin-top: 25px;
 }

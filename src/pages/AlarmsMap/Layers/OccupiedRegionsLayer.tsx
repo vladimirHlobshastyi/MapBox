@@ -36,7 +36,6 @@ const OccupiedRegionsLayer: FC<occupiedRegionsType> = ({ occupiedRegions }) => {
                 id: `${occupiedRegion.properties.shapeName}`,
                 key: `${occupiedRegion.properties.shapeName}`,
                 type: 'fill',
-
                 paint: {
                   'fill-color': '#000000',
                   'fill-opacity': 0.6,
