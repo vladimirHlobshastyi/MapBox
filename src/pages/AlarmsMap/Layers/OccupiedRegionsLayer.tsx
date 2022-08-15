@@ -1,26 +1,14 @@
 import React, { FC } from 'react';
 import { Layer, Source } from 'react-map-gl';
+import { geojsonType } from '../../../geoJson/geojsonData';
 
-type geojsonType = {
-  type: string,
-  geometry: {
-    coordinates: string | undefined | GeoJSON.Feature,
-    type: string,
-  },
-  properties: {
-    shapeName: string,
-    Level: string,
-    shapeISO: string,
-    shapeID: string,
-    shapeGroup: string,
-    shapeType: string,
-  },
-};
-type occupiedRegionsType = {
+type OccupiedRegionsLayerProps = {
   occupiedRegions: Array<geojsonType>,
 };
 
-const OccupiedRegionsLayer: FC<occupiedRegionsType> = ({ occupiedRegions }) => {
+const OccupiedRegionsLayer: FC<OccupiedRegionsLayerProps> = ({
+  occupiedRegions,
+}) => {
   return (
     <>
       {occupiedRegions?.map((occupiedRegion: any) => {

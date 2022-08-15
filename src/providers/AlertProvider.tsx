@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import useInterval from '../hooks/useInterval';
 import getAllRegions, { alertType, dataType } from '../api/getAllRegions';
 
-export type contextTypes = {
+type contextTypes = {
   alerts: Array<alertType> | [],
   lastUpdate: string | null | undefined,
   isLoading: boolean,
@@ -13,9 +13,8 @@ type childrenProps = {
   children?: JSX.Element | JSX.Element[],
 };
 
-export const EventsContext = createContext<contextTypes | null>(null);
+export const EventsContext = createContext({} as contextTypes);
 
-// Minor: Split timer and fetching regions. Move timer to separate context/provider.
 
 const AlertProvider = ({ children }: childrenProps) => {
   const [timerValue, srtTimerValue] = useState(10);
@@ -40,9 +39,14 @@ const AlertProvider = ({ children }: childrenProps) => {
       }
 
       setIsLoading(false);
-    } catch (error: any) {
-      setErrorMessage(error?.message);
+    } catch (err) { if (err instanceof Error) {
+   
+      setErrorMessage(err.message);
       setIsLoading(false);
+    } else {
+      console.log('Unexpected error', err);
+    }
+  
     }
   };
 

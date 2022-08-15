@@ -9,10 +9,11 @@ import OccupiedRegionsLayer from './Layers/OccupiedRegionsLayer';
 import Legend from '../../components/Legend/Legend';
 
 const AlertsMap = () => {
-  const { alerts }: any = useContext(EventsContext);
+  const { alerts } = useContext(EventsContext);
   const token = process.env.REACT_APP_MAPBOX_TOKEN;
   const mapStyleLink = process.env.REACT_APP_MAP_STYLE;
   const windowWidth = window.innerWidth;
+
   const resizeZoom = () => {
     if (windowWidth <= 380) {
       return 3.4;

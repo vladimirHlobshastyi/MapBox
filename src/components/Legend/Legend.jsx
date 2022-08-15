@@ -5,7 +5,7 @@ import Tag from '../Tag/Tag';
 import style from './Legend.module.css';
 
 const Legend = () => {
-  const { timerValue, isLoading }: any = useContext(EventsContext);
+  const { timerValue, isLoading }  = useContext(EventsContext);
   return (
     <div className={style.Legend}>
       

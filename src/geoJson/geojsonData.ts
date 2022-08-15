@@ -26,7 +26,24 @@ import SevastopolJson from './Sevastopol.json';
 import ZaporizhiaJson from './Zaporizhia.json';
 import ZhytomyrJson from './Zhytomyr.json';
 
-const geojsonData = [
+export type geojsonType = {
+  type: string,
+  geometry: {
+    coordinates: number[][][] | number[][][][],
+
+    type: string,
+  },
+  properties: {
+    shapeName: string,
+    Level: string,
+    shapeISO: string,
+    shapeID: string,
+    shapeGroup: string,
+    shapeType: string,
+  },
+};
+
+const geojsonData: Array<geojsonType> = [
   CrimeaJson,
   VinnytsiaJson,
   VolynJson,
