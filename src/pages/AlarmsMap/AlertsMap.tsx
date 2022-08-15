@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import style from './AlertsMap.module.css';
 import Map from 'react-map-gl';
 import AlertsInRegionsLayer from './Layers/AlertsInRegionsLayer';
 import { EventsContext } from '../../providers/AlertProvider';
@@ -8,6 +7,8 @@ import OccupiedRegionsLayer from './Layers/OccupiedRegionsLayer';
 import Legend from '../../components/Legend/Legend';
 import LastUpdate from '../../components/LastUpdate/LastUpdate';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import style from './AlertsMap.module.css';
+import { Helmet } from "react-helmet";
 
 export const AlertsMap = () => {
   const { alerts, lastUpdate }: any = useContext(EventsContext);
@@ -18,7 +19,7 @@ export const AlertsMap = () => {
     }
 
     if (window.innerWidth < 640) {
-      return 4.5;
+      return 4;
     }
 
     if (window.innerWidth < 460) {
@@ -45,12 +46,29 @@ export const AlertsMap = () => {
         interactive={false}
         mapStyle={process.env.REACT_APP_MAP_STYLE}
       >
-        <AlertsInRegionsLayer alertsRegions={alerts} />
         <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
+        <AlertsInRegionsLayer alertsRegions={alerts} />
         <Legend />
       </Map>
     </div>
   );
 };
 
-export default AlertsMap;
+const AlertsMapHelmet = () => {
+  return (
+    <>
+      <Helmet>
+        <title>Карта повітряних тривог України</title>
+        <meta
+          name="description"
+          content="Перевірка інформації про повітряну тривогу в Україні. Дізнатися, у якому регіоні оголошено повітряну тривогу"
+        />
+        <meta name="theme-color" content="#008f68" />
+      </Helmet>
+
+      <AlertsMap />
+    </>
+  )
+}
+
+export default AlertsMapHelmet;
