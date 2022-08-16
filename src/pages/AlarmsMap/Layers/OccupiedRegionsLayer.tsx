@@ -38,7 +38,7 @@ const OccupiedRegionsLayer: FC<occupiedRegionsType> = ({ occupiedRegions }) => {
                 type: 'fill',
                 paint: {
                   'fill-color': '#000000',
-                  'fill-opacity': 0.6,
+                  'fill-opacity': 0.2,
                 },
               }}
             />
