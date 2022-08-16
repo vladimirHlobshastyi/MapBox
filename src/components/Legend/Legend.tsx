@@ -10,8 +10,7 @@ const Legend = () => {
   return (
     <div className={style.Legend}>
       <Tag color={'red'} text={'Тривога в регіоні'} />
-      <Tag color={'green'} text={'Тривога відсутня'} />
-      <Tag color={'grey'} text={'Окуповані регіони'} />
+      <Tag color={'grey'} text={'Тривога відсутня'} />
 
       <div className={style.RefreshMessage}>
         <Counter value={timerValue} isLoading={!!isLoading} />

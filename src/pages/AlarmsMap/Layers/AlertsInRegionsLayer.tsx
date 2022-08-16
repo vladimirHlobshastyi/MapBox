@@ -10,7 +10,7 @@ type AlertsInRegionsLayerPropTypes = {
 const AlertsInRegionsLayer = ({ alertsRegions }: AlertsInRegionsLayerPropTypes) => {
   const geoJson: any = geoData; // replace any
   const layerStyle: any = (id: number, alert: boolean) => {  // replace any
-    const color = !alert ? '#228B22' : '#FF0000';
+    const color = !alert ? '#3e4247' : '#f60909';
 
     return {
       id: ` ${id}/${alert}/Layer}`,
@@ -18,7 +18,7 @@ const AlertsInRegionsLayer = ({ alertsRegions }: AlertsInRegionsLayerPropTypes) 
       type: 'fill',
       paint: {
         'fill-color': color,
-        'fill-opacity': color === '#228B22' ? 0.5 : 0.7,
+        'fill-opacity': .5,
       },
     };
   };

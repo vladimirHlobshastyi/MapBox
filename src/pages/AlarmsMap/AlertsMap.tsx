@@ -14,20 +14,20 @@ export const AlertsMap = () => {
   const { alerts, lastUpdate }: any = useContext(EventsContext);
 
   const resizeZoom = () => {
-    if (window.innerWidth < 860) {
-      return 3.5;
+    if (window.innerWidth < 860 && window.innerWidth > 640) {
+      return 4.6;
     }
 
-    if (window.innerWidth < 640) {
-      return 4;
+    if (window.innerWidth < 640 && window.innerWidth > 460) {
+      return 4.1;
     }
 
     if (window.innerWidth < 460) {
-      return 4.5;
+      return 3.6;
     }
 
     else {
-      return 5;
+      return 5.2;
     }
   };
 
