@@ -1,64 +1,58 @@
-import React, { useContext, useState } from 'react';
-import style from './AlertsMap.module.css';
+import React, { useContext } from 'react';
 import Map, { NavigationControl } from 'react-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import AlertsInRegionsLayer from './Layers/AlertsInRegionsLayer';
 import { EventsContext } from '../../providers/AlertProvider';
 import occupiedRegions from '../../geoJson/geojsonOccupiedRegion';
 import OccupiedRegionsLayer from './Layers/OccupiedRegionsLayer';
 import Legend from '../../components/Legend/Legend';
+import LastUpdate from '../../components/LastUpdate/LastUpdate';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import style from './AlertsMap.module.css';
+import { Helmet } from 'react-helmet';
 
-const AlertsMap = () => {
-  const { alerts } = useContext(EventsContext);
-  const [isAlertsRender, setIsAlertsRender] = useState(false);
-  const token = process.env.REACT_APP_MAPBOX_TOKEN;
-  const mapStyleLink = process.env.REACT_APP_MAP_STYLE;
-  const windowWidth = window.innerWidth;
+export const AlertsMap = () => {
+  const { alerts, lastUpdate }: any = useContext(EventsContext);
 
-  const resizeZoom = (): number => {
-    if (windowWidth <= 380) {
-      return 3.4;
-    } else if (windowWidth <= 400) {
-      return 3.7;
-    } else if (windowWidth <= 850) {
-      return 3.8;
-    } else if (windowWidth <= 1024) {
-      return 5.27;
+  const resizeZoom = () => {
+    if (window.innerWidth < 860 && window.innerWidth > 640) {
+      return 4.6;
+    }
+
+    if (window.innerWidth < 640 && window.innerWidth > 460) {
+      return 4.1;
+    }
+
+    if (window.innerWidth < 460) {
+      return 3.6;
     } else {
-      return 5.3;
+      return 5.2;
     }
   };
 
   return (
     <div className={style.Container}>
+      <LastUpdate date={lastUpdate} />
+
       <Map
-        mapboxAccessToken={token}
+        mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         initialViewState={{
           longitude: 31,
           latitude: 48.5,
           zoom: resizeZoom(),
         }}
+        cooperativeGestures={true}
         interactive={true}
-        mapStyle={mapStyleLink}
         // scrollZoom={true}    //standart scroll
         maxZoom={6}
         minZoom={3.4}
-        maxBounds={[
+        /*  maxBounds={[
           [18.429, 28.867], // [west, south]
           [42.243, 60.384], // [east, north]
-        ]}
-        cooperativeGestures={true}
+        ]} */
+        mapStyle={process.env.REACT_APP_MAP_STYLE}
       >
-        <AlertsInRegionsLayer
-          alertsRegions={alerts}
-          setIsAlertsRender={setIsAlertsRender}
-        />
-        <OccupiedRegionsLayer
-          occupiedRegions={occupiedRegions}
-          setIsAlertsRender={setIsAlertsRender}
-          date={isAlertsRender ? new Date() : null}
-        />
-
+        <AlertsInRegionsLayer alertsRegions={alerts} />
+        <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
         <Legend />
         <NavigationControl showCompass={false} showZoom={true} />
       </Map>
@@ -66,4 +60,21 @@ const AlertsMap = () => {
   );
 };
 
-export default AlertsMap;
+const AlertsMapHelmet = () => {
+  return (
+    <>
+      <Helmet>
+        <title>Карта повітряних тривог України</title>
+        <meta
+          name="description"
+          content="Перевірка інформації про повітряну тривогу в Україні. Дізнатися, у якому регіоні оголошено повітряну тривогу"
+        />
+        <meta name="theme-color" content="#008f68" />
+      </Helmet>
+
+      <AlertsMap />
+    </>
+  );
+};
+
+export default AlertsMapHelmet;

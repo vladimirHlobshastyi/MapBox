@@ -1,13 +1,10 @@
 import React from 'react';
-import './Loader.css';
-import spiner from './../../svg/Spinner-361px.svg';
+import style from './Loader.module.css';
 
-const Loader: () => JSX.Element = () => {
+const Loader = () => {
   return (
-    <div className="loader">
-      <img src={spiner} alt="Loading" />
-    </div>
-  );
+    <div className={style.Loader}>Loading...</div>
+  )
 };
 
 export default Loader;

@@ -10,15 +10,19 @@
   width: 14px;
   height: 14px;
   border-radius: 25px;
-  padding: 5px;
+
 
 }
 .red {
-  background: rgb(255, 0, 0);
+  background: #f60909;
+  opacity: .5;
 }
 .green {
   background: rgb(111, 255, 98);
 }
+
+
 .grey {
-  background: rgb(118, 118, 118);
+  background: #3e4247;
+  opacity: .5;
 }

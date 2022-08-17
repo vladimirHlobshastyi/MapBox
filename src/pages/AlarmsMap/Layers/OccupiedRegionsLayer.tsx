@@ -1,32 +1,19 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { Layer, Source } from 'react-map-gl';
 import { geojsonType } from '../../../geoJson/geojsonData';
 
-type OccupiedRegionsLayerProps = {
+type occupiedRegionsType = {
   occupiedRegions: Array<geojsonType>,
-  setIsAlertsRender: React.Dispatch<React.SetStateAction<boolean>>,
-  date: Date | null,
 };
 
-const OccupiedRegionsLayer: FC<OccupiedRegionsLayerProps> = ({
-  occupiedRegions,
-  setIsAlertsRender,
-  date,
-}) => {
-  debugger;
-  const [oldDate, setOldDate] = useState<Date>(new Date());
-  if (date) {
-    setOldDate(date);
-  }
-
+const OccupiedRegionsLayer: FC<occupiedRegionsType> = ({ occupiedRegions }) => {
   return (
     <>
-      {occupiedRegions?.map((occupiedRegion: any, index) => {
-        if (index === 5) setIsAlertsRender(false);
+      {occupiedRegions?.map((occupiedRegion: any) => {
         return (
           <Source
-            id={`${occupiedRegion.properties.shapeName} + ${oldDate}`}
-            key={`${occupiedRegion.properties.shapeName} + ${oldDate}`}
+            id={occupiedRegion.properties.shapeName}
+            key={occupiedRegion.properties.shapeName}
             type="geojson"
             data={occupiedRegion}
           >
@@ -38,7 +25,7 @@ const OccupiedRegionsLayer: FC<OccupiedRegionsLayerProps> = ({
 
                 paint: {
                   'fill-color': '#000000',
-                  'fill-opacity': 0.6,
+                  'fill-opacity': 0.2,
                 },
               }}
             />

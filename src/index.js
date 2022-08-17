@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import * as Sentry from '@sentry/react';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { BrowserTracing } from '@sentry/tracing';
@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import AlertProvider from './providers/AlertProvider.tsx';
-import Home from './pages/Home/Home';
+import AlarmsMap from './pages/AlarmsMap';
 import ErrorComponent from './components/ErrorComponent/ErrorComponent';
 
 Sentry.init({
@@ -28,7 +28,7 @@ root.render(
       <Sentry.ErrorBoundary
         fallback={<ErrorComponent typeError={'technical'} />}
       >
-        <Home />
+        <AlarmsMap />
       </Sentry.ErrorBoundary>
     </AlertProvider>
   </React.StrictMode>
