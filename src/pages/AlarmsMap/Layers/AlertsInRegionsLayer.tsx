@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layer, Source } from 'react-map-gl';
+import { Layer, Source, LayerProps } from 'react-map-gl';
 import geoData from '../../../geoJson/geojsonData';
 import { Alert } from '../../../commonTypes/alert';
 
@@ -11,13 +11,11 @@ const AlertsInRegionsLayer = ({
   alertsRegions,
 }: AlertsInRegionsLayerPropTypes) => {
   const geoJson: any = geoData; // replace any
-  const layerStyle: any = (id: number, alert: boolean) => {
-    // replace any
+  const layerStyle = (id: number, alert: boolean): LayerProps => {
     const color = !alert ? '#3e4247' : '#f60909';
 
     return {
       id: ` ${id}/${alert}/Layer}`,
-      key: `${id}/${alert}/Layer}`,
       type: 'fill',
       paint: {
         'fill-color': color,

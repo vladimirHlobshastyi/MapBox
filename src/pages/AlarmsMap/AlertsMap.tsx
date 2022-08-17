@@ -11,7 +11,7 @@ import style from './AlertsMap.module.css';
 import { Helmet } from 'react-helmet';
 
 export const AlertsMap = () => {
-  const { alerts, lastUpdate }: any = useContext(EventsContext);
+  const { alerts, lastUpdate } = useContext(EventsContext);
 
   const resizeZoom = () => {
     if (window.innerWidth < 860 && window.innerWidth > 640) {
@@ -45,10 +45,10 @@ export const AlertsMap = () => {
         // scrollZoom={true}    //standart scroll
         maxZoom={6}
         minZoom={3.4}
-        /*  maxBounds={[
-          [18.429, 28.867], // [west, south]
-          [42.243, 60.384], // [east, north]
-        ]} */
+        maxBounds={[
+          [10, 28], // [west, south]
+          [50, 60], // [east, north]
+        ]}
         mapStyle={process.env.REACT_APP_MAP_STYLE}
       >
         <AlertsInRegionsLayer alertsRegions={alerts} />

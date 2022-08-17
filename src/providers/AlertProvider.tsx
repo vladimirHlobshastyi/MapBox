@@ -5,7 +5,7 @@ import { Alert } from "../commonTypes/alert";
 import {AlertProviderContextTypes, AlertProviderPropTypes} from "./AlertProvider.types";
 
 
-export const EventsContext = createContext<AlertProviderContextTypes | null>(null);
+export const EventsContext = createContext({} as AlertProviderContextTypes);
 
 // Minor: Split timer and fetching regions. Move timer to separate context/provider.
 

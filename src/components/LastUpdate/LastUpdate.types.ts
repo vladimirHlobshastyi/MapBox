@@ -1,3 +1,3 @@
 export type LastUpdatePropTypes = {
-  date: string;
-}
+  date: string | undefined,
+};
