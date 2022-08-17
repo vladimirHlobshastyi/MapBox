@@ -43,7 +43,14 @@ export const AlertsMap = () => {
           latitude: 48.5,
           zoom: resizeZoom(),
         }}
-        interactive={false}
+        cooperativeGestures={true}
+        interactive={true}
+        maxZoom={6}
+        minZoom={3.4}
+        maxBounds={[
+          [15, 40], // [west, south]
+          [46, 55], // [east, north]
+        ]}
         mapStyle={process.env.REACT_APP_MAP_STYLE}
       >
         <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
