@@ -42,7 +42,6 @@ export const AlertsMap = () => {
         }}
         cooperativeGestures={true}
         interactive={true}
-        // scrollZoom={true}    //standart scroll
         maxZoom={6}
         minZoom={3.4}
         maxBounds={[
@@ -54,7 +53,17 @@ export const AlertsMap = () => {
         <AlertsInRegionsLayer alertsRegions={alerts} />
         <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
         <Legend />
-        <NavigationControl showCompass={false} showZoom={true} />
+        <NavigationControl
+          showCompass={false}
+          showZoom={true}
+          position={'bottom-right'}
+          style={{
+            position: 'inherit',
+            bottom: `${window.innerWidth < 450 ? '150px' : '15px'}`,
+            right: `${window.innerWidth < 411 ? '16px' : '40px'}`,
+          }}
+         
+        />
       </Map>
     </div>
   );

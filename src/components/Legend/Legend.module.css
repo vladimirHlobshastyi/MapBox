@@ -6,7 +6,8 @@
   bottom: 25px;
   left: 25px;
   padding: 15px;
-  width: 340px;
+  max-width: 340px;
+  width: calc(100% - 50px);
   font-size: 16px;
   border-radius: 2px;
   border: 1px solid #ffcd00;
@@ -14,6 +15,5 @@
 }
 
 .RefreshMessage {
-  margin-top: 25px;
-
+  margin-top: 10px;
 }

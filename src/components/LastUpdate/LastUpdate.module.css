@@ -4,7 +4,13 @@
   left: 25px;
   z-index: 10;
   padding: 15px;
+  width: calc(100% - 50px);
+  max-width: fit-content;
   border-radius: 2px;
   border: 1px solid #ffcd00;
   background-color: rgba(255, 255, 255, .9);
 }
+
+
+
+
