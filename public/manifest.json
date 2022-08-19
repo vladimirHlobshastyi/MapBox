@@ -4,21 +4,24 @@
   "description": "Перевірка інформації про мапу повітряних тривог в Україні. Дізнатися, у якому регіоні оголошено про повітряну тривогу, і перегляньте актуальну інформацію про небезпеку.",
   "icons": [
     {
-      "src": "windows11/Wide310x150Logo.scale-400.png",
-      "sizes": "1240x600"
+
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
     },
     {
-      "src": "android/android-launchericon-512-512.png",
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
       "sizes": "512x512"
-    },
-    
-    {
-      "src": "ios/1024.png",
-      "sizes": "1024x1024"
     }
   ],
   "orientation": "portrait-primary",
-  "start_url": "ukraine-alerts.vercel.app/",
+  "start_url": "/",
   "display": "fullscreen",
   "theme_color": "#000000",
   "background_color": "#d6d6d6",
