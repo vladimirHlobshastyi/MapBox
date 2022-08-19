@@ -62,7 +62,6 @@ export const AlertsMap = () => {
             bottom: `${window.innerWidth < 450 ? '150px' : '15px'}`,
             right: `${window.innerWidth < 411 ? '16px' : '40px'}`,
           }}
-         
         />
       </Map>
     </div>
