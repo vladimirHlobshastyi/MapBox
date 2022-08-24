@@ -1,0 +1,12 @@
+
+.svgContainer{
+    max-width: 2vw;  
+
+}
+.svgContainer svg{
+    width:100%;
+    height: 100%;
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 25px;
+}
