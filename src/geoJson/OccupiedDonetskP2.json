@@ -1,4 +1,4 @@
-{
+{  "type": "Feature",
   "geometry": {
     "coordinates": [
       [
@@ -704,7 +704,7 @@
     ],
     "type": "Polygon"
   },
-  "type": "Feature",
+
   "properties": {
     "shapeName": "Donetsk Oblast Part 2",
     "Level": "ADM1",
