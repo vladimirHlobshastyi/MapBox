@@ -27,8 +27,8 @@
   "background_color": "#d6d6d6",
   "screenshots": [
     {
-      "src": "screenshot.webp",
-      "sizes": "1280x720",
+      "src": "./screenshots/screenshot.webp",
+      "sizes": "591x1280",
       "type": "image/webp"
     }
   ]
