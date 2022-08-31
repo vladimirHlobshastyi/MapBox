@@ -48,6 +48,7 @@ export const AlertsMap = () => {
           [10, 28], // [west, south]
           [50, 60], // [east, north]
         ]}
+        preserveDrawingBuffer={true}
         mapStyle={process.env.REACT_APP_MAP_STYLE}
       >
         <AlertsInRegionsLayer alertsRegions={alerts} />
