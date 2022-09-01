@@ -10,17 +10,18 @@ const ArrowMarker: FC<ArrowProps> = ({
   longt,
   latit,
   anchr = 'center',
-  value = 0,
+  rotate = 0,
 }) => {
   const cn = classNames(
     [style.svgContainer],
-    value === 45 ? [style.svgTransform45] : '',
-    value === 90 ? [style.svgTransform90] : '',
-    value === 135 ? [style.svgTransform135] : '',
-    value === 180 ? [style.svgTransform180] : '',
-    value === 225 ? [style.svgTransform225] : '',
-    value === 270 ? [style.svgTransform270] : '',
-    value === 315 ? [style.svgTransform315] : ''
+    rotate === 0 ? '' : '',
+    rotate === 45 ? [style.svgTransform45] : '',
+    rotate === 90 ? [style.svgTransform90] : '',
+    rotate === 135 ? [style.svgTransform135] : '',
+    rotate === 180 ? [style.svgTransform180] : '',
+    rotate === 225 ? [style.svgTransform225] : '',
+    rotate === 270 ? [style.svgTransform270] : '',
+    rotate === 315 ? [style.svgTransform315] : ''
   );
   return (
     <div className={style.markerContainer}>

@@ -1,0 +1,5 @@
+{
+    "ignorePatterns": ["temp.js", "**/vendor/*.js",
+    "relative/path/to/storybook/preview.js","relative/path/to/storybook/main.js"],
+    
+}

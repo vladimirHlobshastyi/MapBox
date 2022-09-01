@@ -44,23 +44,49 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
-    "eslint": "node_modules/.bin/eslint src/"
+    "eslint": "node_modules/.bin/eslint src/",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": "defaults, not ie 11",
   "devDependencies": {
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-interactions": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/node-logger": "^6.5.10",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.10",
+    "@storybook/testing-library": "^0.0.13",
     "@types/helmet": "^4.0.0",
     "@types/react-helmet": "^6.1.5",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-storybook": "^0.6.4",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
-    "prettier": "^1.14.0"
+    "prettier": "^1.14.0",
+    "prop-types": "^15.8.1",
+    "webpack": "^5.74.0"
   },
   "lint-staged": {
     "*.{js, jsx, css, ts, tsx}": [

@@ -1,13 +1,17 @@
+export type iconNameType =
+  | 'rightYellow'
+  | 'rightRed'
+  | 'leftYellow'
+  | 'leftRed'
+  | 'downYellow'
+  | 'downRed'
+  | 'hitRed'
+  | 'hitYellow';
+
+export type rotateType = 0 | 45 | 90 | 135 | 180 | 225 | 270 | 315;
+
 export type ArrowProps = {
-  iconName:
-    | 'rightYellow'
-    | 'rightRed'
-    | 'leftYellow'
-    | 'leftRed'
-    | 'downYellow'
-    | 'downRed'
-    | 'hitRed'
-    | 'hitYellow',
+  iconName: iconNameType,
   longt: number,
   latit: number,
   anchr?:
@@ -19,5 +23,5 @@ export type ArrowProps = {
     | 'bottom-left'
     | 'bottom-right'
     | 'center',
-  value?: 45 | 90 | 135 | 180 | 225 | 270 | 315,
+  rotate?: rotateType,
 };
