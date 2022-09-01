@@ -1,15 +1,15 @@
-import ArrowMarketStories from './ArrowMarketStories';
+import ArrowMarkerStories from './ArrowMarkerStories';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 
 export default {
   title: 'ArrowMarket',
-  component: ArrowMarketStories,
+  component: ArrowMarkerStories,
 argTypes: {}
-}as ComponentMeta<typeof ArrowMarketStories>;
+}as ComponentMeta<typeof ArrowMarkerStories>;
 
-const Template: ComponentStory<typeof ArrowMarketStories> = args => (
-  <ArrowMarketStories {...args} />
+const Template: ComponentStory<typeof ArrowMarkerStories> = args => (
+  <ArrowMarkerStories {...args} />
 );
 
 export const Primary = Template.bind({});

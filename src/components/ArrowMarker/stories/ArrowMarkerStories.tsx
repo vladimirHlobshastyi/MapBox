@@ -3,7 +3,7 @@ import { iconNameType, rotateType } from '../Arrow.types';
 import svgCollection from '../svg/svgCollection';
 import style from './../ArrowMarker.module.css';
 
-const ArrowMarketStories = ({
+const ArrowMarkerStories = ({
   iconName = 'rightYellow',
   rotate,
 }: {
@@ -40,4 +40,4 @@ const ArrowMarketStories = ({
   );
 };
 
-export default ArrowMarketStories;
+export default ArrowMarkerStories;
