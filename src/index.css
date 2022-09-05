@@ -12,7 +12,6 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
 }
 
 button {
@@ -26,6 +25,9 @@ a {
   text-decoration: none;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
+

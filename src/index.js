@@ -8,6 +8,7 @@ import './index.css';
 import AlertProvider from './providers/AlertProvider.tsx';
 import AlarmsMap from './pages/AlarmsMap';
 import ErrorComponent from './components/ErrorComponent/ErrorComponent';
+import ModalPWA from './components/ModalPWA/ModalPWA';
 
 Sentry.init({
   dsn:
@@ -28,6 +29,7 @@ root.render(
       <Sentry.ErrorBoundary
         fallback={<ErrorComponent typeError={'technical'} />}
       >
+        <ModalPWA />
         <AlarmsMap />
       </Sentry.ErrorBoundary>
     </AlertProvider>

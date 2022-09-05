@@ -2,26 +2,12 @@ import React, { FC } from 'react';
 import { Marker } from 'react-map-gl';
 import svgCollection from './svg/svgCollection';
 import style from './IconMarker.module.css';
+import { IconPropsTypes } from './IconPropsTypes';
 
-type IconProps = {
-  iconName: 'explosion' | 'rocket' | 'bigExplosion' | 'gun' | 'fire',
-  longt: number,
-  latit: number,
-  anchr:
-    | 'bottom'
-    | 'left'
-    | 'right'
-    | 'top-left'
-    | 'top-right'
-    | 'bottom-left'
-    | 'bottom-right'
-    | 'center',
-};
-
-const IconMarker: FC<IconProps> = ({
+const IconMarker: FC<IconPropsTypes> = ({
   iconName = 'fire',
-  longt,
-  latit,
+  longt = 30,
+  latit = 41,
   anchr = 'center',
 }) => {
   return (
