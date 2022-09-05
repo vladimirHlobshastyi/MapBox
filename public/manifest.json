@@ -20,6 +20,9 @@
       "sizes": "512x512"
     }
   ],
+  "shortcuts" : [
+    {}
+  ],
   "orientation": "portrait-primary",
   "start_url": "/",
   "display": "fullscreen",
