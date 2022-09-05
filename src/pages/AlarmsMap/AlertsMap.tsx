@@ -40,7 +40,7 @@ export const AlertsMap = () => {
           latitude: 48.5,
           zoom: resizeZoom(),
         }}
-        cooperativeGestures={true}
+        cooperativeGestures={false}
         interactive={true}
         maxZoom={6}
         minZoom={3.4}
