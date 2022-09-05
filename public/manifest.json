@@ -1,11 +1,5 @@
-{"shortcuts" : [
-  {
-    "name": "Today's agenda",
-    "url": "/",
-    "description": "List of events planned for today"
-  }
-],
-    "short_name": "Карта повітряних тривог України",
+{
+  "short_name": "Карта повітряних тривог України",
   "name": "Карта повітряних тривог України",
   "description": "Перевірка інформації про мапу повітряних тривог в Україні. Дізнатися, у якому регіоні оголошено про повітряну тривогу, і перегляньте актуальну інформацію про небезпеку.",
   "icons": [
@@ -25,6 +19,9 @@
       "type": "image/png",
       "sizes": "512x512"
     }
+  ],
+  "shortcuts" : [
+    {}
   ],
   "orientation": "portrait-primary",
   "start_url": "/",
