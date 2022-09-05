@@ -7,7 +7,6 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import AlertProvider from './providers/AlertProvider.tsx';
 import AlarmsMap from './pages/AlarmsMap';
-import ErrorComponent from './components/ErrorComponent/ErrorComponent';
 import ModalPWA from './components/ModalPWA/ModalPWA';
 
 Sentry.init({
@@ -26,16 +25,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AlertProvider>
-      <Sentry.ErrorBoundary
-        fallback={<ErrorComponent typeError={'technical'} />}
-      >
-        <ModalPWA />
-        <AlarmsMap />
-      </Sentry.ErrorBoundary>
+      <ModalPWA />
+      <AlarmsMap />
     </AlertProvider>
   </React.StrictMode>
 );
 
 reportWebVitals();
 
-serviceWorkerRegistration.register();
+serviceWorkerRegistration.unregister();
