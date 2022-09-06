@@ -9,6 +9,8 @@ import LastUpdate from '../../components/LastUpdate/LastUpdate';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import style from './AlertsMap.module.css';
 import { Helmet } from 'react-helmet';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export const AlertsMap = () => {
   const { alerts, lastUpdate } = useContext(EventsContext);
@@ -28,43 +30,56 @@ export const AlertsMap = () => {
       return 5.2;
     }
   };
+  let [isRender, setIsRender] = useState(false);
+  /* const renderMap = setTimeout(() => {
+    return (
+     
+    );
+  }, 3000); */
+  useEffect(() => {
+    setTimeout(() => {
+      return setIsRender(true);
+    }, 3000);
+  }, []);
 
   return (
     <div className={style.Container}>
       <LastUpdate date={lastUpdate} />
 
-      <Map
-        mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        initialViewState={{
-          longitude: 31,
-          latitude: 48.5,
-          zoom: resizeZoom(),
-        }}
-        cooperativeGestures={false}
-        interactive={true}
-        maxZoom={6}
-        minZoom={3.4}
-        maxBounds={[
-          [10, 28], // [west, south]
-          [50, 60], // [east, north]
-        ]}
-        preserveDrawingBuffer={true}
-        mapStyle={process.env.REACT_APP_MAP_STYLE}
-      >
-        <AlertsInRegionsLayer alertsRegions={alerts} />
-        <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
-        <Legend />
-        <NavigationControl
-          showCompass={false}
-          showZoom={true}
-          position={'bottom-right'}
-          style={{
-            position: 'inherit',
-            bottom: `${window.innerWidth < 450 ? '150px' : '15px'}`,
-            right: `${window.innerWidth < 411 ? '16px' : '40px'}`,
+      {isRender ? (
+        <Map
+          mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+          initialViewState={{
+            longitude: 31,
+            latitude: 48.5,
+            zoom: resizeZoom(),
           }}
-        />
-      </Map>
+          cooperativeGestures={true}
+          interactive={true}
+          maxZoom={6}
+          minZoom={3.4}
+          maxBounds={[
+            [10, 28], // [west, south]
+            [50, 60], // [east, north]
+          ]}
+          preserveDrawingBuffer={true}
+          mapStyle={process.env.REACT_APP_MAP_STYLE}
+        >
+          <AlertsInRegionsLayer alertsRegions={alerts} />
+          <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
+          <Legend />
+          <NavigationControl
+            showCompass={false}
+            showZoom={true}
+            position={'bottom-right'}
+            style={{
+              position: 'inherit',
+              bottom: `${window.innerWidth < 450 ? '150px' : '15px'}`,
+              right: `${window.innerWidth < 411 ? '16px' : '40px'}`,
+            }}
+          />
+        </Map>
+      ) : null}
     </div>
   );
 };
