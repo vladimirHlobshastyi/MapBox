@@ -45,6 +45,7 @@ export const AlertsMap = () => {
   return (
     <div className={style.Container}>
       <LastUpdate date={lastUpdate} />
+
       {isRender ? (
         <Map
           mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
