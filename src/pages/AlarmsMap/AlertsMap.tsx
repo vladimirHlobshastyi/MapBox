@@ -79,41 +79,6 @@ const AlertsMapHelmet = () => {
           content="Перевірка інформації про повітряну тривогу в Україні. Дізнатися, у якому регіоні оголошено повітряну тривогу"
         />
         <meta name="theme-color" content="#008f68" />
-        <link
-          href="%PUBLIC_URL%/logo512.png"
-          sizes="2048x2732"
-          rel="apple-touch-startup-image"
-        />
-        <link
-          href="%PUBLIC_URL%/logo512.png"
-          sizes="1668x2224"
-          rel="apple-touch-startup-image"
-        />
-        <link
-          href="%PUBLIC_URL%/logo512.png"
-          sizes="1536x2048"
-          rel="apple-touch-startup-image"
-        />
-        <link
-          href="%PUBLIC_URL%/logo512.png"
-          sizes="1125x2436"
-          rel="apple-touch-startup-image"
-        />
-        <link
-          href="%PUBLIC_URL%/logo512.png"
-          sizes="1242x2208"
-          rel="apple-touch-startup-image"
-        />
-        <link
-          href="%PUBLIC_URL%/logo512.png"
-          sizes="750x1334"
-          rel="apple-touch-startup-image"
-        />
-        <link
-          href="%PUBLIC_URL%/logo512.png"
-          sizes="640x1136"
-          rel="apple-touch-startup-image"
-        />
       </Helmet>
 
       <AlertsMap />
