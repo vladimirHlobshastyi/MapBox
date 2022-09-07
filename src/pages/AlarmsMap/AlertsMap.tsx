@@ -70,7 +70,7 @@ export const AlertsMap = () => {
 };
 
 const AlertsMapHelmet = () => {
-  return (
+  /* return (
     <>
       <Helmet>
         <title>Карта повітряних тривог України</title>
@@ -83,7 +83,8 @@ const AlertsMapHelmet = () => {
 
       <AlertsMap />
     </>
-  );
+  ); */
+  return <AlertsMap />;
 };
 
 export default AlertsMapHelmet;
