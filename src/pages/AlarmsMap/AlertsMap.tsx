@@ -23,8 +23,12 @@ export const AlertsMap = () => {
       return 4.1;
     }
 
-    if (window.innerWidth < 460) {
+    if (window.innerWidth < 460 && window.innerWidth > 350) {
       return 3.6;
+    }
+
+    if (window.innerWidth < 350) {
+      return 3.4;
     } else {
       return 5.2;
     }
@@ -40,11 +44,11 @@ export const AlertsMap = () => {
     }
   }, []);
 
-   if (isIOS) {
+  if (isIOS) {
     return <Loader />;
   }
 
-   return (
+  return (
     <div className={style.Container}>
       <LastUpdate date={lastUpdate} />
 
