@@ -13,6 +13,9 @@ import Loader from '../../components/Loader';
 
 export const AlertsMap = () => {
   const { alerts, lastUpdate } = useContext(EventsContext);
+  const [isIOS, setIsIOS] = useState(false);
+  const ua = window.navigator.userAgent;
+  const isIPhone = !!ua.match(/iPhone/i);
 
   const resizeZoom = () => {
     if (window.innerWidth < 860 && window.innerWidth > 640) {
@@ -33,9 +36,6 @@ export const AlertsMap = () => {
       return 5.2;
     }
   };
-  const [isIOS, setIsIOS] = useState(false);
-  const ua = window.navigator.userAgent;
-  const isIPhone = !!ua.match(/iPhone/i);
 
   useEffect(() => {
     if (isIPhone) {
@@ -51,7 +51,7 @@ export const AlertsMap = () => {
   return (
     <div className={style.Container}>
       <LastUpdate date={lastUpdate} />
-
+      <Legend />
       <Map
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         initialViewState={{
@@ -72,7 +72,7 @@ export const AlertsMap = () => {
       >
         <AlertsInRegionsLayer alertsRegions={alerts} />
         <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
-        <Legend />
+
         <NavigationControl
           showCompass={false}
           showZoom={true}
