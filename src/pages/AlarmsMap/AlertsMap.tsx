@@ -28,11 +28,12 @@ export const AlertsMap = () => {
       return 5.2;
     }
   };
-
+  const ua = window.navigator.userAgent;
+  const isIPhone = !!ua.match(/iPhone/i);
   return (
     <div className={style.Container}>
       <LastUpdate date={lastUpdate} />
-
+      {isIPhone ? <>IPHONE!!!!!!</> : null}
       <Map
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         initialViewState={{
