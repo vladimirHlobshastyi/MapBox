@@ -24,11 +24,11 @@ export const AlertsMap = () => {
     }
 
     if (window.innerWidth < 460 && window.innerWidth > 350) {
-      return 3.6;
+      return 3.7;
     }
 
     if (window.innerWidth < 350) {
-      return 3.4;
+      return 3.5;
     } else {
       return 5.2;
     }
