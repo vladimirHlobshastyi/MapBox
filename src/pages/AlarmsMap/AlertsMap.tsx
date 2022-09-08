@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Map, { NavigationControl } from 'react-map-gl';
 import AlertsInRegionsLayer from './Layers/AlertsInRegionsLayer';
 import { EventsContext } from '../../providers/AlertProvider';
@@ -9,6 +9,7 @@ import LastUpdate from '../../components/LastUpdate/LastUpdate';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import style from './AlertsMap.module.css';
 import { Helmet } from 'react-helmet';
+import Loader from '../../components/Loader';
 
 export const AlertsMap = () => {
   const { alerts, lastUpdate } = useContext(EventsContext);
@@ -28,12 +29,24 @@ export const AlertsMap = () => {
       return 5.2;
     }
   };
+  const [isIOS, setIsIOS] = useState(false);
   const ua = window.navigator.userAgent;
   const isIPhone = !!ua.match(/iPhone/i);
+
+  useEffect(() => {
+    if (isIPhone) {
+      setIsIOS(true);
+      setTimeout(() => setIsIOS(false), 1000);
+    }
+  }, []);
+
+  if (isIOS) {
+    return <Loader />;
+  }
   return (
     <div className={style.Container}>
       <LastUpdate date={lastUpdate} />
-      {isIPhone ? <>IPHONE!!!!!!</> : null}
+
       <Map
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         initialViewState={{
