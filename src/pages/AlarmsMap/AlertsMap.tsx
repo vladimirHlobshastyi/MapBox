@@ -40,11 +40,11 @@ export const AlertsMap = () => {
     }
   }, []);
 
-  if (isIOS) {
+   if (isIOS) {
     return <Loader />;
   }
 
-  return (
+   return (
     <div className={style.Container}>
       <LastUpdate date={lastUpdate} />
 
