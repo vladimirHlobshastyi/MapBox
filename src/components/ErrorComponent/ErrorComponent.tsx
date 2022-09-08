@@ -6,19 +6,17 @@ import style from './ErrorComponent.module.css';
 type errorComponentProps = { typeError: 'technical' | 'connect' };
 
 const ErrorComponent: FC<errorComponentProps> = ({ typeError }) => {
-  debugger;
   return (
     <div className={style.errorContainer}>
-      {typeError === 'technical' ? (
-        <h2>Проводяться технічні роботи</h2>
-      ) : (
-        <h2>Нема зв'язку з інтернетом...</h2>
-      )}
-
       <img
         src={typeError === 'technical' ? spinerTechnical : spinerConnection}
         alt="Loading"
       />
+      {typeError === 'technical' ? (
+        <h2>Зачекайте, проводяться технічні роботи</h2>
+      ) : (
+        <h2>Нема зв'язку з інтернетом...</h2>
+      )}
     </div>
   );
 };
