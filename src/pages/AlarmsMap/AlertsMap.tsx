@@ -61,7 +61,7 @@ export const AlertsMap = () => {
         }}
         cooperativeGestures={true}
         interactive={true}
-        maxZoom={6}
+        maxZoom={6.5}
         minZoom={3.4}
         maxBounds={[
           [10, 28], // [west, south]
