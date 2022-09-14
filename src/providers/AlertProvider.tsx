@@ -7,7 +7,6 @@ import {AlertProviderContextTypes, AlertProviderPropTypes} from "./AlertProvider
 
 export const EventsContext = createContext({} as AlertProviderContextTypes);
 
-// Minor: Split timer and fetching regions. Move timer to separate context/provider.
 
 const AlertProvider = ({ children }: AlertProviderPropTypes) => {
   const [timerValue, srtTimerValue] = useState<number>(10);
