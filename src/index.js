@@ -10,8 +10,7 @@ import AlarmsMap from './pages/AlarmsMap';
 import ErrorComponent from './components/ErrorComponent/ErrorComponent';
 
 Sentry.init({
-  dsn:
-    'https://e6eae306749841d6a876eabb04f947b1@o1356833.ingest.sentry.io/6642623',
+  dsn: 'https://e6eae306749841d6a876eabb04f947b1@o1356833.ingest.sentry.io/6642623',
   integrations: [new BrowserTracing()],
 
   // Set tracesSampleRate to 1.0 to capture 100%

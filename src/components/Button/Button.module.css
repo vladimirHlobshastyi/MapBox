@@ -1,0 +1,27 @@
+.Container {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1.5px solid #d2d5dc;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9px;
+    width: 29px;
+    height: 29px;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 10%);
+}
+
+.Container img {
+    max-width: 17px;
+    margin-bottom: 1px;
+
+}
+
+.Container:hover {
+    cursor: pointer;
+    background-color: rgb(245, 245, 245);
+}

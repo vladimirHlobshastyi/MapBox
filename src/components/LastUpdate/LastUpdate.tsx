@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { FC } from 'react';
 import style from './LastUpdate.module.css';
-import {LastUpdatePropTypes} from "./LastUpdate.types";
+import { LastUpdatePropTypes } from './LastUpdate.types';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
+import actualDate from '../../utils/actualDate/actualDate';
 
-dayjs.extend(localizedFormat)
 
-const LastUpdate = ({ date }: LastUpdatePropTypes) => {
+
+dayjs.extend(localizedFormat);
+
+const LastUpdate: FC<LastUpdatePropTypes> = ({ date }) => {
   return (
     <div className={style.Container}>
-      Останнє оновлення: <strong>{ dayjs(date).format('L LT') }</strong>
+      <div>
+        Останнє оновлення:
+        <strong>
+          {date === undefined ? 'Оновлюється...' : actualDate(date)}
+        </strong>
+      </div>
     </div>
-  )
+  );
 };
 
-export default LastUpdate;
+export default React.memo(LastUpdate);
