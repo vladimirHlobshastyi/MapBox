@@ -4,7 +4,7 @@ import actualDate from '../utils/actualDate/actualDate';
 
 const useScreenshot = (
   myRef: undefined | RefObject<HTMLDivElement | null>,
-  date: string
+  date: string 
 ) =>
   useCallback(() => {
     if (myRef?.current === null || !myRef) {
@@ -14,7 +14,8 @@ const useScreenshot = (
     toPng(myRef.current, { cacheBust: true })
       .then((dataUrl) => {
         const link = document.createElement('a');
-        link.download = `Карта повітряних тривог на ${actualDate(date)}`;
+        link.download = `Карта повітряних тривог на ` + actualDate(date, true);
+        debugger;
         link.href = dataUrl;
         link.click();
       })

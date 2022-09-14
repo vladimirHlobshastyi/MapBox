@@ -3,8 +3,8 @@ import dayjs from 'dayjs';
 
 dayjs.extend(localizedFormat);
 
-const actualDate = (date: string) => {
-  return dayjs(date).format('L LT');
+const actualDate = (date: string, isScrenshot: boolean) => {
+  return dayjs(date).format(isScrenshot ? 'LT' : 'L LT');
 };
 
 export default actualDate;
