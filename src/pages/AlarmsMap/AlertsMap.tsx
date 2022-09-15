@@ -88,7 +88,7 @@ export const AlertsMap = () => {
           visualizePitch={true}
           style={{
             position: 'inherit',
-            bottom: `${window.innerWidth < 450 ? '130px' : '15px'}`,
+            bottom: `${window.innerWidth < 450 ? '150px' : '15px'}`,
             right: `${window.innerWidth < 411 ? '16px' : '40px'}`,
           }}
         />
@@ -115,3 +115,4 @@ const AlertsMapHelmet = () => {
 };
 
 export default AlertsMapHelmet;
+3
