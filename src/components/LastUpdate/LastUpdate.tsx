@@ -8,7 +8,6 @@ import actualDate from '../../utils/actualDate/actualDate';
 dayjs.extend(localizedFormat);
 
 const LastUpdate: FC<LastUpdatePropTypes> = ({ date }) => {
-  debugger;
   return (
     <div className={style.Container}>
       <div>
