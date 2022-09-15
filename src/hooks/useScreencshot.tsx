@@ -10,12 +10,10 @@ const useScreenshot = (
       return;
     }
 
-<<<<<<< HEAD
-    htmlToImage.toJpeg(myRef.current, { cacheBust: true })
-=======
 
-    toSvg(myRef.current, { cacheBust: true })
->>>>>>> 36a2c5d6bd291f2fdfc4b7d0b90e7b637abd1419
+
+    htmlToImage.toSvg(myRef.current, { cacheBust: true })
+
       .then((dataUrl) => {
         const link = document.createElement('a');
         link.download = `Карта повітряних тривог на ` + actualDate(date, true);
