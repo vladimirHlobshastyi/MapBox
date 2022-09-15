@@ -5,7 +5,7 @@ const ModalPWA = () => {
   return (
     <PWAPrompt
       promptOnVisit={1}
-      timesToShow={3}
+      timesToShow={5}
       delay={3000}
       permanentlyHideOnDismiss={false}
       copyTitle={'Встановити додаток на смартфон'}
