@@ -4,12 +4,12 @@ import actualDate from '../utils/actualDate/actualDate';
 
 const useScreenshot = (
   myRef: undefined | RefObject<HTMLDivElement | null>,
-  date: string 
-) =>
+  date: string) =>
   useCallback(() => {
     if (myRef?.current === null || !myRef) {
       return;
     }
+
 
     toSvg(myRef.current, { cacheBust: true })
       .then((dataUrl) => {
