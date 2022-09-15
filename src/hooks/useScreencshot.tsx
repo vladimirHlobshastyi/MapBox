@@ -15,7 +15,7 @@ const useScreenshot = (
       .then((dataUrl) => {
         const link = document.createElement('a');
         link.download = `Карта повітряних тривог на ` + actualDate(date, true);
-        debugger;
+        
         link.href = dataUrl;
         link.click();
       })
