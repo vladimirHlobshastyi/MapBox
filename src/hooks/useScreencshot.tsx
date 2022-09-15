@@ -1,4 +1,4 @@
-import { toSvg } from 'html-to-image';
+import { toJpeg } from 'html-to-image';
 import { RefObject, useCallback } from 'react';
 import actualDate from '../utils/actualDate/actualDate';
 
@@ -11,7 +11,7 @@ const useScreenshot = (
       return;
     }
 
-    toSvg(myRef.current, { cacheBust: true })
+    toJpeg(myRef.current, { cacheBust: false })
       .then((dataUrl) => {
         const link = document.createElement('a');
         link.download = `Карта повітряних тривог на ` + actualDate(date, true);
