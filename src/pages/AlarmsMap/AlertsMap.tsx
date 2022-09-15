@@ -10,6 +10,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import style from './AlertsMap.module.css';
 import { Helmet } from 'react-helmet';
 import Loader from '../../components/Loader';
+import Button from '../../components/Button/Button';
+
 
 export const AlertsMap = () => {
   const { alerts, lastUpdate } = useContext(EventsContext);
@@ -37,6 +39,10 @@ export const AlertsMap = () => {
     }
   };
 
+  const myRef = React.useRef<HTMLDivElement>(null);
+
+
+
   useEffect(() => {
     if (isIPhone) {
       setIsIOS(true);
@@ -49,7 +55,7 @@ export const AlertsMap = () => {
   }
 
   return (
-    <div className={style.Container}>
+    <div className={style.Container} ref={myRef}>
       <LastUpdate date={lastUpdate} />
       <Legend />
       <Map
@@ -72,14 +78,17 @@ export const AlertsMap = () => {
       >
         <AlertsInRegionsLayer alertsRegions={alerts} />
         <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
-
+        <div className={window.innerWidth > 411 ? style.pc : style.smartphone}>
+          <Button refProp={myRef} date={lastUpdate} />
+        </div>
         <NavigationControl
           showCompass={false}
           showZoom={true}
           position={'bottom-right'}
+          visualizePitch={true}
           style={{
             position: 'inherit',
-            bottom: `${window.innerWidth < 450 ? '150px' : '15px'}`,
+            bottom: `${window.innerWidth < 450 ? '130px' : '15px'}`,
             right: `${window.innerWidth < 411 ? '16px' : '40px'}`,
           }}
         />
