@@ -115,4 +115,3 @@ const AlertsMapHelmet = () => {
 };
 
 export default AlertsMapHelmet;
-3
