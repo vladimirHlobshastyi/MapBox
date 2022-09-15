@@ -11,7 +11,7 @@ export const EventsContext = createContext({} as AlertProviderContextTypes);
 const AlertProvider = ({ children }: AlertProviderPropTypes) => {
   const [timerValue, srtTimerValue] = useState<number>(10);
   const [alerts, setAlerts] = useState<Alert[]>([]);
-  const [lastUpdate, setLastUpdate] = useState<undefined | string>(undefined);
+  const [lastUpdate, setLastUpdate] = useState<undefined | string>(undefined)
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
 

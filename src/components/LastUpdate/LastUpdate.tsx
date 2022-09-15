@@ -6,7 +6,6 @@ import actualDate from '../../utils/actualDate/actualDate';
 
 
 const LastUpdate: FC<LastUpdatePropTypes> = ({ date }) => {
-
   return (
     <div className={style.Container}>
       <div>
