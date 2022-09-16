@@ -1,4 +1,4 @@
-import * as htmlToImage from 'html-to-image';
+import { toJpeg } from 'html-to-image';
 import { RefObject, useCallback } from 'react';
 import actualDate from '../utils/actualDate/actualDate';
 
@@ -12,7 +12,7 @@ const useScreenshot = (
 
 
 
-    htmlToImage.toSvg(myRef.current, { cacheBust: true })
+    toJpeg(myRef.current, { cacheBust: true })
 
       .then((dataUrl) => {
         const link = document.createElement('a');
