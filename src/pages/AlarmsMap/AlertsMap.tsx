@@ -76,17 +76,18 @@ export const AlertsMap = () => {
       >
         <AlertsInRegionsLayer alertsRegions={alerts} />
         <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
-        <div className={window.innerWidth > 411 ? style.pc : style.smartphone}>
+        <div className={style.screenshot}>
           <Button refProp={myRef} date={lastUpdate} />
         </div>
         <NavigationControl
           showCompass={false}
           showZoom={true}
-          position={'bottom-right'}
+          position={`${window.innerWidth > 450 ?  'bottom-right':'top-right'}`}
           visualizePitch={true}
           style={{
-            position: 'inherit',
-            bottom: `${window.innerWidth < 450 ? '130px' : '15px'}`,
+            position: 'inherit', 
+            top: `${window.innerWidth < 450 ? '100px' : ''}`,
+            bottom: `${window.innerWidth < 450 ? '' : '25px'}`,
             right: `${window.innerWidth < 411 ? '16px' : '40px'}`,
           }}
         />

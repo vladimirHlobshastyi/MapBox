@@ -4,17 +4,32 @@
   height: 100%;
 }
 
-.pc {
-  position: absolute;
-  bottom: 120px;
-  right: 51px;
-  width: 29px;
-  
+@media(max-width:410px) {
+  .screenshot {
+    position: absolute;
+    top: 180px;
+    right: 26px;
+    width: 29px;
+
+  }
 }
-.smartphone {
-  position: absolute;
-  bottom: 255px;
-  right: 27px;
-  width: 29px;
-  
+
+@media(min-width:411px) {
+  .screenshot {
+    position: absolute;
+    top: 180px;
+    right: 50px;
+    width: 29px;
+  }
+}
+
+@media(min-width:451px) {
+  .screenshot {
+    position: absolute;
+    bottom: 130px;
+    top: inherit;
+    right: 51px;
+    width: 29px;
+
+  }
 }
