@@ -5,9 +5,10 @@ import { BrowserTracing } from '@sentry/tracing';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import AlertProvider from './providers/AlertProvider.tsx';
+/* import AlertProvider from './providers/AlertProvider.tsx';
 import AlarmsMap from './pages/AlarmsMap';
-import ErrorComponent from './components/ErrorComponent/ErrorComponent';
+import ErrorComponent from './components/ErrorComponent/ErrorComponent'; */
+import Statistik from './pages/Statistik/Statistik';
 
 Sentry.init({
   dsn:
@@ -24,13 +25,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <AlertProvider>
+    {/*  <AlertProvider>
       <Sentry.ErrorBoundary
         fallback={<ErrorComponent typeError={'technical'} />}
       >
         <AlarmsMap />
       </Sentry.ErrorBoundary>
-    </AlertProvider>
+    </AlertProvider> */}
+    <Statistik />
   </React.StrictMode>
 );
 
