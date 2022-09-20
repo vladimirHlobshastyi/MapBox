@@ -1,4 +1,4 @@
-type InfoDateTypes = {
+export type InfoDateTypes = {
   personnel_units: { ua: 'особового складу', en: 'personnel units' },
   tanks: { ua: 'танків', en: 'tanks' },
   armoured_fighting_vehicles: {
@@ -24,7 +24,7 @@ type InfoDateTypes = {
   atgm_srbm_systems: { ua: 'установок отрк/трк', en: 'atgm/srbm systems' },
 };
 
-export const InfoDate: InfoDateTypes = {
+export const InfoDate = {
   personnel_units: { ua: 'особового складу', en: 'personnel units' },
   tanks: { ua: 'танків', en: 'tanks' },
   armoured_fighting_vehicles: {

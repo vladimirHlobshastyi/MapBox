@@ -8,7 +8,8 @@ import './index.css';
 /* import AlertProvider from './providers/AlertProvider.tsx';
 import AlarmsMap from './pages/AlarmsMap';
 import ErrorComponent from './components/ErrorComponent/ErrorComponent'; */
-import Statistik from './pages/Statistik/Statistik';
+import Statistika from './pages/Statistika/Statistika';
+import StatistikProvider from './providers/StatistikProvider';
 
 Sentry.init({
   dsn:
@@ -32,7 +33,9 @@ root.render(
         <AlarmsMap />
       </Sentry.ErrorBoundary>
     </AlertProvider> */}
-    <Statistik />
+    <StatistikProvider>
+      <Statistika />
+    </StatistikProvider>
   </React.StrictMode>
 );
 
