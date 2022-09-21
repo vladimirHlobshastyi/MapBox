@@ -91,7 +91,7 @@
     "webpack": "^5.74.0"
   },
   "lint-staged": {
-    "*.{js, jsx, css, ts, tsx}": [
+    "src/**/*.js": [
       "node_modules/.bin/eslint --max-warnings=0",
       "prettier --write",
       "git add"

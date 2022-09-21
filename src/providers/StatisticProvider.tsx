@@ -1,61 +1,67 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { getLatestStatistic } from '../api/getLatestStatistic';
+import React, { createContext, useState, useEffect } from "react"
+import { getLatestStatistic } from "../api/getLatestStatistic"
 
-import { StatisticDataType, StatistiProviderPropTypes } from './StatisticProvider.types';
+import {
+  StatisticDataType,
+  StatistiProviderPropTypes
+} from "./StatisticProvider.types"
 
-export const StatisticContext = createContext({} as StatisticDataType);
+export const StatisticContext = createContext({} as StatisticDataType)
 
 const StatisticProvider = ({ children }: StatistiProviderPropTypes) => {
-  const [statsResponse, setStatsResponse] = useState<StatisticDataType>({}as StatisticDataType);
-  const [errorMessage, setErrorMessage] = useState<string>('');
-  const [statsData, setStatsData] = useState<[string, number][]>([]as [string, number][]);
+  const [statsResponse, setStatsResponse] = useState<StatisticDataType>(
+    {} as StatisticDataType
+  )
+  const [errorMessage, setErrorMessage] = useState<string>("")
+  const [statsData, setStatsData] = useState<[string, number][]>(
+    [] as [string, number][]
+  )
 
-  const getStatistic = async () => { 
+  const getStatistic = async () => {
     try {
       if (errorMessage) {
-        setErrorMessage('');
+        setErrorMessage("")
       }
-      const response = await getLatestStatistic();
-     
-      if (response.message==="The data were fetched successfully.") {
+      const response = await getLatestStatistic()
+
+      if (response.message === "The data were fetched successfully.") {
         const responsStats = response.data
-       setStatsResponse(responsStats);
-            
+        setStatsResponse(responsStats)
+
+
+
+        
       }
-
-
-    } catch (err) { if (err instanceof Error) {
-   
-      setErrorMessage(err.message);
-    } else {
-      console.log('Unexpected error', err);
+    } catch (err) {
+      if (err instanceof Error) {
+        setErrorMessage(err.message)
+      } else {
+        console.log("Unexpected error", err)
+      }
     }
+  }
 
-    }
-  };
-
-  const setStats = ()=>{let {stats} = statsResponse
-  let statsData =  Object.entries(stats) 
-  setStatsData(statsData)  }
+  const setStats = () => {
+    let { stats } = statsResponse
+    let statsData = Object.entries(stats)
+    setStatsData(statsData)
+  }
 
   useEffect(() => {
     getStatistic()
-  }, []);
+  }, [])
 
   useEffect(() => {
-    if(statsResponse.stats){
-    setStats() 
-
+    if (statsResponse.stats) {
+      setStats()
     }
-  }, [statsResponse]);
+  }, [statsResponse])
 
   return (
-    <StatisticContext.Provider
-      value={{...statsResponse,statsData}}
-    >
+    <StatisticContext.Provider value={{ ...statsResponse, statsData }}>
       {children}
     </StatisticContext.Provider>
-  );
-};
+  )
+}
 
-export default StatisticProvider;
+export default StatisticProvider
