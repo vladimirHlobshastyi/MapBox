@@ -18,8 +18,8 @@ const StatisticProvider = ({ children }: StatistiProviderPropTypes) => {
       const response = await getLatestStatistic();
      
       if (response.message==="The data were fetched successfully.") {
-        const res = response.data
-       setStatsResponse(res);
+        const responsStats = response.data
+       setStatsResponse(responsStats);
             
       }
 
@@ -34,15 +34,18 @@ const StatisticProvider = ({ children }: StatistiProviderPropTypes) => {
     }
   };
 
+  const setStats = ()=>{let {stats} = statsResponse
+  let statsData =  Object.entries(stats) 
+  setStatsData(statsData)  }
+
   useEffect(() => {
     getStatistic()
   }, []);
 
   useEffect(() => {
     if(statsResponse.stats){
-    let {stats} = statsResponse
-        let test =  Object.entries(stats) 
-        setStatsData(test)
+    setStats() 
+
     }
   }, [statsResponse]);
 
