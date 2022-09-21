@@ -1,31 +1,53 @@
 .Container {
-    width: 50%;
+
     display: flex;
+    justify-content: space-between;
     font-family: 'Digital-Italic';
     color: rgb(255, 255, 255);
-}
-
-.Value {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     width: 40%;
-    margin-right: 10px;
-    font-family: 'Digital-Bold-Italic';
-    font-size: 60px;
-    color: rgb(255, 242, 0);
+    height: 10%;
 }
 
-.InfoContent {
-    width: 60%;
+.leftWrapper {
+    display: flex;
+
+}
+
+.leftWrapperSvg {
+    width: 35px;
+    background: rgba(183, 183, 183, 0.346);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftWrapperSvg img {
+
+    width: 80%;
+}
+
+.leftWrapperValue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.rightWrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-
+    align-items: flex-end;
 }
 
-.InfoContentUa {
+
+
+
+
+
+
+.rightWrapperInfoContentUa {
     font-family: Strict;
     font-size: 150%;
     color: rgb(255, 242, 0);

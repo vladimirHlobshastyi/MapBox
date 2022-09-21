@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import style from './Info.module.css';
 import { InfoDate } from './InfoDate';
-
+import logo from './tank.png';
 
 const Info: FC<{
   value: number,
@@ -11,15 +11,20 @@ const Info: FC<{
 
   return (
     <div className={style.Container}>
-      <div className={style.Value}>
-        {isUnits()}
-        {value}
+      <div className={style.leftWrapper}>
+        <div className={style.leftWrapperSvg}>
+          <img src={logo} alt="logo"></img>
+        </div>
+        <div className={style.leftWrapperValue}>
+          {isUnits()}
+          {value}
+        </div>
       </div>
-      <div className={style.InfoContent}>
-        <div className={style.InfoContentUa}>
+      <div className={style.rightWrapper}>
+        <div className={style.rightWrapperInfoContentUa}>
           <span>{InfoDate[name].ua.toUpperCase()}</span>
         </div>
-        <div className={style.InfoContentEn}>
+        <div className={style.rightWrapperInfoContentEn}>
           <span>{InfoDate[name].en.toUpperCase()}</span>
         </div>
       </div>

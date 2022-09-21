@@ -27,10 +27,6 @@ const StatisticProvider = ({ children }: StatistiProviderPropTypes) => {
       if (response.message === "The data were fetched successfully.") {
         const responsStats = response.data
         setStatsResponse(responsStats)
-
-
-
-        
       }
     } catch (err) {
       if (err instanceof Error) {

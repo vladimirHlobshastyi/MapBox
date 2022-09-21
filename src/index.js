@@ -13,8 +13,7 @@ import Statistic from './pages/Statistic/Statistic';
 import StatisticProvider from './providers/StatisticProvider';
 
 Sentry.init({
-  dsn:
-    'https://e6eae306749841d6a876eabb04f947b1@o1356833.ingest.sentry.io/6642623',
+  dsn: 'https://e6eae306749841d6a876eabb04f947b1@o1356833.ingest.sentry.io/6642623',
   integrations: [new BrowserTracing()],
 
   // Set tracesSampleRate to 1.0 to capture 100%
@@ -27,13 +26,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   /* <React.StrictMode> */
-  /* <AlertProvider>
-      <Sentry.ErrorBoundary
-        fallback={<ErrorComponent typeError={'technical'} />}
-      >
-        <AlarmsMap />
-      </Sentry.ErrorBoundary>
-    </AlertProvider> */
+  /*   <AlertProvider>
+    <Sentry.ErrorBoundary fallback={<ErrorComponent typeError={'technical'} />}>
+      <AlarmsMap />
+    </Sentry.ErrorBoundary>
+  </AlertProvider> */
   <StatisticProvider>
     <Statistic />
   </StatisticProvider>
