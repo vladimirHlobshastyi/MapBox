@@ -7,9 +7,10 @@ import Loader from '../../components/Loader';
 import { statistikData } from '../../providers/StatistikProvider.types';
 
 const Statistika: FC<{}> = (): JSX.Element => {
-  const { stats, date } = useContext(StatistikContext);
+  const { stats, date, statsArray } = useContext(StatistikContext);
   debugger;
-
+  const test = stats ? Object.entries(stats) : null;
+  console.log(test);
   if (!date) {
     return <Loader />;
   }
@@ -34,11 +35,11 @@ const Statistika: FC<{}> = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className={style.Content}>
-        {Object.keys(stats).map((it: statistikData) => {
-          return <Info name={it} value={stats[it]} key={it} />;
-        })}
-      </div>
+      <div className={style.Content}>{
+        statsArray?.map((it)=>{
+          return <Info value={it[1]} name={it[0]}/>
+        })
+      }</div>
     </div>
   );
 };

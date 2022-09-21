@@ -8,6 +8,7 @@ export type StatistikDataType = {
   resource: string,
   stats: StatistikProps,
   increase: StatistikProps,
+  statsArray: [string, number][],
 };
 
 export type StatistiProviderPropTypes = {
@@ -43,3 +44,5 @@ export type statistikData =
   | 'uav_systems'
   | 'special_military_equip'
   | 'atgm_srbm_systems';
+
+export type statsArrayTypes = [statistikData, number][];

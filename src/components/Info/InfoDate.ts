@@ -24,7 +24,13 @@ export type InfoDateTypes = {
   atgm_srbm_systems: { ua: 'установок отрк/трк', en: 'atgm/srbm systems' },
 };
 
-export const InfoDate = {
+export type InfoForDate = {
+  [key: string]: {
+    [key: string]: string,
+  },
+};
+
+export const InfoDate: InfoForDate = {
   personnel_units: { ua: 'особового складу', en: 'personnel units' },
   tanks: { ua: 'танків', en: 'tanks' },
   armoured_fighting_vehicles: {

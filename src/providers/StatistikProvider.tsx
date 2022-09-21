@@ -2,15 +2,12 @@ import React, { createContext, useState, useEffect } from 'react';
 import { getLatestStatistik } from '../api/getLatestStatistik';
 import { StatistikDataType, StatistiProviderPropTypes } from './StatistikProvider.types';
 
-
-
 export const StatistikContext = createContext({} as StatistikDataType);
 
-
 const StatistikProvider = ({ children }: StatistiProviderPropTypes) => {
-  const [lossesІtatistik, setLossesІtatistik] = useState<StatistikDataType>({}as StatistikDataType);
+  const [lossesStatistics, setLossesStatistics] = useState<StatistikDataType>({}as StatistikDataType);
   const [errorMessage, setErrorMessage] = useState<string>('');
-
+  const [statsArray, setStatsArray] = useState<[string, number][]>([]as [string, number][]);
 
   const getStatistik = async () => { 
     try {
@@ -21,7 +18,7 @@ const StatistikProvider = ({ children }: StatistiProviderPropTypes) => {
      
       if (response.message==="The data were fetched successfully.") {
         const res = response.data
-        setLossesІtatistik(res);
+       setLossesStatistics(res);
             
       }
 
@@ -40,9 +37,20 @@ const StatistikProvider = ({ children }: StatistiProviderPropTypes) => {
     getStatistik()
   }, []);
 
+  useEffect(() => {
+    if(lossesStatistics.stats){
+    let {stats} = lossesStatistics
+        let test =  Object.entries(stats) 
+        setStatsArray(test)
+       
+ 
+     
+  }
+  }, [lossesStatistics]);
+
   return (
     <StatistikContext.Provider
-      value={{...lossesІtatistik}}
+      value={{...lossesStatistics,statsArray}}
     >
       {children}
     </StatistikContext.Provider>

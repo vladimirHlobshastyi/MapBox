@@ -6,7 +6,7 @@ import { InfoDate } from './InfoDate';
 
 const Info: FC<{
   value: number,
-  name: statistikData,
+  name: string,
 }> = ({ value, name }): JSX.Element => {
   const isUnits = () => (name === 'personnel_units' ? <span>~</span> : <></>);
 
