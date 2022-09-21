@@ -8,8 +8,9 @@ import './index.css';
 /* import AlertProvider from './providers/AlertProvider.tsx';
 import AlarmsMap from './pages/AlarmsMap';
 import ErrorComponent from './components/ErrorComponent/ErrorComponent'; */
-import Statistika from './pages/Statistika/Statistika';
-import StatistikProvider from './providers/StatistikProvider';
+
+import Statistic from './pages/Statistic/Statistic';
+import StatisticProvider from './providers/StatisticProvider';
 
 Sentry.init({
   dsn:
@@ -26,16 +27,16 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    {/*  <AlertProvider>
+    {/* <AlertProvider>
       <Sentry.ErrorBoundary
         fallback={<ErrorComponent typeError={'technical'} />}
       >
         <AlarmsMap />
       </Sentry.ErrorBoundary>
     </AlertProvider> */}
-    <StatistikProvider>
-      <Statistika />
-    </StatistikProvider>
+    <StatisticProvider>
+      <Statistic />
+    </StatisticProvider>
   </React.StrictMode>
 );
 

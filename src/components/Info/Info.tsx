@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { statistikData } from '../../providers/StatistikProvider.types';
 import style from './Info.module.css';
 import { InfoDate } from './InfoDate';
 
