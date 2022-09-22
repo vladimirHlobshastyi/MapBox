@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import style from './Info.module.css';
 import { InfoDate } from './InfoDate';
-import logo from './tank.png';
 
 const Info: FC<{
   value: number,
@@ -13,7 +12,7 @@ const Info: FC<{
     <div className={style.Container}>
       <div className={style.leftWrapper}>
         <div className={style.leftWrapperSvg}>
-          <img src={logo} alt="logo"></img>
+          <img src={InfoDate[name].png} alt="logo"></img>
         </div>
         <div className={style.leftWrapperValue}>
           {isUnits()}

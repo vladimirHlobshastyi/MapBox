@@ -11,6 +11,7 @@
     font-family: 'Digital-Italic';
     padding: 30px 0;
     color: rgb(255, 255, 255);
+    width: 100%;
 
 }
 
@@ -18,10 +19,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 10px;
     font-family: 'Strict';
     cursor: pointer;
-    width: 150px;
+    width: 50%;
     height: 150px;
 }
 
@@ -43,6 +43,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: 50%;
 }
 
 .HeaderInfoH h2 {

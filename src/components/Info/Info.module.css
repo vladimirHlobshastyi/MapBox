@@ -1,29 +1,39 @@
 .Container {
-
     display: flex;
     justify-content: space-between;
     font-family: 'Digital-Italic';
     color: rgb(255, 255, 255);
     width: 40%;
     height: 10%;
+    padding: 30px;
+    border: 1px solid grey;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    box-shadow: rgba(161, 165, 104, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
 }
 
 .leftWrapper {
     display: flex;
-
+    font-size: 2em;
+    display: flex;
+    align-items: center;
 }
 
 .leftWrapperSvg {
-    width: 35px;
-    background: rgba(183, 183, 183, 0.346);
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: rgba(161, 165, 104, 0.25);
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .leftWrapperSvg img {
-
+    max-width: 50px;
+    max-height: 45px;
+    object-fit: scale-down;
     width: 80%;
 }
 
@@ -31,6 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100px;
 }
 
 
@@ -41,14 +52,8 @@
     align-items: flex-end;
 }
 
-
-
-
-
-
-
 .rightWrapperInfoContentUa {
     font-family: Strict;
-    font-size: 150%;
+    font-size: 1.5em;
     color: rgb(255, 242, 0);
 }
