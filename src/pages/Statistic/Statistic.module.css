@@ -2,6 +2,7 @@
     background-image: url('./img/bg_image.png');
     width: 100%;
     height: 100%;
+    background-color: #363e40;
 }
 
 .Header {
@@ -36,7 +37,7 @@
 
 .HeaderEmblem img:hover {
     width: 150px;
-    cursor: pointer;
+
 }
 
 .HeaderInfo {
@@ -49,7 +50,7 @@
 .HeaderInfoH h2 {
     display: flex;
     justify-content: center;
-
+    font-size: 1.5em;
 }
 
 .HeaderInfoH h1 {
@@ -57,6 +58,7 @@
     justify-content: center;
     font-size: 45px;
     font-family: 'Roboto';
+    font-size: 2.8em;
     margin: 10px 0;
 
 }
@@ -72,6 +74,7 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
+    /*   font-size: 1.5em; */
     margin: 2.5px 0;
 }
 
@@ -86,4 +89,49 @@
     justify-content: space-around;
     width: 100%;
     height: 70%;
+}
+
+
+@media(max-width:1023px) {
+
+    .Container {
+        font-size: 12px;
+    }
+
+    .Content {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+@media(max-width:768px) {
+
+    .Container {
+        font-size: 8px;
+    }
+
+    .HeaderInfoH h2 {
+        font-size: 1em;
+    }
+
+    .HeaderInfoH h1 {
+        font-size: 2em;
+    }
+
+    .HeaderEmblem {
+        height: auto;
+    }
+
+    .HeaderEmblem img {
+        width: 80px;
+
+    }
+
+    .Content {
+        height: 75%;
+
+    }
 }

@@ -22,12 +22,12 @@ export const InfoDate: InfoForDate = {
   },
   tanks: { ua: 'танків', en: 'tanks', png: tankPng },
   armoured_fighting_vehicles: {
-    ua: 'бойових броньованих машин',
+    ua: 'броньованих машин',
     en: 'armoured fighting vehicles',
     png: armouredPng,
   },
   artillery_systems: {
-    ua: 'артилерійських систем/рсзв',
+    ua: 'артилерії та рсзв',
     en: '  artillery systems',
     png: artillery_systemsPng,
   },
@@ -40,7 +40,7 @@ export const InfoDate: InfoForDate = {
   planes: { ua: 'літаків', en: 'planes', png: planesPng },
   helicopters: { ua: 'гелікоптерів', en: 'helicopters', png: helicoptersPng },
   vehicles_fuel_tanks: {
-    ua: 'автотехніки та автоцистерн',
+    ua: 'автоцистерни',
     en: 'vehicles fuel tanks',
     png: vehicles_fuel_tanksPng,
   },
@@ -55,7 +55,7 @@ export const InfoDate: InfoForDate = {
     png: cruise_missilesPng,
   },
   uav_systems: {
-    ua: 'оперативно-тактичні бпла',
+    ua: 'бпла',
     en: 'uav systems',
     png: uav_systemsPng,
   },
