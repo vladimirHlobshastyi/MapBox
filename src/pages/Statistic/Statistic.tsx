@@ -7,6 +7,7 @@ import Loader from '../../components/Loader';
 
 const Statistic: FC<{}> = (): JSX.Element => {
   const { date, statsData } = useContext(StatisticContext);
+  let reverseDate = date.split('-').reverse().join('-');
 
   if (!date) {
     return <Loader />;
@@ -26,14 +27,14 @@ const Statistic: FC<{}> = (): JSX.Element => {
           </div>
           <div className={style.HeaderInfoSpan}>
             <span>
-              ПРОТЯГОМ 24.02-<h2>{date}</h2>
+              ПРОТЯГОМ 24.02-<h2>{reverseDate}</h2>
             </span>
             <span>ОРІЄНТОВНІ ВТРАТИ ПРОТИВНИКА СКЛАЛИ:</span>
           </div>
         </div>
       </div>
       <div className={style.Content}>
-        {statsData?.map(statsValue => {
+        {statsData?.map((statsValue) => {
           return (
             <Info
               value={statsValue[1]}

@@ -21,7 +21,7 @@ body {
 }
 
 .errorContainer h2 {
-  color: black;
+  color: rgb(0, 0, 0);
   font-size: medium;
   margin-top: 50px;
 }
