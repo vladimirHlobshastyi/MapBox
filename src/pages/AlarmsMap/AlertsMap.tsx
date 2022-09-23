@@ -9,7 +9,7 @@ import LastUpdate from '../../components/LastUpdate/LastUpdate';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import style from './AlertsMap.module.css';
 import { Helmet } from 'react-helmet';
-import Loader from '../../components/Loader';
+import IosLoader from '../../components/IosLoader';
 import Button from '../../components/Button/Button';
 
 export const AlertsMap = () => {
@@ -49,7 +49,7 @@ export const AlertsMap = () => {
   }, []);
 
   if (isIOS) {
-    return <Loader />;
+    return <IosLoader />;
   }
 
   return (

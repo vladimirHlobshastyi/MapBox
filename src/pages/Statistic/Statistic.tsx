@@ -7,11 +7,12 @@ import Loader from '../../components/Loader';
 
 const Statistic: FC<{}> = (): JSX.Element => {
   const { date, statsData } = useContext(StatisticContext);
-  let reverseDate = date.split('-').reverse().join('-');
+  let reverseDate = date?.split('-').reverse().join('-');
 
   if (!date) {
     return <Loader />;
   }
+
   return (
     <div className={style.Container}>
       <div className={style.Header}>
