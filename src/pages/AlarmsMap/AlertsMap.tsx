@@ -40,7 +40,6 @@ export const AlertsMap = () => {
 
   const myRef = React.useRef<HTMLDivElement>(null);
 
-
   useEffect(() => {
     if (isIPhone) {
       setIsIOS(true);
@@ -77,15 +76,15 @@ export const AlertsMap = () => {
         <AlertsInRegionsLayer alertsRegions={alerts} />
         <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
         <div className={style.screenshot}>
-          <Button refProp={myRef} date={lastUpdate} />
+          <Button refProp={myRef} />
         </div>
         <NavigationControl
           showCompass={false}
           showZoom={true}
-          position={`${window.innerWidth > 450 ?  'bottom-right':'top-right'}`}
+          position={`${window.innerWidth > 450 ? 'bottom-right' : 'top-right'}`}
           visualizePitch={true}
           style={{
-            position: 'inherit', 
+            position: 'inherit',
             top: `${window.innerWidth < 450 ? '100px' : ''}`,
             bottom: `${window.innerWidth < 450 ? '' : '25px'}`,
             right: `${window.innerWidth < 411 ? '16px' : '40px'}`,

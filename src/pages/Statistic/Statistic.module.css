@@ -26,10 +26,10 @@
     height: 150px;
 }
 
-.HeaderEmblem:hover {
+/* .HeaderEmblem:hover {
     cursor: pointer;
 }
-
+ */
 
 .HeaderEmblem img {
     width: 140px;
@@ -37,7 +37,7 @@
 
 .HeaderEmblem img:hover {
     width: 150px;
-
+    cursor: pointer;
 }
 
 .HeaderInfo {
@@ -134,4 +134,10 @@
         height: 75%;
 
     }
+}
+
+.test {
+    position: absolute;
+    bottom: 55px;
+    left: 0
 }

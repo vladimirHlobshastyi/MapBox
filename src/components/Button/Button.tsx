@@ -4,10 +4,10 @@ import style from './Button.module.css';
 import { ButtonPropsTypes } from './Button.types';
 import screenshot from './screenshot.png';
 
-const Button: FC<ButtonPropsTypes> = ({ refProp, date }) => {
+const Button: FC<ButtonPropsTypes> = ({ refProp }) => {
 
   return (
-    <div className={style.Container} onClick={useScreenshot(refProp, date)}>
+    <div className={style.Container} onClick={useScreenshot(refProp)}>
       <img src={screenshot} alt="Button" />
     </div>
   );
