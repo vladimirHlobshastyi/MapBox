@@ -19,7 +19,7 @@ const Statistic: FC<{}> = (): JSX.Element => {
     <div className={style.BackgroundContainerImage}>
       <div className={style.ContainerWrapper}>
         <div className={style.ButtonContainer}>
-          <Button refProp={myRef} />
+          <Button refProp={myRef} isStatistic={true} />
         </div>
         <div className={style.ContainerRef} ref={myRef}>
           <div className={style.Header}>

@@ -151,6 +151,6 @@
 
 .ButtonContainer {
     position: absolute;
-    bottom: 55px;
-    left: 0
+    top: -55px;
+    left: 5px
 }

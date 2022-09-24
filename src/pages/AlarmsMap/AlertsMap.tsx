@@ -77,7 +77,7 @@ export const AlertsMap = () => {
           <AlertsInRegionsLayer alertsRegions={alerts} />
           <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
           <div className={style.screenshot}>
-            <Button refProp={myRef} />
+            <Button refProp={myRef} isStatistic={false} />
           </div>
           <NavigationControl
             showCompass={false}
