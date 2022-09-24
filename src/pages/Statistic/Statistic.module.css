@@ -1,0 +1,156 @@
+.BackgroundContainerImage {
+    width: 100%;
+    height: 100%;
+    background-color: #363e40;
+    z-index: 22;
+    background-image: url('./img/bg_image.png');
+}
+
+.ContainerWrapper {
+    position: relative;
+    width: 100%;
+    height: 92vh;
+    top: 8vh
+}
+
+
+.ContainerRef {
+    width: 100%;
+    height: 100%;
+    background-color: #363e40;
+    background-image: url('./img/bg_image.png');
+    z-index: 2;
+}
+
+.Header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Digital-Italic';
+    padding: 30px 0;
+    color: rgb(255, 255, 255);
+    width: 100%;
+
+}
+
+.HeaderEmblem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Strict';
+    cursor: pointer;
+    width: 50%;
+    height: 150px;
+}
+
+
+.HeaderEmblem img {
+    width: 140px;
+}
+
+.HeaderEmblem img:hover {
+    width: 150px;
+    cursor: pointer;
+}
+
+.HeaderInfo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.HeaderInfoH h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+.HeaderInfoH h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 45px;
+    font-family: 'Roboto';
+    font-size: 2.8em;
+    margin: 10px 0;
+
+}
+
+.HeaderInfoSpan {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.HeaderInfoSpan span {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    /*   font-size: 1.5em; */
+    margin: 2.5px 0;
+}
+
+.HeaderInfoSpan h2 {
+    color: rgb(255, 242, 0);
+
+}
+
+.Content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    height: 70%;
+}
+
+
+@media(max-width:1023px) {
+
+    .Container {
+        font-size: 12px;
+    }
+
+    .Content {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+@media(max-width:768px) {
+
+    .Container {
+        font-size: 8px;
+    }
+
+    .HeaderInfoH h2 {
+        font-size: 1em;
+    }
+
+    .HeaderInfoH h1 {
+        font-size: 2em;
+    }
+
+    .HeaderEmblem {
+        height: auto;
+    }
+
+    .HeaderEmblem img {
+        width: 80px;
+
+    }
+
+    .Content {
+        height: 75%;
+
+    }
+}
+
+.ButtonContainer {
+    position: absolute;
+    top: -55px;
+    left: 5px
+}

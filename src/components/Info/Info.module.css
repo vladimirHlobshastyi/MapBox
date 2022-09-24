@@ -1,0 +1,124 @@
+.Container {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Digital-Italic';
+    color: rgb(255, 255, 255);
+    width: 40%;
+    height: 10%;
+    padding: 30px;
+    border: 1px solid #8b8b8b;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    box-shadow: rgba(161, 165, 104, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+}
+
+.leftWrapper {
+    display: flex;
+    /*  font-size: 1em; */
+    display: flex;
+    align-items: center;
+}
+
+.leftWrapperSvg {
+    width: 50px;
+    height: 50px;
+    background: rgba(161, 165, 104, 0.25);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftWrapperSvg img {
+    max-width: 50px;
+    max-height: 45px;
+    object-fit: scale-down;
+    width: 80%;
+}
+
+.leftWrapperValue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    /* font-size: 2.08vw; */
+    font-size: 2em;
+}
+
+
+.rightWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.rightWrapperInfoContentUa {
+    font-family: Strict;
+    font-size: 1.5em;
+    /*     font-size: 1.56vw; */
+    color: rgb(255, 242, 0);
+}
+
+.rightWrapperInfoContentEn {
+    /*     font-size: 1.28vw; */
+    font-size: 1.2em;
+}
+
+
+@media(max-width:1024px) {
+    .Container {
+        font-size: 13px;
+    }
+
+}
+
+@media(max-width:768px) {
+    .Container {
+        font-size: 10px;
+        justify-content: center;
+        width: 80vw;
+        height: 5vh;
+        padding: 0;
+
+    }
+
+    .leftWrapper {
+        width: 55%;
+        justify-content: flex-end;
+        padding-right: 5px;
+    }
+
+    .leftWrapperValue {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .leftWrapperSvg {
+        max-width: 20px;
+        max-height: 20px;
+        margin-left: 10px;
+        order: 2;
+    }
+
+    .leftWrapperSvg img {
+        max-height: 15px;
+
+    }
+
+    .rightWrapper {
+        width: 45%;
+        align-items: flex-start;
+        padding-left: 5px;
+    }
+
+    .rightWrapperInfoContentUa {
+
+        font-size: 1.2em;
+    }
+
+    .rightWrapperInfoContentEn {
+        font-size: 1em;
+    }
+}

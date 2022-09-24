@@ -1,0 +1,61 @@
+.NavbarContainer {
+    height: 8vh;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    border-radius: 9px;
+    border: 1px solid #ffcd00;
+}
+
+.navElContainer {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.navEl {
+
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+
+}
+
+.navEl a {
+    padding: 10px;
+    font-family: system-ui;
+    text-decoration: none;
+    color: rgb(255, 255, 0);
+    text-shadow: #76797e 0.9px 0.9px 1px;
+}
+
+.navEl a:hover {
+    border-radius: 5px;
+    box-shadow: rgba(161, 165, 104, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.NavbarLogo {
+    width: 10%;
+    height: 100%;
+}
+
+.NavbarLogo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+@media(max-width:1300px) {
+    .NavbarLogo {
+        margin-left: 5%;
+    }
+
+}

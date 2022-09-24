@@ -9,7 +9,7 @@ import LastUpdate from '../../components/LastUpdate/LastUpdate';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import style from './AlertsMap.module.css';
 import { Helmet } from 'react-helmet';
-import Loader from '../../components/Loader';
+import IosLoader from '../../components/IosLoader';
 import Button from '../../components/Button/Button';
 
 export const AlertsMap = () => {
@@ -40,7 +40,6 @@ export const AlertsMap = () => {
 
   const myRef = React.useRef<HTMLDivElement>(null);
 
-
   useEffect(() => {
     if (isIPhone) {
       setIsIOS(true);
@@ -49,49 +48,53 @@ export const AlertsMap = () => {
   }, []);
 
   if (isIOS) {
-    return <Loader />;
+    return <IosLoader />;
   }
 
   return (
-    <div className={style.Container} ref={myRef}>
-      <LastUpdate date={lastUpdate} />
-      <Legend />
-      <Map
-        mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        initialViewState={{
-          longitude: 31,
-          latitude: 48.5,
-          zoom: resizeZoom(),
-        }}
-        cooperativeGestures={true}
-        interactive={true}
-        maxZoom={6.5}
-        minZoom={3.4}
-        maxBounds={[
-          [10, 28], // [west, south]
-          [50, 60], // [east, north]
-        ]}
-        preserveDrawingBuffer={true}
-        mapStyle={process.env.REACT_APP_MAP_STYLE}
-      >
-        <AlertsInRegionsLayer alertsRegions={alerts} />
-        <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
-        <div className={style.screenshot}>
-          <Button refProp={myRef} date={lastUpdate} />
-        </div>
-        <NavigationControl
-          showCompass={false}
-          showZoom={true}
-          position={`${window.innerWidth > 450 ?  'bottom-right':'top-right'}`}
-          visualizePitch={true}
-          style={{
-            position: 'inherit', 
-            top: `${window.innerWidth < 450 ? '100px' : ''}`,
-            bottom: `${window.innerWidth < 450 ? '' : '25px'}`,
-            right: `${window.innerWidth < 411 ? '16px' : '40px'}`,
+    <div className={style.Container}>
+      <div className={style.ContainerWrapper} ref={myRef}>
+        <LastUpdate date={lastUpdate} />
+        <Legend />
+        <Map
+          mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+          initialViewState={{
+            longitude: 31,
+            latitude: 48.5,
+            zoom: resizeZoom(),
           }}
-        />
-      </Map>
+          cooperativeGestures={true}
+          interactive={true}
+          maxZoom={6.5}
+          minZoom={3.4}
+          maxBounds={[
+            [10, 28], // [west, south]
+            [50, 60], // [east, north]
+          ]}
+          preserveDrawingBuffer={true}
+          mapStyle={process.env.REACT_APP_MAP_STYLE}
+        >
+          <AlertsInRegionsLayer alertsRegions={alerts} />
+          <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
+          <div className={style.screenshot}>
+            <Button refProp={myRef} isStatistic={false} />
+          </div>
+          <NavigationControl
+            showCompass={false}
+            showZoom={true}
+            position={`${
+              window.innerWidth > 450 ? 'bottom-right' : 'top-right'
+            }`}
+            visualizePitch={true}
+            style={{
+              position: 'inherit',
+              top: `${window.innerWidth < 450 ? '100px' : ''}`,
+              bottom: `${window.innerWidth < 450 ? '' : '25px'}`,
+              right: `${window.innerWidth < 411 ? '16px' : '40px'}`,
+            }}
+          />
+        </Map>
+      </div>
     </div>
   );
 };

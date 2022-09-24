@@ -24,6 +24,7 @@
     "react-helmet": "^6.1.0",
     "react-ios-pwa-prompt": "^1.8.4",
     "react-map-gl": "^7.0.19",
+    "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
     "typescript": "^4.8.3",
     "web-vitals": "^3.0.1",
@@ -91,10 +92,9 @@
     "webpack": "^5.74.0"
   },
   "lint-staged": {
-    "*.{js, jsx, css, ts, tsx}": [
+    "src/**/*.js": [
       "node_modules/.bin/eslint --max-warnings=0",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   }
 }

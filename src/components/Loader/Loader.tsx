@@ -1,15 +1,17 @@
 import React from 'react';
-import style from './Loader.module.css';
-import logo from './logo512.png';
+import './Loader.css';
 
 const Loader = () => {
   return (
-    <div className={style.LoaderContainer}>
-      <div className={style.logo}>
-        <img src={logo} alt="logo" />
-      </div>
-      <div className={style.title}>
-        <span>Карта повітрянних тривог України</span>
+    <div className="loaderContainer">
+      <div className="loaderWrapper">
+        <div className="text">Зачекайте...</div>
+        <div className={'lds-ring'}>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     </div>
   );

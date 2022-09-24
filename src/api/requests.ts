@@ -1,6 +1,6 @@
 const headers = {
   'X-API-Key': process.env.REACT_APP_ALERTS_API_KEY || '',
-}
+};
 
 export const fetchAlerts = async () => {
   try {
@@ -14,4 +14,3 @@ export const fetchAlerts = async () => {
     throw new Error('Failed to fetch all regions');
   }
 };
-
