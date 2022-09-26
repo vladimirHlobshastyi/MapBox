@@ -20,8 +20,8 @@ const Statistic: FC<{}> = (): JSX.Element => {
       <div className={style.ButtonContainer}>
         <Button refProp={myRef} isStatistic={true} />
       </div>
-      <div className={style.ContainerWrapper}>
-        <div className={style.screenshotForStatistic} ref={myRef}>
+      <div className={style.ContainerWrapper} ref={myRef}>
+        <div className={style.screenshotForStatistic}>
           <div className={style.Header}>
             <div className={style.HeaderEmblem}>
               <a href="https://www.mil.gov.ua">
