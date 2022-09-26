@@ -16,6 +16,7 @@
     height: 100%;
     background-color: #363e40;
     background-image: url('./img/bg_image.png');
+    z-index: 22;
 }
 
 
@@ -46,7 +47,7 @@
 
 .HeaderEmblem img:hover {
     width: 150px;
-    
+
 }
 
 .HeaderInfo {
@@ -155,7 +156,7 @@
 
 @media(max-width:375px) {
     .Header {
-        padding: 15px 0;
+        padding: 1px 0;
     }
 
     .ContainerWrapper {
@@ -163,7 +164,7 @@
     }
 
     .Content {
-        height: 80%;
+        height: 78%;
 
     }
 }
