@@ -1,4 +1,4 @@
-import {  toPng } from 'html-to-image';
+import { toJpeg } from 'html-to-image';
 import { RefObject, useCallback } from 'react';
 
 const useScreenshot = (
@@ -10,7 +10,7 @@ const useScreenshot = (
       return;
     }
 
-    toPng(myRef.current, { cacheBust: true })
+    toJpeg(myRef.current, { cacheBust: true })
       .then((dataUrl) => {
         const link = document.createElement('a');
         link.download = isStatistic
