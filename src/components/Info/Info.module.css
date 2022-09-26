@@ -76,7 +76,7 @@
 
 @media(max-width:768px) {
     .Container {
-        font-size: 10px;
+        font-size: 9px;
         justify-content: center;
         width: 80vw;
         height: 5vh;
@@ -103,7 +103,7 @@
     }
 
     .leftWrapperSvg img {
-        max-height: 15px;
+        max-height: 18px;
 
     }
 
@@ -120,5 +120,11 @@
 
     .rightWrapperInfoContentEn {
         font-size: 1em;
+    }
+}
+
+@media(max-width:375px) {
+    .Container {
+        font-size: 7px;
     }
 }
