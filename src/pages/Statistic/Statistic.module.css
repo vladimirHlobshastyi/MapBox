@@ -1,16 +1,21 @@
-.BackgroundContainerImage {
-    width: 100%;
-    height: 100%;
+.NavbarBackgroundImage {
     background-color: #363e40;
-    z-index: 22;
     background-image: url('./img/bg_image.png');
+}
+
+.ContainerWrapper {
+    position: relative;
+    width: 100%;
+    height: 92vh;
+    top: 8vh;
 }
 
 .screenshotForStatistic {
     position: relative;
     width: 100%;
-    height: 92vh;
-    top: 8vh
+    height: 100%;
+    background-color: #363e40;
+    background-image: url('./img/bg_image.png');
 }
 
 
@@ -29,7 +34,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Strict';
     cursor: pointer;
     width: 50%;
     height: 150px;
@@ -42,7 +46,7 @@
 
 .HeaderEmblem img:hover {
     width: 150px;
-    cursor: pointer;
+    
 }
 
 .HeaderInfo {
@@ -145,6 +149,7 @@
     position: absolute;
     bottom: 60px;
     left: 5px;
+    z-index: 23;
 
 }
 
