@@ -35,7 +35,6 @@ root.render(
           <Routes>
             <Route path="/" element={<AlarmsMap />} />
             <Route path="/statisctic" element={<Statistic />} />
-            <Route path="*" element={<div>NOT FOUND</div>} />
           </Routes>
         </BrowserRouter>
       </StatisticProvider>

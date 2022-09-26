@@ -9,7 +9,7 @@ const Button: FC<ButtonPropsTypes> = ({ refProp, isStatistic }) => {
   return (
     <div
       className={isStatistic ? style.ContainerStatistic : style.ContainerMap}
-      onClick={useScreenshot(refProp)}
+      onClick={useScreenshot(refProp,isStatistic)}
     >
       <img
         src={isStatistic ? screenshotForStatistic : screenshot}
