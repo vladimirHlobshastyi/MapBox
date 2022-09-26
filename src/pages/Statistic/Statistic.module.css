@@ -131,9 +131,6 @@
         font-size: 2em;
     }
 
-    .HeaderEmblem {
-        height: auto;
-    }
 
     .HeaderEmblem img {
         width: 70px;
@@ -156,11 +153,11 @@
 
 @media(max-width:375px) {
     .Header {
-        padding: 1px 0;
+        padding: 5px 0;
     }
 
     .HeaderInfoH h1 {
-        margin: 10px 0;
+        margin: 5px 0;
     }
 
     .ContainerWrapper {

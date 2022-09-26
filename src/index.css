@@ -20,6 +20,11 @@
   src: url('./fonts/digital/Attentica 4F UltraLight.otf');
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/digital/Roboto.ttf');
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
