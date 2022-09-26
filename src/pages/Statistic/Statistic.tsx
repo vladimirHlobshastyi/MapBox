@@ -17,11 +17,11 @@ const Statistic: FC<{}> = (): JSX.Element => {
 
   return (
     <div className={style.BackgroundContainerImage}>
+      <div className={style.ButtonContainer}>
+        <Button refProp={myRef} isStatistic={true} />
+      </div>
       <div className={style.ContainerWrapper}>
-        <div className={style.ButtonContainer}>
-          <Button refProp={myRef} isStatistic={true} />
-        </div>
-        <div className={style.ContainerRef} ref={myRef}>
+        <div className={style.screenshotForStatistic} ref={myRef}>
           <div className={style.Header}>
             <div className={style.HeaderEmblem}>
               <a href="https://www.mil.gov.ua">

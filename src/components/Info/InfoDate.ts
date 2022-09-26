@@ -3,7 +3,7 @@ import unitPng from './png/unit.png';
 import tankPng from './png/tank.png';
 import armouredPng from './png/armoured_fighting_vehicles.png';
 import artillery_systemsPng from './png/artillery_systems.png';
-import mlrsPng from './png/artillery_systems.png';
+import mlrsPng from './png/otrk.png';
 import aa_warfare_systemsPng from './png/aa_warfare_systems.png';
 import planesPng from './png/airplane.png';
 import helicoptersPng from './png/helicopter.png';
@@ -27,7 +27,7 @@ export const InfoDate: InfoForDate = {
     png: armouredPng,
   },
   artillery_systems: {
-    ua: 'артилерії та рсзв',
+    ua: 'артилерії',
     en: '  artillery systems',
     png: artillery_systemsPng,
   },

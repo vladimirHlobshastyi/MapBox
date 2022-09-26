@@ -8,7 +8,7 @@ import screenshotForStatistic from './screenshotForStatistic.png';
 const Button: FC<ButtonPropsTypes> = ({ refProp, isStatistic }) => {
   return (
     <div
-      className={isStatistic ? style.Container2 : style.Container}
+      className={isStatistic ? style.ContainerStatistic : style.ContainerMap}
       onClick={useScreenshot(refProp)}
     >
       <img
