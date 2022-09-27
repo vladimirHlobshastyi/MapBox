@@ -34,7 +34,7 @@ export const InfoDate: InfoForDate = {
   mlrs: { ua: 'рсзв', en: 'mlrs', png: mlrsPng },
   aa_warfare_systems: {
     ua: 'засоби ппо',
-    en: 'anti-aircraft warfare systems',
+    en: 'anti-aircraft warfare sts.',
     png: aa_warfare_systemsPng,
   },
   planes: { ua: 'літаків', en: 'planes', png: planesPng },
