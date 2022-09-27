@@ -46,8 +46,7 @@
 }
 
 .HeaderEmblem img:hover {
-    width: 150px;
-
+    width: calc(100% - 5px)
 }
 
 .HeaderInfo {
@@ -80,11 +79,15 @@
 
 }
 
+.HeaderInfoSpanDate {
+    display: flex;
+    justify-content: center;
+}
+
 .HeaderInfoSpan span {
     display: flex;
     justify-content: center;
     align-items: baseline;
-    /*   font-size: 1.5em; */
     margin: 2.5px 0;
 }
 
@@ -113,6 +116,7 @@
         flex-wrap: nowrap;
         flex-direction: column;
         align-items: center;
+
     }
 }
 
@@ -123,6 +127,12 @@
         font-size: 8px;
     }
 
+    .Header {
+        padding: 15px 0;
+
+
+    }
+
     .HeaderInfoH h2 {
         font-size: 1em;
     }
@@ -131,15 +141,19 @@
         font-size: 2em;
     }
 
+    .HeaderEmblem {
+        height: auto;
+    }
+
 
     .HeaderEmblem img {
-        width: 70px;
+        width: 60px;
 
     }
 
     .Content {
-        height: 75%;
-
+        height: 80%;
+        margin-top: 2.5vh;
     }
 }
 
@@ -154,6 +168,7 @@
 @media(max-width:375px) {
     .Header {
         padding: 10px 0;
+
     }
 
     .HeaderEmblem {
@@ -168,8 +183,5 @@
         font-size: 7px;
     }
 
-    .Content {
-        height: 78%;
-
-    }
+    
 }

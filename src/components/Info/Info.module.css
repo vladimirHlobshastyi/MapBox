@@ -51,6 +51,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
+    white-space: nowrap;
 }
 
 .rightWrapperInfoContentUa {
@@ -75,14 +76,15 @@
     .Container {
         font-size: 9px;
         justify-content: center;
-        width: 80vw;
-        height: 5vh;
+        width: 85vw;
+        height: 4.7vh;
         padding: 0;
-
+        box-shadow: rgb(161 165 104 / 30%) 80px 0px 35px -12px inset, rgb(54, 62, 64, 30%) 0px 90px 0px -12px inset;
+        border: none;
     }
 
     .leftWrapper {
-        width: 55%;
+        width: 50%;
         justify-content: flex-end;
         padding-right: 5px;
     }
@@ -90,17 +92,18 @@
     .leftWrapperValue {
         width: 100%;
         justify-content: flex-end;
+        font-size: 4.5em;
     }
 
     .leftWrapperSvg {
-        max-width: 20px;
-        max-height: 20px;
+        max-width: 30px;
+        max-height: 30px;
         margin-left: 10px;
         order: 2;
     }
 
     .leftWrapperSvg img {
-        max-height: 18px;
+        max-height: 25px;
 
     }
 
@@ -111,17 +114,20 @@
     }
 
     .rightWrapperInfoContentUa {
+        font-size: 1.5em;
 
-        font-size: 1.2em;
+
     }
 
     .rightWrapperInfoContentEn {
-        font-size: 1em;
+        font-size: 1.4em;
+
     }
 }
 
 @media(max-width:375px) {
     .Container {
         font-size: 7px;
+        height: 4.5vh;
     }
 }
