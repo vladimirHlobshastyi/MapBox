@@ -35,8 +35,12 @@ const Statistic: FC<{}> = (): JSX.Element => {
               </div>
               <div className={style.HeaderInfoSpan}>
                 <div className={style.HeaderInfoSpanDate}>
-                  <span>ПРОТЯГОМ 24.02-</span>
-                  <h2>{reverseDate}</h2>
+                  <div className={style.HeaderInfoSpanDateEl}>
+                    <span>ПРОТЯГОМ 24.02-</span>
+                  </div>
+                  <div className={style.HeaderInfoSpanDateEl}>
+                    <h2>{reverseDate}</h2>
+                  </div>
                 </div>
                 <span>ОРІЄНТОВНІ ВТРАТИ ПРОТИВНИКА СКЛАЛИ:</span>
               </div>
