@@ -26,20 +26,23 @@ Sentry.init({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  /* <React.StrictMode> </React.StrictMode> */
-  <AlertProvider>
-    <Sentry.ErrorBoundary fallback={<ErrorComponent typeError={'technical'} />}>
-      <StatisticProvider>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<AlarmsMap />} />
-            <Route path="/statisctic" element={<Statistic />} />
-          </Routes>
-        </BrowserRouter>
-      </StatisticProvider>
-    </Sentry.ErrorBoundary>
-  </AlertProvider>
+  <React.StrictMode>
+    <AlertProvider>
+      <Sentry.ErrorBoundary
+        fallback={<ErrorComponent typeError={'technical'} />}
+      >
+        <StatisticProvider>
+          <BrowserRouter>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<AlarmsMap />} />
+              <Route path="/statisctic" element={<Statistic />} />
+            </Routes>
+          </BrowserRouter>
+        </StatisticProvider>
+      </Sentry.ErrorBoundary>
+    </AlertProvider>
+  </React.StrictMode>
 );
 
 reportWebVitals();
