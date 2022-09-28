@@ -10,7 +10,7 @@
     margin-bottom: 5px;
     border-radius: 15px;
     box-shadow: rgba(161, 165, 104, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-
+    font-size: 16px;
 }
 
 .leftWrapper {
@@ -79,7 +79,7 @@
         width: 85vw;
         height: 4.7vh;
         padding: 0;
-        box-shadow: rgb(161 165 104 / 30%) 80px 0px 35px -12px inset, rgb(54, 62, 64, 30%) 0px 90px 0px -12px inset;
+        box-shadow: rgb(161 165 104 / 30%) 30vw 0px 35px -12px inset, rgb(54, 62, 64, 30%) 0px 90px 0px -12px inset;
         border: none;
     }
 
@@ -123,11 +123,23 @@
         font-size: 1.4em;
 
     }
+
+    .Container {
+        font-size: 7px;
+        height: 4.5vh;
+    }
 }
+
 
 @media(max-width:375px) {
     .Container {
         font-size: 7px;
-        height: 4.5vh;
+        height: 4.3vh;
+    }
+
+    .leftWrapperSvg {
+        max-width: 25px;
+        max-height: 25px;
+        
     }
 }
