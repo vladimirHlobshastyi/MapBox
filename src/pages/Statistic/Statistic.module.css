@@ -84,6 +84,11 @@
     justify-content: center;
 }
 
+.HeaderInfoSpanDateEl {
+    display: flex;
+    align-items: center;
+}
+
 .HeaderInfoSpan span {
     display: flex;
     justify-content: center;
@@ -91,7 +96,7 @@
     margin: 2.5px 0;
 }
 
-.HeaderInfoSpan h2 {
+.HeaderInfoSpanDateEl h2 {
     color: rgb(255, 242, 0);
 
 }

@@ -37,6 +37,7 @@ root.render(
             <Routes>
               <Route path="/" element={<AlarmsMap />} />
               <Route path="/statisctic" element={<Statistic />} />
+              <Route path="*" element={<AlarmsMap />} />
             </Routes>
           </BrowserRouter>
         </StatisticProvider>
