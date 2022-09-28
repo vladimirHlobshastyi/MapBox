@@ -18,6 +18,7 @@ const StatisticProvider = ({ children }: StatistiProviderPropTypes) => {
   )
 
   const getStatistic = async () => {
+    
     try {
       if (errorMessage) {
         setErrorMessage("")
