@@ -11,10 +11,9 @@ const Statistic: FC<{}> = (): JSX.Element => {
   let reverseDate = date?.split('-').reverse().join('-');
   const myRef = React.useRef<HTMLDivElement>(null);
 
-  if (!date) {
+  if (!statsData?.stats) {
     return <Loader />;
   }
-
   return (
     <div className={style.NavbarBackgroundImage}>
       <div className={style.ButtonContainer}>
@@ -47,12 +46,13 @@ const Statistic: FC<{}> = (): JSX.Element => {
             </div>
           </div>
           <div className={style.Content}>
-            {statsData?.map((statsValue) => {
+            {statsData?.stats.map((statsValue, index) => {
               return (
                 <Info
                   value={statsValue[1]}
                   name={statsValue[0]}
                   key={statsValue[0]}
+                  increase={statsData?.increase[index][1]}
                 />
               );
             })}
