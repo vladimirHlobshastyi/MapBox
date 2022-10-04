@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect } from "react"
 import { getLatestStatistic } from "../api/getLatestStatistic"
-
 import {
   StatisticDataType,
-  StatistiProviderPropTypes
+  StatistiProviderPropTypes,
+  statsDataTypes
 } from "./StatisticProvider.types"
 
 export const StatisticContext = createContext({} as StatisticDataType)
@@ -13,8 +13,8 @@ const StatisticProvider = ({ children }: StatistiProviderPropTypes) => {
     {} as StatisticDataType
   )
   const [errorMessage, setErrorMessage] = useState<string>("")
-  const [statsData, setStatsData] = useState<[string, number][]>(
-    [] as [string, number][]
+  const [statsData, setStatsData] = useState<statsDataTypes>(
+    {} as statsDataTypes
   )
 
   const getStatistic = async () => {
@@ -38,10 +38,11 @@ const StatisticProvider = ({ children }: StatistiProviderPropTypes) => {
     }
   }
 
-  const setStats = () => {
-    let { stats } = statsResponse
-    let statsData = Object.entries(stats)
-    setStatsData(statsData)
+  const setStats =async () => {
+    let { stats,increase } = statsResponse
+    let statsData =await Object.entries(stats)
+    let increaseData =await Object.entries(increase)
+    setStatsData({stats:statsData,increase:increaseData})
   }
 
   useEffect(() => {

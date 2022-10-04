@@ -4,7 +4,7 @@ export type StatisticDataType = {
   resource: string,
   stats: StatisticProps,
   increase: StatisticProps,
-  statsData: [string, number][],
+  statsData: statsDataTypes,
 };
 
 export type StatistiProviderPropTypes = {
@@ -41,3 +41,7 @@ export type statisticData =
   | 'special_military_equip'
   | 'atgm_srbm_systems';
 
+export type statsDataTypes = {
+  stats: [string, number][],
+  increase: [string, number][],
+};
