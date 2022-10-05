@@ -1,4 +1,5 @@
 import { geojsonType } from './geojsonData';
+import OccupiedDonetsk from './OccupiedDonetsk.json';
 import OccupiedDonetskP2 from './OccupiedDonetskP2.json';
 import OccupiedKharkiv from './OccupiedKharkiv.json';
 import OccupiedKherson from './OccupiedKherson.json';
@@ -8,6 +9,8 @@ import Crimea from './Crimea.json';
 import Sevastopol from './Sevastopol.json';
 
 const occupiedRegions: Array<geojsonType> = [
+  OccupiedLugansk,
+  OccupiedDonetsk,
   OccupiedDonetskP2,
   OccupiedKharkiv,
   OccupiedKherson,
