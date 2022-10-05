@@ -28,7 +28,7 @@ export const InfoDate: InfoForDate = {
   },
   artillery_systems: {
     ua: 'артилерії',
-    en: '  artillery systems',
+    en: 'artillery systems',
     png: artillery_systemsPng,
   },
   mlrs: { ua: 'рсзв', en: 'mlrs', png: mlrsPng },
