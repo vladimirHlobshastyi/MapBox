@@ -10,7 +10,7 @@ import AlarmsMap from './pages/AlarmsMap';
 import ErrorComponent from './components/ErrorComponent/ErrorComponent';
 import Statistic from './pages/Statistic/Statistic';
 import StatisticProvider from './providers/StatisticProvider';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 
 Sentry.init({
@@ -35,9 +35,9 @@ root.render(
           <BrowserRouter>
             <Navbar />
             <Routes>
-              <Route path="/" element={<AlarmsMap />} />
-              <Route path="/statisctic" element={<Statistic />} />
-              <Route path="*" element={<AlarmsMap />} />
+              <Route path="/map" element={<AlarmsMap />} />
+              <Route path="statisctic" element={<Statistic />} />
+              <Route path="*" element={<Navigate to="/map" replace />} />
             </Routes>
           </BrowserRouter>
         </StatisticProvider>
