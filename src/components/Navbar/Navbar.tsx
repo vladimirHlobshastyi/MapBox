@@ -5,7 +5,6 @@ import uaLogo from './png/ua1.png';
 
 const Navbar = () => {
   const isActive = ({ isActive }: { isActive: boolean }) => {
-    debugger;
     return isActive ? style.active : style.noActive;
   };
   return (

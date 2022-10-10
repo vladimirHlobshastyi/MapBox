@@ -49,7 +49,7 @@ const Statistic: FC<{}> = (): JSX.Element => {
             {statsData?.stats.map((statsValue, index) => {
               return (
                 <Info
-                  value={statsValue[1]}
+                  stats={statsValue[1]}
                   name={statsValue[0]}
                   key={statsValue[0]}
                   increase={statsData?.increase[index][1]}

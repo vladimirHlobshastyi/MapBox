@@ -1,4 +1,4 @@
-import { InfoForDate } from './Info.types';
+import { InfoForDataTypes } from './Info.types';
 import unitPng from './png/unit.png';
 import tankPng from './png/tank.png';
 import armouredPng from './png/armoured_fighting_vehicles.png';
@@ -14,7 +14,7 @@ import uav_systemsPng from './png/uav_systems.png';
 import special_military_equipPng from './png/special_military_equip.png';
 import atgm_srbm_systemsPng from './png/rszo.png';
 
-export const InfoDate: InfoForDate = {
+export const InfoData: InfoForDataTypes = {
   personnel_units: {
     ua: 'особового складу',
     en: 'personnel units',

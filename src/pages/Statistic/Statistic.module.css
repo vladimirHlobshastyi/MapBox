@@ -1,6 +1,7 @@
 .NavbarBackgroundImage {
     background-color: #363e40;
-    background-image: url('./img/bg_image1.png');
+    background: url('./img/bg_image1.png') no-repeat center top fixed;
+
 }
 
 .ContainerWrapper {
@@ -15,7 +16,7 @@
     width: 100%;
     height: 100%;
     background-color: #363e40;
-    background-image: url('./img/bg_image1.png');
+    background: url('./img/bg_image1.png') no-repeat center top fixed;
     z-index: 22;
 }
 
