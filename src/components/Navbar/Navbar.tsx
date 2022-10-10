@@ -4,6 +4,10 @@ import style from './Navbar.module.css';
 import uaLogo from './png/ua1.png';
 
 const Navbar = () => {
+  const isActive = ({ isActive }: { isActive: boolean }) => {
+    debugger;
+    return isActive ? style.active : style.noActive;
+  };
   return (
     <div className={style.NavbarContainer}>
       <div className={style.NavbarLogo}>
@@ -11,10 +15,14 @@ const Navbar = () => {
       </div>
       <div className={style.navElContainer}>
         <div className={style.navEl}>
-          <NavLink to={'/'}>Карта</NavLink>
+          <NavLink to={'/map'} className={isActive}>
+            Карта
+          </NavLink>
         </div>
         <div className={style.navEl}>
-          <NavLink to={'/statisctic'}>Втрати ворога</NavLink>
+          <NavLink to={'/statisctic'} className={isActive}>
+            Втрати ворога
+          </NavLink>
         </div>
       </div>
     </div>
