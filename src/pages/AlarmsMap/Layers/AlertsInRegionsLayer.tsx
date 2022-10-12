@@ -20,13 +20,14 @@ const AlertsInRegionsLayer = ({
       paint: {
         'fill-color': color,
         'fill-opacity': 0.5,
+        'fill-outline-color': '#ffffff',
       },
     };
   };
 
   return (
     <>
-      {alertsRegions?.map(activeRegion => (
+      {alertsRegions?.map((activeRegion) => (
         <Source
           id={`${activeRegion.id}/${activeRegion.alert}/Source`}
           key={`${activeRegion.id}/${activeRegion.alert}/Source`}
@@ -35,7 +36,7 @@ const AlertsInRegionsLayer = ({
         >
           <Layer {...layerStyle(activeRegion.id, activeRegion.alert)} />
 
-          <Layer
+            <Layer
             {...{
               id: `${activeRegion.id}`,
               key: `${activeRegion.id}`,

@@ -12,15 +12,15 @@ const OccupiedRegionsLayer: FC<occupiedRegionsType> = ({ occupiedRegions }) => {
       {occupiedRegions?.map((occupiedRegion: any) => {
         return (
           <Source
-            id={occupiedRegion.properties.shapeName}
-            key={occupiedRegion.properties.shapeName}
+            id={`${occupiedRegion.properties.shapeName}/source/occupiedRegion`}
+            key={`${occupiedRegion.properties.shapeName}/source/occupiedRegion`}
             type="geojson"
             data={occupiedRegion}
           >
             <Layer
               {...{
-                id: `${occupiedRegion.properties.shapeName}`,
-                key: `${occupiedRegion.properties.shapeName}`,
+                id: `${occupiedRegion.properties.shapeName}/layer/occupiedRegion`,
+                key: `${occupiedRegion.properties.shapeName}/layer/occupiedRegion`,
                 type: 'fill',
 
                 paint: {

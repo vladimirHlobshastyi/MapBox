@@ -1,4 +1,4 @@
-export type InfoDateTypes = {
+export type InfoDataTypes = {
   personnel_units: { ua: 'особового складу', en: 'personnel units' },
   tanks: { ua: 'танків', en: 'tanks' },
   armoured_fighting_vehicles: {
@@ -24,14 +24,14 @@ export type InfoDateTypes = {
   atgm_srbm_systems: { ua: 'установок отрк/трк', en: 'atgm/srbm systems' },
 };
 
-export type InfoForDate = {
+export type InfoForDataTypes = {
   [key: string]: {
     [key: string]: string,
   },
 };
 
 export type InfoPropsTypes = {
-  value: number,
+  stats: number,
   name: string,
   increase: number,
 };

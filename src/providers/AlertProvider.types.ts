@@ -8,7 +8,7 @@ export type AlertProviderContextTypes = {
   timerValue: number,
 };
 
-export type AlertProviderPropTypes = {
+export type ChildrenPropTypes = {
   children?: JSX.Element | JSX.Element[],
 };
 

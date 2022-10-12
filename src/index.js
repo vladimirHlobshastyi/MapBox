@@ -12,6 +12,7 @@ import Statistic from './pages/Statistic/Statistic';
 import StatisticProvider from './providers/StatisticProvider';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
+import IsIosProvider from './providers/IsIosProvaider';
 
 Sentry.init({
   dsn: 'https://e6eae306749841d6a876eabb04f947b1@o1356833.ingest.sentry.io/6642623',
@@ -27,22 +28,22 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <AlertProvider>
-      <Sentry.ErrorBoundary
-        fallback={<ErrorComponent typeError={'technical'} />}
-      >
-        <StatisticProvider>
-          <BrowserRouter>
-            <Navbar />
-            <Routes>
-              <Route path="/map" element={<AlarmsMap />} />
-              <Route path="statisctic" element={<Statistic />} />
-              <Route path="*" element={<Navigate to="/map" replace />} />
-            </Routes>
-          </BrowserRouter>
-        </StatisticProvider>
-      </Sentry.ErrorBoundary>
-    </AlertProvider>
+    <Sentry.ErrorBoundary fallback={<ErrorComponent typeError={'technical'} />}>
+      <IsIosProvider>
+        <AlertProvider>
+          <StatisticProvider>
+            <BrowserRouter>
+              <Navbar />
+              <Routes>
+                <Route path="/map" element={<AlarmsMap />} />
+                <Route path="statisctic" element={<Statistic />} />
+                <Route path="*" element={<Navigate to="/map" replace />} />
+              </Routes>
+            </BrowserRouter>
+          </StatisticProvider>
+        </AlertProvider>
+      </IsIosProvider>
+    </Sentry.ErrorBoundary>
   </React.StrictMode>
 );
 

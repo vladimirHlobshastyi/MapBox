@@ -7,10 +7,6 @@ export type StatisticDataType = {
   statsData: statsDataTypes,
 };
 
-export type StatistiProviderPropTypes = {
-  children?: JSX.Element | JSX.Element[],
-};
-
 export type StatisticProps = {
   humans: number,
   tanks: number,

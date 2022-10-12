@@ -9,7 +9,6 @@ import Crimea from './Crimea.json';
 import Sevastopol from './Sevastopol.json';
 
 const occupiedRegions: Array<geojsonType> = [
-  OccupiedLugansk,
   OccupiedDonetsk,
   OccupiedDonetskP2,
   OccupiedKharkiv,
