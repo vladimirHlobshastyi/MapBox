@@ -11,12 +11,12 @@ import style from './AlertsMap.module.css';
 import { Helmet } from 'react-helmet';
 import IosLoader from '../../components/IosLoader';
 import Button from '../../components/Button/Button';
+import { IsIosEventsContext } from '../../providers/IsIosProvaider';
 
 export const AlertsMap = () => {
   const { alerts, lastUpdate } = useContext(EventsContext);
-  const [isIOS, setIsIOS] = useState(false);
-  const ua = window.navigator.userAgent;
-  const isIPhone = !!ua.match(/iPhone/i);
+  const { isIosProviderProp } = useContext(IsIosEventsContext);
+  const [isLoading, setIsLoading] = useState(isIosProviderProp);
 
   const resizeZoom = () => {
     if (window.innerWidth < 860 && window.innerWidth > 640) {
@@ -41,13 +41,12 @@ export const AlertsMap = () => {
   const myRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isIPhone) {
-      setIsIOS(true);
-      setTimeout(() => setIsIOS(false), 1000);
+    if (isLoading) {
+      setTimeout(() => setIsLoading(false), 1000);
     }
   }, []);
 
-  if (isIOS) {
+  if (isLoading) {
     return <IosLoader />;
   }
 
@@ -76,9 +75,13 @@ export const AlertsMap = () => {
         >
           <AlertsInRegionsLayer alertsRegions={alerts} />
           <OccupiedRegionsLayer occupiedRegions={occupiedRegions} />
-          <div className={style.screenshot}>
-            <Button refProp={myRef} isStatistic={false} />
-          </div>
+          {!isIosProviderProp ? (
+            <div className={style.screenshot}>
+              <Button refProp={myRef} isStatistic={false} />
+            </div>
+          ) : (
+            <></>
+          )}
           <NavigationControl
             showCompass={false}
             showZoom={true}

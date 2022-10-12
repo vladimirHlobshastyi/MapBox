@@ -2,14 +2,14 @@ import React, { createContext, useState, useEffect } from 'react';
 import useInterval from '../hooks/useInterval';
 import { fetchAlerts } from '../api/requests';
 import { Alert } from "../commonTypes/alert";
-import {AlertProviderContextTypes, AlertProviderPropTypes} from "./AlertProvider.types";
+import {AlertProviderContextTypes, ChildrenPropTypes} from "./AlertProvider.types";
 
 
 export const EventsContext = createContext({} as AlertProviderContextTypes);
 
 
-const AlertProvider = ({ children }: AlertProviderPropTypes) => {
-  const [timerValue, srtTimerValue] = useState<number>(10);
+const AlertProvider = ({ children }: ChildrenPropTypes) => {
+  const [timerValue, setTimerValue] = useState<number>(10);
   const [alerts, setAlerts] = useState<Alert[]>([]);
   const [lastUpdate, setLastUpdate] = useState< string>('')
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -53,10 +53,10 @@ const AlertProvider = ({ children }: AlertProviderPropTypes) => {
   useInterval(() => {
 
     if (timerValue > 1) {
-      srtTimerValue(old => old - 1);
+      setTimerValue(old => old - 1);
     } else {
       getAlertRegions();
-      srtTimerValue(10);
+      setTimerValue(10);
     }
 
   }, timerValue >= 1);

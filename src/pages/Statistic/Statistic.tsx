@@ -5,9 +5,11 @@ import Info from '../../components/Info/Info';
 import { StatisticContext } from '../../providers/StatisticProvider';
 import Loader from '../../components/Loader';
 import Button from '../../components/Button/Button';
+import { IsIosEventsContext } from '../../providers/IsIosProvaider';
 
 const Statistic: FC<{}> = (): JSX.Element => {
   const { date, statsData } = useContext(StatisticContext);
+  const { isIosProviderProp } = useContext(IsIosEventsContext);
   let reverseDate = date?.split('-').reverse().join('-');
   const myRef = React.useRef<HTMLDivElement>(null);
 
@@ -16,9 +18,13 @@ const Statistic: FC<{}> = (): JSX.Element => {
   }
   return (
     <div className={style.NavbarBackgroundImage}>
-      <div className={style.ButtonContainer}>
-        <Button refProp={myRef} isStatistic={true} />
-      </div>
+      {!isIosProviderProp ? (
+        <div className={style.ButtonContainer}>
+          <Button refProp={myRef} isStatistic={true} />
+        </div>
+      ) : (
+        <></>
+      )}
       <div className={style.ContainerWrapper}>
         <div className={style.screenshotForStatistic} ref={myRef}>
           <div className={style.Header}>
@@ -62,4 +68,5 @@ const Statistic: FC<{}> = (): JSX.Element => {
     </div>
   );
 };
+
 export default Statistic;

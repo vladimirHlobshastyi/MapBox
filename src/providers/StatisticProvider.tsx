@@ -1,14 +1,15 @@
 import React, { createContext, useState, useEffect } from "react"
 import { getLatestStatistic } from "../api/getLatestStatistic"
+import { ChildrenPropTypes } from "./AlertProvider.types"
 import {
   StatisticDataType,
-  StatistiProviderPropTypes,
+  
   statsDataTypes
 } from "./StatisticProvider.types"
 
 export const StatisticContext = createContext({} as StatisticDataType)
 
-const StatisticProvider = ({ children }: StatistiProviderPropTypes) => {
+const StatisticProvider = ({ children }: ChildrenPropTypes) => {
   const [statsResponse, setStatsResponse] = useState<StatisticDataType>(
     {} as StatisticDataType
   )
