@@ -43,6 +43,11 @@ const AlertProvider = ({ children }: ChildrenPropTypes) => {
     }
   };
 
+  const updateAlerts = ()=>{
+      getAlertRegions();
+      setTimerValue(10);
+  }
+
   useEffect(() => {
 
     if (!alerts?.length && !isLoading) {
@@ -69,6 +74,7 @@ const AlertProvider = ({ children }: ChildrenPropTypes) => {
         isLoading,
         errorMessage,
         timerValue,
+        updateAlerts
       }}
     >
       {children}
