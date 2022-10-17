@@ -14,7 +14,7 @@ import Button from '../../components/Button/Button';
 import { IsIosEventsContext } from '../../providers/IsIosProvaider';
 
 export const AlertsMap = () => {
-  const { alerts, lastUpdate } = useContext(EventsContext);
+  const { alerts, lastUpdate,updateAlerts } = useContext(EventsContext);
   const { isIosProviderProp } = useContext(IsIosEventsContext);
   const [isLoading, setIsLoading] = useState(isIosProviderProp);
 

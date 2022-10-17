@@ -6,9 +6,9 @@ import style from './Legend.module.css';
 
 const Legend = () => {
   const { timerValue, isLoading } = useContext(EventsContext) || {};
-
+  const { updateAlerts } = useContext(EventsContext);
   return (
-    <div className={style.Legend}>
+    <div className={style.Legend} onClick={updateAlerts}>
       <Tag color={'red'} text={'Тривога в регіоні'} />
       <Tag color={'grey'} text={'Тривога відсутня'} />
 

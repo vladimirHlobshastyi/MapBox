@@ -6,10 +6,9 @@ export type AlertProviderContextTypes = {
   isLoading: boolean,
   errorMessage: string,
   timerValue: number,
+  updateAlerts: () => void,
 };
 
 export type ChildrenPropTypes = {
   children?: JSX.Element | JSX.Element[],
 };
-
-
