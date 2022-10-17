@@ -17,8 +17,11 @@ const Info: FC<InfoPropsTypes> = ({ stats, name, increase }): JSX.Element => {
         </div>
         <div className={style.leftWrapperValue}>
           <div className={style.leftWrapperValueIncrease}>
-          <div className={style.leftWrapperValueIncreaseUp}> {isUnits()}</div>
-          <div className={style.leftWrapperValueIncreaseDown}> {isIncrease()}</div>
+            <div className={style.leftWrapperValueIncreaseUp}> {isUnits()}</div>
+            <div className={style.leftWrapperValueIncreaseDown}>
+              {' '}
+              {isIncrease()}
+            </div>
           </div>
           {stats}
         </div>
