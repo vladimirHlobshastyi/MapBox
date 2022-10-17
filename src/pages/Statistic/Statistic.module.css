@@ -1,6 +1,6 @@
 .NavbarBackgroundImage {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: #363e40;
   background-image: url("./img/bg_image1.png");
   background-size: cover;
