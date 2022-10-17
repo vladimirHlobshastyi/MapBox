@@ -36,7 +36,8 @@
         max-width: 50px;
         max-height: 25px;
         object-fit: scale-down;
-        width: 80%;
+        width: 25px;
+        height: 25px;
       }
   
   
@@ -111,7 +112,6 @@
   
       .leftWrapperSvg {
   
-  
         max-height: 100%;
         max-width: 100%;
         width: 40px;
@@ -122,7 +122,7 @@
         max-height: 25px;
         max-width: 50px;
         object-fit: scale-down;
-        width: 80%;
+        
       }
   
     }
@@ -162,9 +162,11 @@
         order: 0;
   
         img {
-  
-          max-height: 45px;
-  
+         
+            max-height: 45px;
+            max-height: 45px;
+            width: 80%;
+            height: auto;
         }
   
       }
