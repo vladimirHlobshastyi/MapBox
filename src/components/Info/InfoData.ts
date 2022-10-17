@@ -22,7 +22,7 @@ export const InfoData: InfoForDataTypes = {
   },
   tanks: { ua: 'танків', en: 'tanks', png: tankPng },
   armoured_fighting_vehicles: {
-    ua: 'броньованих машин',
+    ua: 'бронемашин',
     en: 'armoured fighting vehicles',
     png: armouredPng,
   },

@@ -7,8 +7,13 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: #363e40;
+  background: #363e40;
   background-image: url('./../../pages/Statistic/img/bg_image1.png');
+  background-size: cover;
+}
+
+.loaderContainer::before {
+  background: #363e40;
 }
 
 .loaderWrapper {
@@ -39,7 +44,6 @@
   position: absolute;
   width: 200px;
   height: 200px;
-
   border: 15px solid rgb(150, 150, 150);
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
