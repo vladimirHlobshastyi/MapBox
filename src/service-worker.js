@@ -69,6 +69,9 @@ self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
+  const data = event.data;
+  console.log('message', event, { ...event });
+  console.log('message', data);
 });
 
 // Any other custom service worker logic can go here.
@@ -83,6 +86,18 @@ self.addEventListener('push', (event) => {
       icon: data.icon,
     })
   );
+});
+
+self.addEventListener('notificationclick', (e) => {
+  const data = e.data;
+  console.log('New notification notificationclick', e, { ...e });
+  console.log('New notification notificationclick', data);
+});
+
+self.addEventListener('notificatin', (e) => {
+  const data = e.data;
+  console.log('New notification notificatin', e, { ...e });
+  console.log('New notification notificatin', data);
 });
 
 /* self.addEventListener('fetch', (event) => {
