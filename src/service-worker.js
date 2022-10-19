@@ -88,10 +88,16 @@ self.addEventListener('push', (event) => {
   );
 });
 
-self.addEventListener('notificationclick', (e) => {
+self.addEventListener('show', (e) => {
   const data = e.data;
-  console.log('New notification notificationclick', e, { ...e });
-  console.log('New notification notificationclick', data);
+  console.log('New notification show', e, { ...e });
+  console.log('New notification show', data);
+});
+
+self.addEventListener('show', (e) => {
+  const data = e.data;
+  console.log('New notification show', e, { ...e });
+  console.log('New notification show', data);
 });
 
 self.addEventListener('notificatin', (e) => {
