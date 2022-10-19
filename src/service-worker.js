@@ -74,7 +74,8 @@ self.addEventListener('message', (event) => {
 // Any other custom service worker logic can go here.
 self.addEventListener('push', (event) => {
   console.log('test push');
-  const data = event.data.json();
+  debugger;
+  const data = event.data;
   console.log('New notification', data);
   event.waitUntil(
     self.registration.showNotification(data.title, {
@@ -85,6 +86,7 @@ self.addEventListener('push', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  debugger;
   console.log('test fetch');
 });
 
