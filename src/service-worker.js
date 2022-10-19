@@ -16,7 +16,7 @@ import { StaleWhileRevalidate } from 'workbox-strategies';
 clientsClaim();
 
 function showNotification() {
-  Notification.requestPermission((result) => {
+  Notification?.requestPermission((result) => {
     if (result === 'granted') {
       navigator.serviceWorker.ready.then((registration) => {
         registration.showNotification('Vibration Sample', {
