@@ -77,7 +77,7 @@ const Legend = () => {
           data: 'ALARM!',
           badge:
             'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-          icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+          icon: './../../../public/favicon.ico',
           vibrate: [200, 100, 20],
           requireInteraction: false,
         });
@@ -96,6 +96,7 @@ const Legend = () => {
       });
     }
   }
+
   useEffect(() => {
     if (timerValue === 5) {
       notifyMe();
