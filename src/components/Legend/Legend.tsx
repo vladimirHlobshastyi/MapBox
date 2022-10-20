@@ -24,8 +24,8 @@ const Legend = () => {
           navigator.serviceWorker.ready.then((registration) => {
             registration.showNotification('Vibration Sample', {
               body: 'Buzz! Buzz!',
-              icon: '../images/touch/chrome-touch-icon-192x192.png',
-              vibrate: [200, 100, 200, 100, 200, 100, 200],
+              icon: './../Info/png/special_military_equip.png',
+              vibrate: [100, 50, 100, 100, 50],
               tag: 'vibration-sample',
             });
           });
@@ -40,13 +40,14 @@ const Legend = () => {
             data: 'Hi there! !denied',
             vibrate: [50, 10, 50],
           }); */
+
           const notification = Notification.requestPermission((result) => {
             if (result === 'granted') {
               navigator.serviceWorker.ready.then((registration) => {
                 registration.showNotification('Vibration Sample', {
                   body: 'Buzz! Buzz!',
-                  icon: '../images/touch/chrome-touch-icon-192x192.png',
-                  vibrate: [200, 100, 200, 100, 200, 100, 200],
+                  icon: './../Info/png/special_military_equip.png',
+                  vibrate: [100, 50, 100, 100, 50],
                   tag: 'vibration-sample',
                 });
               });
