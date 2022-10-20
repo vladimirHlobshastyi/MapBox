@@ -107,13 +107,13 @@ self.addEventListener('notificatin', (e) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  console.log('test fetch' + event);
+  console.log('test fetch' + { ...event });
 });
 
 self.addEventListener('activate', (event) => {
-  console.log('test activate self' + event);
+  console.log('test activate self' + { ...event });
 });
 
 self.addEventListener('notificationclick', (event) => {
-  console.log('test notificationclick self' + event);
+  console.log('test notificationclick self' + { ...event });
 });
