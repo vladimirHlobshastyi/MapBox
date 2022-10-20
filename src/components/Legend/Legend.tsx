@@ -9,15 +9,14 @@ const Legend = () => {
   const { updateAlerts } = useContext(EventsContext);
 
   function notifyMe() {
-    const notificationMess = new Notification('Vibration Sample', {
+    /*    const notificationMess = new Notification('Vibration Sample', {
       body: 'Buzz! Buzz!',
       data: 'ALARM!',
       badge: './../Info/png/special_military_equip.png',
       icon: './../Info/png/special_military_equip.png',
       image: './../Info/png/special_military_equip.png',
       vibrate: [100, 50, 100, 100, 50],
-      tag: `${new Date()}`,
-    });
+    }); */
     if (!('Notification' in window)) {
       // Check if the browser supports notifications
       alert('This browser does not support desktop notification');
@@ -26,18 +25,16 @@ const Legend = () => {
       // if so, create a notification
       const notification = Notification.requestPermission((result) => {
         if (result === 'granted') {
-          return notificationMess;
-          /*  navigator.serviceWorker.ready.then((registration) => {
+          navigator.serviceWorker.ready.then((registration) => {
             registration.showNotification('Vibration Sample', {
-              body: 'Buzz! Buzz!',
+              body: 'granted',
               data: 'ALARM!',
-              badge: './../Info/png/special_military_equip.png',
+              badge: './../Info/png/uav_systems.png',
               icon: './../Info/png/special_military_equip.png',
-              image: './../Info/png/special_military_equip.png',
+              image: './../Info/png//otrk.png',
               vibrate: [100, 50, 100, 100, 50],
-              tag: `${new Date()}`,
             });
-          }); */
+          });
         }
       });
     } else if (Notification.permission !== 'denied') {
@@ -47,18 +44,16 @@ const Legend = () => {
         if (permission === 'granted') {
           const notification = Notification.requestPermission((result) => {
             if (result === 'granted') {
-              return notificationMess;
-              /*    navigator.serviceWorker.ready.then((registration) => {
+              navigator.serviceWorker.ready.then((registration) => {
                 registration.showNotification('Vibration Sample', {
-                  body: 'Buzz! Buzz!',
+                  body: 'denied',
                   data: 'ALARM!',
-                  badge: './../Info/png/special_military_equip.png',
+                  badge: './../Info/png/uav_systems.png',
                   icon: './../Info/png/special_military_equip.png',
-                  image: './../Info/png/special_military_equip.png',
+                  image: './../Info/png//otrk.png',
                   vibrate: [100, 50, 100, 100, 50],
-                  tag: `${new Date()}`,
                 });
-              }); */
+              });
             }
           });
 
