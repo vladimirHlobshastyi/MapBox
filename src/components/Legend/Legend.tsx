@@ -70,40 +70,28 @@ const Legend = () => {
   }`;
 
   function notifyMe() {
-    const notificationMess = new Notification('Vibration Sample', {
-      body: 'granted',
-      data: 'ALARM!',
-      badge:
-        'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-      icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-      vibrate: [200, 100, 20],
-      requireInteraction: false,
-    });
+    const notificationMess = navigator.serviceWorker.ready.then(
+      (registration) => {
+        registration.showNotification('Vibration Sample', {
+          body: 'denied',
+          data: 'ALARM!',
+          badge:
+            'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+          icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+          vibrate: [200, 100, 20],
+          requireInteraction: false,
+        });
+      }
+    );
 
     if (!('Notification' in window)) {
       alert('This browser does not support desktop notification');
     } else if (Notification.permission === 'granted') {
-      const notificationMess = new Notification('Vibration Sample', {
-        body: 'granted',
-        data: 'ALARM!',
-        badge:
-          'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-        icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-        vibrate: [200, 100, 20],
-        requireInteraction: false,
-      });
+      return notificationMess;
     } else if (Notification.permission !== 'denied') {
       Notification.requestPermission().then((permission) => {
         if (permission === 'granted') {
-          const notificationMess = new Notification('Vibration Sample', {
-            body: 'granted',
-            data: 'ALARM!',
-            badge:
-              'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-            icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-            vibrate: [200, 100, 20],
-            requireInteraction: false,
-          });
+          return notificationMess;
         }
       });
     }
