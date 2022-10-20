@@ -69,12 +69,7 @@ const Legend = () => {
         }
       });
     }
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') {
-        // The tab has become visible so clear the now-stale Notification.
-        notificationMess.close();
-      }
-    });
+    
 
     // At last, if the user has denied notifications, and you
     // want to be respectful there is no need to bother them anymore.
