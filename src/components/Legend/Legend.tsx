@@ -19,8 +19,7 @@ const Legend = () => {
         data: 'Hi there granted!',
         vibrate: [50, 10, 50],
       });
-      debugger;
-      return notification;
+ 
     } else if (Notification.permission !== 'denied') {
       // We need to ask the user for permission
       Notification.requestPermission().then((permission) => {
@@ -30,8 +29,7 @@ const Legend = () => {
             data: 'Hi there! !denied',
             vibrate: [50, 10, 50],
           });
-          debugger;
-          return notification;
+          
         }
       });
     }
