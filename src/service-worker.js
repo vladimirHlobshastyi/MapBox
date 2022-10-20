@@ -94,7 +94,7 @@ self.addEventListener('show', (e) => {
   console.log('New notification show', data);
 });
 
-self.addEventListener('show', (e) => {
+self.addEventListener('click', (e) => {
   const data = e.data;
   console.log('New notification show', e, { ...e });
   console.log('New notification show', data);
@@ -106,11 +106,14 @@ self.addEventListener('notificatin', (e) => {
   console.log('New notification notificatin', data);
 });
 
-/* self.addEventListener('fetch', (event) => {
-  console.log('test fetch');
+self.addEventListener('fetch', (event) => {
+  console.log('test fetch' + event);
 });
 
 self.addEventListener('activate', (event) => {
-  console.log('test activate self');
+  console.log('test activate self' + event);
 });
- */
+
+self.addEventListener('notificationclick', (event) => {
+  console.log('test notificationclick self' + event);
+});
