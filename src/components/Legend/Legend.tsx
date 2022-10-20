@@ -8,74 +8,16 @@ const Legend = () => {
   const { timerValue, isLoading } = useContext(EventsContext) || {};
   const { updateAlerts } = useContext(EventsContext);
 
-  const test = `function notifyMe() {
-  const notificationMess = new Notification('Vibration Sample', {
-      body: 'granted',
-      data: 'ALARM!',
-      badge:
-        'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-      icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-      vibrate: [200, 100, 20],
-      requireInteraction: false,
-    });
-    if (!('Notification' in window)) {
-      // Check if the browser supports notifications
-      alert('This browser does not support desktop notification');
-    } else if (Notification.permission === 'granted') {
-      // Check whether notification permissions have already been granted;
-      // if so, create a notification
+  function notifyMe(alerts: boolean) {
+    const isAlert = () =>
+      alerts ? 'Повітряна тривога!' : 'Відбій повітряної тривоги!';
 
-      return notificationMess;
-      /*   const notification = Notification.requestPermission((result) => {
-        if (result === 'granted') {
-          navigator.serviceWorker.ready.then((registration) => {
-            registration.showNotification('Vibration Sample', {
-              body: 'granted',
-              data: 'ALARM!',
-              badge:
-                'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-              icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-              vibrate: [200, 100, 20],
-              requireInteraction: false,
-            });
-          });
-        }
-      }); */
-    } else if (Notification.permission !== 'denied') {
-      // We need to ask the user for permission
-      Notification.requestPermission().then((permission) => {
-        // If the user accepts, let's create a notification
-        if (permission === 'granted') {
-          /*  const notification = Notification.requestPermission((result) => {
-            if (result === 'granted') {
-              navigator.serviceWorker.ready.then((registration) => {
-                registration.showNotification('Vibration Sample', {
-                  body: 'denied',
-                  data: 'ALARM!',
-                  badge:
-                    'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-                  icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
-                  vibrate: [200, 100, 20],
-                  requireInteraction: false,
-                });
-              });
-            }
-          }); */
-        
-        }
-      });
-    }
-    // At last, if the user has denied notifications, and you
-    // want to be respectful there is no need to bother them anymore.
-  }`;
-
-  function notifyMe() {
     const notificationMess = navigator.serviceWorker.ready.then(
       (registration) => {
-        registration.showNotification('Vibration Sample', {
+        registration.showNotification(isAlert(), {
           body: 'denied',
           data: 'ALARM!',
-          badge: './../../../public/favicon.ico',
+          badge: './../../../public/imgonline-com-ua-Resize-Kin1OMKRod7.png',
           icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
           vibrate: [200, 100, 20],
           requireInteraction: false,
@@ -98,12 +40,12 @@ const Legend = () => {
 
   useEffect(() => {
     if (timerValue === 5) {
-      notifyMe();
+      notifyMe(true);
     }
   }, [timerValue]);
 
   return (
-    <div className={style.Legend} onClick={/* updateAlerts */ notifyMe}>
+    <div className={style.Legend} onClick={updateAlerts}>
       <Tag color={'red'} text={'Тривога в регіоні'} />
       <Tag color={'grey'} text={'Тривога відсутня'} />
 
