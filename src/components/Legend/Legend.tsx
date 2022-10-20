@@ -9,6 +9,15 @@ const Legend = () => {
   const { updateAlerts } = useContext(EventsContext);
 
   function notifyMe() {
+    const notificationMess = new Notification('Vibration Sample', {
+      body: 'Buzz! Buzz!',
+      data: 'ALARM!',
+      badge: './../Info/png/special_military_equip.png',
+      icon: './../Info/png/special_military_equip.png',
+      image: './../Info/png/special_military_equip.png',
+      vibrate: [100, 50, 100, 100, 50],
+      tag: `${new Date()}`,
+    });
     if (!('Notification' in window)) {
       // Check if the browser supports notifications
       alert('This browser does not support desktop notification');
@@ -17,7 +26,8 @@ const Legend = () => {
       // if so, create a notification
       const notification = Notification.requestPermission((result) => {
         if (result === 'granted') {
-          navigator.serviceWorker.ready.then((registration) => {
+          return notificationMess;
+          /*  navigator.serviceWorker.ready.then((registration) => {
             registration.showNotification('Vibration Sample', {
               body: 'Buzz! Buzz!',
               data: 'ALARM!',
@@ -27,7 +37,7 @@ const Legend = () => {
               vibrate: [100, 50, 100, 100, 50],
               tag: `${new Date()}`,
             });
-          });
+          }); */
         }
       });
     } else if (Notification.permission !== 'denied') {
@@ -37,7 +47,8 @@ const Legend = () => {
         if (permission === 'granted') {
           const notification = Notification.requestPermission((result) => {
             if (result === 'granted') {
-              navigator.serviceWorker.ready.then((registration) => {
+              return notificationMess;
+              /*    navigator.serviceWorker.ready.then((registration) => {
                 registration.showNotification('Vibration Sample', {
                   body: 'Buzz! Buzz!',
                   data: 'ALARM!',
@@ -47,7 +58,7 @@ const Legend = () => {
                   vibrate: [100, 50, 100, 100, 50],
                   tag: `${new Date()}`,
                 });
-              });
+              }); */
             }
           });
 
@@ -63,14 +74,21 @@ const Legend = () => {
         }
       });
     }
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        // The tab has become visible so clear the now-stale Notification.
+        notificationMess.close();
+      }
+    });
 
     // At last, if the user has denied notifications, and you
     // want to be respectful there is no need to bother them anymore.
   }
-
-  setInterval(() => {
-    notifyMe();
-  }, 4000);
+  useEffect(() => {
+    if (timerValue === 5) {
+      notifyMe();
+    }
+  }, [timerValue]);
 
   return (
     <div className={style.Legend} onClick={/* updateAlerts */ notifyMe}>
