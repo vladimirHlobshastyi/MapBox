@@ -15,20 +15,36 @@ const Legend = () => {
     } else if (Notification.permission === 'granted') {
       // Check whether notification permissions have already been granted;
       // if so, create a notification
-      /*  const notification = new Notification('Hi there! granted!!!!!', {
-        data: 'Hi there granted!',
-        vibrate: [50, 10, 50],
-      }); */
-      const notification = Notification.requestPermission((result) => {
+      const notification = new Notification('Vibration Sample', {
+        body: 'Buzz! Buzz!',
+        data: 'ALARM!',
+        badge: './../Info/png/special_military_equip.png',
+        icon: './../Info/png/special_military_equip.png',
+        image: './../Info/png/special_military_equip.png',
+        vibrate: [100, 50, 100, 100, 50],
+        tag: `${new Date()}`,
+      });
+
+      /*   const notification = Notification.requestPermission((result) => {
         if (result === 'granted') {
           navigator.serviceWorker.ready.then((registration) => {
             registration.showNotification('Vibration Sample', {
               body: 'Buzz! Buzz!',
+              data: 'ALARM!',
+              badge: './../Info/png/special_military_equip.png',
               icon: './../Info/png/special_military_equip.png',
+              image: './../Info/png/special_military_equip.png',
               vibrate: [100, 50, 100, 100, 50],
-              tag: 'vibration-sample',
+              tag: `${new Date()}`,
             });
           });
+        }
+      }); */
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          // The tab has become visible so clear the now-stale Notification.
+          notification.close();
         }
       });
     } else if (Notification.permission !== 'denied') {
@@ -41,16 +57,36 @@ const Legend = () => {
             vibrate: [50, 10, 50],
           }); */
 
-          const notification = Notification.requestPermission((result) => {
+          /*  const notification = Notification.requestPermission((result) => {
             if (result === 'granted') {
               navigator.serviceWorker.ready.then((registration) => {
                 registration.showNotification('Vibration Sample', {
                   body: 'Buzz! Buzz!',
+                  data: 'ALARM!',
+                  badge: './../Info/png/special_military_equip.png',
                   icon: './../Info/png/special_military_equip.png',
+                  image: './../Info/png/special_military_equip.png',
                   vibrate: [100, 50, 100, 100, 50],
-                  tag: 'vibration-sample',
+                  tag: `${new Date()}`,
                 });
               });
+            }
+          }); */
+
+          const notification = new Notification('Vibration Sample', {
+            body: 'Buzz! Buzz!',
+            data: 'ALARM!',
+            badge: './../Info/png/special_military_equip.png',
+            icon: './../Info/png/special_military_equip.png',
+            image: './../Info/png/special_military_equip.png',
+            vibrate: [100, 50, 100, 100, 50],
+            tag: `${new Date()}`,
+          });
+
+          document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+              // The tab has become visible so clear the now-stale Notification.
+              notification.close();
             }
           });
         }
