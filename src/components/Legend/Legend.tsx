@@ -8,8 +8,8 @@ const Legend = () => {
   const { timerValue, isLoading } = useContext(EventsContext) || {};
   const { updateAlerts } = useContext(EventsContext);
 
-  function notifyMe() {
-    const notificationMess = new Notification('Vibration Sample', {
+  const test = `function notifyMe() {
+  const notificationMess = new Notification('Vibration Sample', {
       body: 'granted',
       data: 'ALARM!',
       badge:
@@ -61,12 +61,37 @@ const Legend = () => {
               });
             }
           }); */
-          console.log('opa');
+        
         }
       });
     }
     // At last, if the user has denied notifications, and you
     // want to be respectful there is no need to bother them anymore.
+  }`;
+
+  function notifyMe() {
+    const notificationMess = new Notification('Vibration Sample', {
+      body: 'granted',
+      data: 'ALARM!',
+      badge:
+        'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+      icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+      vibrate: [200, 100, 20],
+      requireInteraction: false,
+    });
+
+    
+    if (!('Notification' in window)) {
+      alert('This browser does not support desktop notification');
+    } else if (Notification.permission === 'granted') {
+      return notificationMess;
+    } else if (Notification.permission !== 'denied') {
+      Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+          return notificationMess;
+        }
+      });
+    }
   }
   useEffect(() => {
     if (timerValue === 5) {
