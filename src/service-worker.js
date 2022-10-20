@@ -76,6 +76,7 @@ self.addEventListener('message', (event) => {
 
 // Any other custom service worker logic can go here.
 
+/* 
 self.addEventListener('push', (event) => {
   const data = event.data;
   console.log('New notification', event, { ...event });
@@ -117,3 +118,4 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('notificationclick', (event) => {
   console.log('test notificationclick self' + { ...event });
 });
+ */
