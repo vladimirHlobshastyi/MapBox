@@ -12,13 +12,20 @@ const Legend = () => {
     const isAlert = () =>
       alerts ? 'Повітряна тривога!' : 'Відбій повітряної тривоги!';
 
+    const geolocation = () =>
+      navigator.geolocation.getCurrentPosition(function (position) {
+        console.log('Latitude is :', position.coords.latitude);
+        console.log('Longitude is :', position.coords.longitude);
+      });
+
     const notificationMess = navigator.serviceWorker.ready.then(
       (registration) => {
         registration.showNotification(isAlert(), {
           body: 'denied',
           data: 'ALARM!',
-          badge: './../../../public/imgonline-com-ua-Resize-Kin1OMKRod7.png',
-          icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+          badge:
+            './../../../public/imgonline-com-ua-Resize-tJPM6IaphKO8HKj.jpg',
+          /*  icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg', */
           vibrate: [200, 100, 20],
           requireInteraction: false,
         });
@@ -28,10 +35,12 @@ const Legend = () => {
     if (!('Notification' in window)) {
       alert('This browser does not support desktop notification');
     } else if (Notification.permission === 'granted') {
+      geolocation();
       return notificationMess;
     } else if (Notification.permission !== 'denied') {
       Notification.requestPermission().then((permission) => {
         if (permission === 'granted') {
+          geolocation();
           return notificationMess;
         }
       });
