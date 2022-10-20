@@ -29,10 +29,13 @@ const Legend = () => {
             registration.showNotification('Vibration Sample', {
               body: 'granted',
               data: 'ALARM!',
-              badge: './../Info/png/uav_systems.png',
-              icon: './../Info/png/special_military_equip.png',
-              image: './../Info/png//otrk.png',
-              vibrate: [100, 50, 100, 100, 50],
+              badge:
+                'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+              icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+              image:
+                'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+              vibrate: [200, 100, 20],
+              requireInteraction: true,
             });
           });
         }
@@ -48,29 +51,20 @@ const Legend = () => {
                 registration.showNotification('Vibration Sample', {
                   body: 'denied',
                   data: 'ALARM!',
-                  badge: './../Info/png/uav_systems.png',
-                  icon: './../Info/png/special_military_equip.png',
-                  image: './../Info/png//otrk.png',
-                  vibrate: [100, 50, 100, 100, 50],
+                  badge:
+                    'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+                  icon: 'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+                  image:
+                    'https://assets.transloadit.com/assets/demos/outputs/deduped-838e1c25bfac41265615c8badff2e7aa.jpg__preview.jpg',
+                  vibrate: [200, 100, 20],
+                  requireInteraction: true,
                 });
               });
             }
           });
-
-          /*   const notification = new Notification('Vibration Sample', {
-            body: 'Buzz! Buzz!',
-            data: 'ALARM!',
-            badge: './../Info/png/special_military_equip.png',
-            icon: './../Info/png/special_military_equip.png',
-            image: './../Info/png/special_military_equip.png',
-            vibrate: [100, 50, 100, 100, 50],
-            tag: `${new Date()}`,
-          }); */
         }
       });
     }
-    
-
     // At last, if the user has denied notifications, and you
     // want to be respectful there is no need to bother them anymore.
   }
