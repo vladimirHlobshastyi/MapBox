@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { EventsContext } from '../../providers/AlertProvider';
 import Counter from '../Counter/Counter';
 import Tag from '../Tag/Tag';
@@ -25,22 +25,6 @@ const Legend = () => {
         tag: `${new Date()}`,
       });
 
-      /*   const notification = Notification.requestPermission((result) => {
-        if (result === 'granted') {
-          navigator.serviceWorker.ready.then((registration) => {
-            registration.showNotification('Vibration Sample', {
-              body: 'Buzz! Buzz!',
-              data: 'ALARM!',
-              badge: './../Info/png/special_military_equip.png',
-              icon: './../Info/png/special_military_equip.png',
-              image: './../Info/png/special_military_equip.png',
-              vibrate: [100, 50, 100, 100, 50],
-              tag: `${new Date()}`,
-            });
-          });
-        }
-      }); */
-
       document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') {
           // The tab has become visible so clear the now-stale Notification.
@@ -52,11 +36,6 @@ const Legend = () => {
       Notification.requestPermission().then((permission) => {
         // If the user accepts, let's create a notification
         if (permission === 'granted') {
-          /*   const notification = new Notification('Hi there denied!!!!!', {
-            data: 'Hi there! !denied',
-            vibrate: [50, 10, 50],
-          }); */
-
           /*  const notification = Notification.requestPermission((result) => {
             if (result === 'granted') {
               navigator.serviceWorker.ready.then((registration) => {
@@ -96,6 +75,11 @@ const Legend = () => {
     // At last, if the user has denied notifications, and you
     // want to be respectful there is no need to bother them anymore.
   }
+  useEffect(() => {
+    setInterval(() => {
+      notifyMe();
+    }, 4000);
+  }, []);
   return (
     <div className={style.Legend} onClick={/* updateAlerts */ notifyMe}>
       <Tag color={'red'} text={'Тривога в регіоні'} />
