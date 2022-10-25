@@ -111,16 +111,16 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   useInterval(() => {
 
     if (timerValue > 1) {
-      setTimerValue(old => old - 1); console.log(isLoading + '----')
-      setIsLoading(false)
+      setTimerValue(old => old - 1);
+      setIsAlertInRegion(false)
     } else {
-      console.log(isLoading)
-      setIsLoading(true)
+
+      setIsAlertInRegion(true)
       setTimerValue(5);
     }
 
   }, timerValue >= 1);
-  useEffect(() => { console.log(isAlertInRegion) }, [isAlertInRegion]);
+  useEffect(() => { console.log(isAlertInRegion + '!!!!!!!!') }, [isAlertInRegion]);
   return (
     <NotificationContext.Provider value={{}}>
       {children}
