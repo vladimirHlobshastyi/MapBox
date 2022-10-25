@@ -58,7 +58,9 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       };
       setUserPosition(userGeoposition);
     });
-
+  const testFunc = () => {
+    setInterval(() => { setIsLoading(true) }, 4000)
+  }
   function createNotification(alerts: boolean) {
     const isAlert = () =>
       alerts ? 'Повітряна тривога!' : 'Відбій повітряної тривоги!';
@@ -67,13 +69,15 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       (registration) => {
         registration.showNotification(isAlert(), {
           body: alerts ? 'У вашому регіоні оголошена повітряна тривога!' : 'У вашому регіоні відмінена повітряна тривога!',
-          icon: './../../public/logo192.png',
+          icon: './logo192.png',
           vibrate: [200, 100, 300],
           requireInteraction: false,
           tag: 'alertNotification'
         });
       }
     );
+
+
 
     if (!('Notification' in window)) {
       alert('This browser does not support desktop notification');
@@ -103,7 +107,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   }, [region, isLoading]);
 
   useEffect(() => { createNotification(isAlertInRegion) }, [isAlertInRegion]);
-
+  testFunc()
   return (
     <NotificationContext.Provider value={{}}>
       {children}
