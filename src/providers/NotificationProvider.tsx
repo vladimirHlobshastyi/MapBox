@@ -67,8 +67,8 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       (registration) => {
         registration.showNotification(isAlert(), {
           body: alerts ? 'У вашому регіоні оголошена повітряна тривога!' : 'У вашому регіоні відмінена повітряна тривога!',
-          badge: './../../public/logo192.png',
-          vibrate: [300, 100, 300],
+          icon: './../../public/logo192.png',
+          vibrate: [200, 100, 300],
           requireInteraction: false,
           tag: 'alertNotification'
         });
