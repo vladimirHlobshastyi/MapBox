@@ -14,10 +14,9 @@ import Button from '../../components/Button/Button';
 import { IsIosEventsContext } from '../../providers/IsIosProvaider';
 
 export const AlertsMap = () => {
-  const { alerts, lastUpdate,updateAlerts } = useContext(EventsContext);
+  const { alerts, lastUpdate } = useContext(EventsContext);
   const { isIosProviderProp } = useContext(IsIosEventsContext);
   const [isLoading, setIsLoading] = useState(isIosProviderProp);
-
   const resizeZoom = () => {
     if (window.innerWidth < 860 && window.innerWidth > 640) {
       return 4.6;

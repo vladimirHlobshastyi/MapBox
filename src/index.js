@@ -13,6 +13,7 @@ import StatisticProvider from './providers/StatisticProvider';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import IsIosProvider from './providers/IsIosProvaider';
+import NotificationProvider from './providers/NotificationProvider';
 
 Sentry.init({
   dsn: 'https://e6eae306749841d6a876eabb04f947b1@o1356833.ingest.sentry.io/6642623',
@@ -32,14 +33,16 @@ root.render(
       <IsIosProvider>
         <AlertProvider>
           <StatisticProvider>
-            <BrowserRouter>
-              <Navbar />
-              <Routes>
-                <Route path="/map" element={<AlarmsMap />} />
-                <Route path="statisctic" element={<Statistic />} />
-                <Route path="*" element={<Navigate to="/map" replace />} />
-              </Routes>
-            </BrowserRouter>
+            <NotificationProvider>
+              <BrowserRouter>
+                <Navbar />
+                <Routes>
+                  <Route path="/map" element={<AlarmsMap />} />
+                  <Route path="statisctic" element={<Statistic />} />
+                  <Route path="*" element={<Navigate to="/map" replace />} />
+                </Routes>
+              </BrowserRouter>{' '}
+            </NotificationProvider>
           </StatisticProvider>
         </AlertProvider>
       </IsIosProvider>
