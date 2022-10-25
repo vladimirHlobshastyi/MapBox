@@ -1,6 +1,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { getLocation } from '../api/getLocation';
+import useInterval from '../hooks/useInterval';
 import { EventsContext } from './AlertProvider';
 import { ChildrenPropTypes } from './AlertProvider.types';
 import { userPositionType } from './NotificationProvider.types';
@@ -16,6 +17,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [isAlertInRegion, setIsAlertInRegion] = useState<boolean>(false);
   const { alerts } = useContext(EventsContext);
+  const [timerValue, setTimerValue] = useState<number>(5);
 
   const fetchUserPosition = async () => {
     try {
@@ -58,9 +60,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       };
       setUserPosition(userGeoposition);
     });
-  const testFunc = () => {
-    setInterval(() => { setIsLoading(true) }, 4000)
-  }
+
   function createNotification(alerts: boolean) {
     const isAlert = () =>
       alerts ? 'Повітряна тривога!' : 'Відбій повітряної тривоги!';
@@ -107,7 +107,20 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   }, [region, isLoading]);
 
   useEffect(() => { createNotification(isAlertInRegion) }, [isAlertInRegion]);
-  testFunc()
+
+  useInterval(() => {
+
+    if (timerValue > 1) {
+      setTimerValue(old => old - 1); console.log(isLoading + '----')
+      setIsLoading(false)
+    } else {
+      console.log(isLoading)
+      setIsLoading(true)
+      setTimerValue(5);
+    }
+
+  }, timerValue >= 1);
+  useEffect(() => { console.log(isAlertInRegion) }, [isAlertInRegion]);
   return (
     <NotificationContext.Provider value={{}}>
       {children}
