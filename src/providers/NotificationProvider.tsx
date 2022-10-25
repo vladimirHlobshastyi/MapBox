@@ -103,10 +103,9 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   }, [region, isLoading]);
 
   useEffect(() => {
-    const test = () => {
-      setTimeout(() => { createNotification(isAlertInRegion) }, 7000)
-    }
-    return test
+    const test = setInterval(() => { createNotification(isAlertInRegion) }, 7000)
+
+    return () => clearInterval(test);
 
   }, []);
 
