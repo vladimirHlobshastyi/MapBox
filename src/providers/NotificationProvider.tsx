@@ -67,11 +67,10 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       (registration) => {
         registration.showNotification(isAlert(), {
           body: alerts ? 'У вашому регіоні оголошена повітряна тривога!' : 'У вашому регіоні відмінена повітряна тривога!',
-          badge:
-            './../../public/logo192.png',
-          icon: './../../public/logo192.png',
-          vibrate: [200, 100, 20],
+          badge: './../../public/logo192.png',
+          vibrate: [300, 100, 300],
           requireInteraction: false,
+          tag: 'alertNotification'
         });
       }
     );
@@ -103,7 +102,13 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
     }
   }, [region, isLoading]);
 
-  useEffect(() => { createNotification(isAlertInRegion) }, [isAlertInRegion]);
+  useEffect(() => {
+    const test = () => {
+      setTimeout(() => { createNotification(isAlertInRegion) }, 7000)
+    }
+    return test
+
+  }, []);
 
   return (
     <NotificationContext.Provider value={{}}>
