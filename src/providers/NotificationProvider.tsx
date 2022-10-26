@@ -31,9 +31,9 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       if (userRegion && alerts.length !== 0) {
         setRegion(userRegion);
 
-        const isAlertInUserRegion = alerts?.find((it) => it.name_en.toLocaleLowerCase() === userRegion.toLocaleLowerCase() ? setIsAlertInRegion(it.alert) : it)
+        alerts?.forEach((it) => it.name_en.toLocaleLowerCase() === userRegion.toLocaleLowerCase() ? setIsAlertInRegion(it.alert) : it)
 
-        return isAlertInUserRegion
+
       }
 
       setIsLoading(false);
@@ -101,13 +101,18 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   useEffect(() => {
 
     if (!region?.length && !isLoading) {
+
       fetchUserPosition();
     }
   }, [region, isLoading]);
 
   useEffect(() => {
-    if (isAlertInRegion !== 'panding' && !isLoading) { createNotification(isAlertInRegion) }
-  }, [isAlertInRegion, isLoading]);
+
+    if (isAlertInRegion !== 'panding') {
+
+      createNotification(isAlertInRegion)
+    }
+  }, [isAlertInRegion]);
 
 
   return (
