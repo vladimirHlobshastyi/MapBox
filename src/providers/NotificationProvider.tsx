@@ -69,7 +69,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       (registration) => {
         registration.showNotification(isAlert(), {
           body: alerts ? 'У вашому регіоні оголошена повітряна тривога!' : 'У вашому регіоні відмінена повітряна тривога!',
-          badge: './imgonline-com-ua-Resize-xaAH7oKippk0Vh.png',
+          badge: './greenLogo.png',
           icon: './logo192.png',
           vibrate: 500,
           requireInteraction: false,
@@ -83,7 +83,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
 
 
     if (!('Notification' in window)) {
-      alert('This browser does not support desktop notification');
+      console.log('This browser does not support desktop notification');
     } else if (Notification.permission === 'granted') {
       getGeolocation();
       return notificationMess;
