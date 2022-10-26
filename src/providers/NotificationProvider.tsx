@@ -1,7 +1,6 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { getLocation } from '../api/getLocation';
-import useInterval from '../hooks/useInterval';
 import { EventsContext } from './AlertProvider';
 import { ChildrenPropTypes } from './AlertProvider.types';
 import { userPositionType } from './NotificationProvider.types';
@@ -17,7 +16,6 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [isAlertInRegion, setIsAlertInRegion] = useState<boolean>(false);
   const { alerts } = useContext(EventsContext);
-  const [timerValue, setTimerValue] = useState<number>(5);
 
   const fetchUserPosition = async () => {
     try {
@@ -69,8 +67,8 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       (registration) => {
         registration.showNotification(isAlert(), {
           body: alerts ? 'У вашому регіоні оголошена повітряна тривога!' : 'У вашому регіоні відмінена повітряна тривога!',
-          badge: './greenLogo.png',
-          icon: './logo192.png',
+          badge: './logo192.png',
+          icon: alerts ? './red.png' : './green.png',
           vibrate: 500,
           requireInteraction: false,
           renotify: true,
@@ -111,19 +109,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
 
   useEffect(() => { createNotification(isAlertInRegion) }, [isAlertInRegion]);
 
-  useInterval(() => {
 
-    if (timerValue > 1) {
-      setTimerValue(old => old - 1);
-      setIsAlertInRegion(false)
-    } else {
-
-      setIsAlertInRegion(true)
-      setTimerValue(5);
-    }
-
-  }, timerValue >= 1);
-  useEffect(() => { console.log(isAlertInRegion + '!!!!!!!!') }, [isAlertInRegion]);
   return (
     <NotificationContext.Provider value={{}}>
       {children}
