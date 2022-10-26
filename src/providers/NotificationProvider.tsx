@@ -106,8 +106,8 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   }, [region, isLoading]);
 
   useEffect(() => {
-    if (isAlertInRegion !== 'panding') { createNotification(isAlertInRegion) }
-  }, [isAlertInRegion]);
+    if (isAlertInRegion !== 'panding' && !isLoading) { createNotification(isAlertInRegion) }
+  }, [isAlertInRegion, isLoading]);
 
 
   return (
