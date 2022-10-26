@@ -14,7 +14,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   const [region, setRegion] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
-  const [isAlertInRegion, setIsAlertInRegion] = useState<boolean>(false);
+  const [isAlertInRegion, setIsAlertInRegion] = useState<boolean | undefined>(undefined);
   const { alerts } = useContext(EventsContext);
 
   const fetchUserPosition = async () => {
@@ -107,7 +107,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
     }
   }, [region, isLoading]);
 
-  useEffect(() => { createNotification(isAlertInRegion) }, [isAlertInRegion]);
+  useEffect(() => { if (isAlertInRegion !== undefined) createNotification(isAlertInRegion) }, [isAlertInRegion]);
 
 
   return (
