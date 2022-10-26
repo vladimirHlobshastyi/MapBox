@@ -14,7 +14,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   const [region, setRegion] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
-  const [isAlertInRegion, setIsAlertInRegion] = useState<boolean | undefined>(undefined);
+  const [isAlertInRegion, setIsAlertInRegion] = useState<boolean | 'panding'>('panding');
   const { alerts } = useContext(EventsContext);
 
   const fetchUserPosition = async () => {
@@ -78,8 +78,6 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       }
     );
 
-
-
     if (!('Notification' in window)) {
       console.log('This browser does not support desktop notification');
     } else if (Notification.permission === 'granted') {
@@ -107,7 +105,9 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
     }
   }, [region, isLoading]);
 
-  useEffect(() => { if (isAlertInRegion !== undefined) createNotification(isAlertInRegion) }, [isAlertInRegion]);
+  useEffect(() => {
+    if (isAlertInRegion !== 'panding') { createNotification(isAlertInRegion) }
+  }, [isAlertInRegion]);
 
 
   return (
