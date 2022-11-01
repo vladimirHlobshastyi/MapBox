@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { getLocation } from '../api/getLocation';
 import { Alert } from '../commonTypes/alert';
 import { EventsContext } from './AlertProvider';
@@ -50,6 +50,8 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
 
     }
   }
+
+  const fetchUserPositionMemo = useCallback(() => { fetchUserPosition(alerts) }, [alerts])
 
   const getGeolocation = () =>
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -103,7 +105,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
 
     if (!region?.length && !isLoading) {
       getGeolocation();
-      fetchUserPosition(alerts);
+      fetchUserPositionMemo()
     }
   }, [region, isLoading, alerts]);
 
