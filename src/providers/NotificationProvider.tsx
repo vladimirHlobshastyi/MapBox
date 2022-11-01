@@ -16,7 +16,20 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [isAlertInRegion, setIsAlertInRegion] = useState<boolean | 'panding'>('panding');
+  const [whenDidAlertChange, setWhenDidAlertChange] = useState<string | 'panding'>('panding');
   const { alerts } = useContext(EventsContext);
+
+  const getGeolocation = () => {
+    setIsLoading(true)
+    navigator.geolocation.getCurrentPosition(function (position) {
+      const userGeoposition = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+      setUserPosition(userGeoposition);
+    })
+    setIsLoading(false)
+  };
 
   const fetchUserPosition = async (alertsProp: Array<Alert>) => {
     try {
@@ -32,8 +45,12 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       if (userRegion && alertsProp.length !== 0) {
         setRegion(userRegion);
 
-        alertsProp?.forEach((it) => it.name_en.toLocaleLowerCase() === userRegion.toLocaleLowerCase() ? setIsAlertInRegion(it.alert) : it)
-
+        alertsProp?.forEach((it) => {
+          if (it.name_en.toLocaleLowerCase() === userRegion.toLocaleLowerCase()) {
+            setIsAlertInRegion(it.alert)
+            setWhenDidAlertChange(it.changed)
+          }
+        })
 
       }
 
@@ -53,23 +70,15 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
 
   const fetchUserPositionMemo = useCallback(() => { fetchUserPosition(alerts) }, [alerts])
 
-  const getGeolocation = () =>
-    navigator.geolocation.getCurrentPosition(function (position) {
-      const userGeoposition = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      };
-      setUserPosition(userGeoposition);
-    });
 
-  function createNotification(isAlerts: boolean) {
+  function createNotification() {
     const isAlert = () =>
-      isAlerts ? 'Повітряна тривога!' : 'Відбій повітряної тривоги!';
+      isAlertInRegion ? 'Повітряна тривога!' : 'Відбій повітряної тривоги!';
 
     const notificationMess = navigator.serviceWorker.ready.then(
       (registration) => {
         registration.showNotification(isAlert(), {
-          body: isAlerts ? 'У вашому регіоні оголошена повітряна тривога!' : 'У вашому регіоні відмінена повітряна тривога!',
+          body: isAlertInRegion ? 'У вашому регіоні оголошена повітряна тривога!' : 'У вашому регіоні відмінена повітряна тривога!',
           badge: './logo192.png',
           icon: './logo192.png',
           vibrate: 500,
@@ -107,15 +116,15 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       getGeolocation();
       fetchUserPositionMemo()
     }
-  }, [region, isLoading, alerts]);
+  }, [region, isLoading]);
 
   useEffect(() => {
 
-    if (isAlertInRegion !== 'panding') {
+    if (whenDidAlertChange !== 'panding') {
 
-      createNotification(isAlertInRegion)
+      createNotification()
     }
-  }, [isAlertInRegion]);
+  }, [whenDidAlertChange]);
 
 
   return (
