@@ -130,7 +130,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       getGeolocation();
       fetchUserPosition(/* alerts */alertsMoc)
     }
-  }, [region, isLoading]);
+  }, [region, isLoading, alertsMoc]);
 
   useEffect(() => {
 
