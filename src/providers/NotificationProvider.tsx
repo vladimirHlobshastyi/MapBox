@@ -20,16 +20,16 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   const [whenDidAlertChange, setWhenDidAlertChange] = useState<string | 'panding'>('panding');
   const { alerts } = useContext(EventsContext);
 
-  const [alertsMoc, setAlertsMoc] = useState([{ id: 15, name: "Полтавська область", name_en: "Poltava oblast", alert: false, changed: "2022-11-01T10:40:43+02:00" },{ id: 17, name: "Полтавс", name_en: "s", alert: true, changed: "2022-11-0d10:40:43+02:00" }]);
-  const [timerValue, setTimerValue] = useState<number>(50);
+  const [alertsMoc, setAlertsMoc] = useState([{ id: 15, name: "Полтавська область", name_en: "Poltava oblast", alert: false, changed: "2022-11-01T10:40:43+02:00" }, { id: 17, name: "Полтавс", name_en: "s", alert: true, changed: "2022-11-0d10:40:43+02:00" }]);
+  const [timerValue, setTimerValue] = useState<number>(20);
 
   useInterval(() => {
 
     if (timerValue > 1) {
       setTimerValue(old => old - 1);
     } else {
-      setAlertsMoc([{ id: 15, name: "Полтавська область", name_en: "Poltava oblast", alert: !alertsMoc[0].alert, changed: `2022-11-01T10:40:43+02:${Math.random()}` },{ id: 17, name: "Полтавс", name_en: "s", alert: true, changed: "2022-11-0d10:40:43+02:00" }])
-      setTimerValue(50);
+      setAlertsMoc([{ id: 15, name: "Полтавська область", name_en: "Poltava oblast", alert: !alertsMoc[0].alert, changed: `2022-11-01T10:40:43+02:${Math.random()}` }, { id: 17, name: "Полтавс", name_en: "s", alert: true, changed: "2022-11-0d10:40:43+02:00" }])
+      setTimerValue(20);
     }
 
   }, timerValue >= 1);
