@@ -1,6 +1,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { getLocation } from '../api/getLocation';
+import { Alert } from '../commonTypes/alert';
 import { EventsContext } from './AlertProvider';
 import { ChildrenPropTypes } from './AlertProvider.types';
 import { userPositionType } from './NotificationProvider.types';
@@ -17,7 +18,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   const [isAlertInRegion, setIsAlertInRegion] = useState<boolean | 'panding'>('panding');
   const { alerts } = useContext(EventsContext);
 
-  const fetchUserPosition = async () => {
+  const fetchUserPosition = async (alertsProp: Array<Alert>) => {
     try {
       if (errorMessage) {
         setErrorMessage('');
@@ -28,10 +29,10 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       const data = await getLocation(userPosition.lat, userPosition.lng);
 
       const userRegion: string = await data?.features[0].text
-      if (userRegion && alerts.length !== 0) {
+      if (userRegion && alertsProp.length !== 0) {
         setRegion(userRegion);
 
-        alerts?.forEach((it) => it.name_en.toLocaleLowerCase() === userRegion.toLocaleLowerCase() ? setIsAlertInRegion(it.alert) : it)
+        alertsProp?.forEach((it) => it.name_en.toLocaleLowerCase() === userRegion.toLocaleLowerCase() ? setIsAlertInRegion(it.alert) : it)
 
 
       }
@@ -59,14 +60,14 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       setUserPosition(userGeoposition);
     });
 
-  function createNotification(alerts: boolean) {
+  function createNotification(isAlerts: boolean) {
     const isAlert = () =>
-      alerts ? 'Повітряна тривога!' : 'Відбій повітряної тривоги!';
+      isAlerts ? 'Повітряна тривога!' : 'Відбій повітряної тривоги!';
 
     const notificationMess = navigator.serviceWorker.ready.then(
       (registration) => {
         registration.showNotification(isAlert(), {
-          body: alerts ? 'У вашому регіоні оголошена повітряна тривога!' : 'У вашому регіоні відмінена повітряна тривога!',
+          body: isAlerts ? 'У вашому регіоні оголошена повітряна тривога!' : 'У вашому регіоні відмінена повітряна тривога!',
           badge: './logo192.png',
           icon: './logo192.png',
           vibrate: 500,
@@ -101,10 +102,10 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   useEffect(() => {
 
     if (!region?.length && !isLoading) {
-
-      fetchUserPosition();
+      getGeolocation();
+      fetchUserPosition(alerts);
     }
-  }, [region, isLoading]);
+  }, [region, isLoading, alerts]);
 
   useEffect(() => {
 
