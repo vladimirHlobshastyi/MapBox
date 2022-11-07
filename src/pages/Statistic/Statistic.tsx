@@ -1,6 +1,5 @@
 import React, { FC, useContext } from 'react';
 import style from './Statistic.module.css';
-import emblem from './img/mil-logo.svg';
 import Info from '../../components/Info/Info';
 import { StatisticContext } from '../../providers/StatisticProvider';
 import Loader from '../../components/Loader';
@@ -28,11 +27,6 @@ const Statistic: FC<{}> = (): JSX.Element => {
       <div className={style.ContainerWrapper}>
         <div className={style.ContainerWrapperScreenshot} ref={myRef}>
           <div className={style.ContainerWrapperScreenshotHeader}>
-            <div className={style.ContainerWrapperScreenshotHeaderEmblem}>
-              <a href="https://www.mil.gov.ua">
-                <img src={emblem} alt="ZSU logo" />
-              </a>
-            </div>
             <div className={style.ContainerWrapperScreenshotHeaderInfo}>
               <div className={style.ContainerWrapperScreenshotHeaderInfoH}>
                 <h2>ГЕНЕРАЛЬНИЙ ШТАБ ЗС УКРАЇНИ</h2>

@@ -2,14 +2,14 @@
     display: flex;
     justify-content: center;
     font-family: 'Digital-Italic';
-    color: rgb(255, 255, 255);
+    background-color: #fdfdfdb5;
+    color: #606060;
     width: 90vw;
     height: 4.3vh;
     padding: 0;
     border: none;
     margin-bottom: 5px;
     border-radius: 15px;
-    box-shadow: rgb(161 165 104 / 30%) 30vw 0px 35px -12px inset, rgb(54, 62, 64, 30%) 0px 90px 0px -12px inset;
     font-size: 7px;
   
     .leftWrapper {
@@ -24,7 +24,7 @@
   
       max-width: 25px;
       max-height: 25px;
-      background: rgba(161, 165, 104, 0.25);
+      background: #ffffffb0;
       border-radius: 15px;
       display: flex;
       justify-content: center;
@@ -52,9 +52,11 @@
       width: 100%;
       font-size: 4.5em;
       margin-left: 5px;
+      color:#000000;
   
-  
-  
+    }
+    .isIncrease{
+      color:#b73a67;
     }
   
     .leftWrapperValueIncrease {
@@ -63,6 +65,9 @@
       font-size: 0.5em;
       width: 31px;
       padding-top: 5px;
+      span{
+        color: #000000;
+      }
     }
   
     .leftWrapperValueIncreaseUp {
@@ -95,7 +100,7 @@
     .rightWrapperInfoContentUa {
       font-family: Strict;
       font-size: 1.7em;
-      color: rgb(255, 242, 0);
+      color: #000000da;
     }
   
     .rightWrapperInfoContentEn {
@@ -124,6 +129,11 @@
         object-fit: scale-down;
   
       }
+      .rightWrapperInfoContentUa {
+        
+        font-size: 1.6em;
+      
+      }
   
     }
   
@@ -139,8 +149,6 @@
       width: 40%;
       height: 10%;
       padding: 30px;
-      border: 1px solid #8b8b8b;
-      box-shadow: rgba(161, 165, 104, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
       font-size: 13px;
   
   
