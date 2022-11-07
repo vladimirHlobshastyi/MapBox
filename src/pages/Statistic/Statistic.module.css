@@ -20,7 +20,7 @@
   width: 100%;
   height: 100%;
   z-index: 22;
-  background-color: #94979e53;
+  background-color: rgba(148, 151, 158, 0.3254901961);
 }
 
 .ContainerWrapperScreenshotHeader {
@@ -44,14 +44,14 @@
 .ContainerWrapperScreenshotHeaderInfo .ContainerWrapperScreenshotHeaderInfoH h2 {
   display: flex;
   justify-content: center;
-  font-size: 1em;
+  font-size: 1.3em;
 }
 .ContainerWrapperScreenshotHeaderInfo .ContainerWrapperScreenshotHeaderInfoH h1 {
   display: flex;
   justify-content: center;
   font-size: 45px;
   font-family: "Roboto";
-  font-size: 2em;
+  font-size: 2.2em;
   margin: 5px 0;
 }
 .ContainerWrapperScreenshotHeaderInfo .ContainerWrapperScreenshotHeaderInfoSpanDate {
@@ -70,6 +70,7 @@
   justify-content: center;
   align-items: baseline;
   margin: 2.5px 0;
+  font-size: 1.3em;
 }
 
 .Content {

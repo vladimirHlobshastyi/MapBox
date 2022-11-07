@@ -29,10 +29,10 @@
 }
 
 .navEl a {
-    padding: 10px;
+    padding: 6px;
     font-family: system-ui;
     text-decoration: none;
-    color: #808080;
+    color: #000000cf;
 }
 
 
@@ -61,6 +61,12 @@
     object-fit: contain;
 }
 
+@media(min-width:350px) {
+    .navEl a {
+        padding: 10px;
+    }
+
+}
 
 @media(max-width:1300px) {
     .NavbarLogo {
