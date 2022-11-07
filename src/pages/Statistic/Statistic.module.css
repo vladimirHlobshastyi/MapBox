@@ -5,7 +5,7 @@
   background-image: url("./img/bg_image1.png");
   background-size: cover;
 }
-.NavbarBackgroundImage:before {
+.NavbarBackgroundImage :before {
   background-color: #363e40;
 }
 
@@ -30,7 +30,7 @@
   align-items: center;
   font-family: "Digital-Italic";
   padding: 10px 0;
-  color: white;
+  color: rgb(255, 255, 255);
   width: 100%;
 }
 
@@ -77,7 +77,7 @@
   align-items: center;
 }
 .ContainerWrapperScreenshotHeaderInfo .ContainerWrapperScreenshotHeaderInfoSpanDateEl h2 {
-  color: #fff200;
+  color: rgb(255, 242, 0);
 }
 .ContainerWrapperScreenshotHeaderInfo .ContainerWrapperScreenshotHeaderInfoSpan span {
   display: flex;
@@ -106,26 +106,22 @@
   .ContainerWrapper {
     font-size: 16px;
   }
-
   .ContainerWrapperScreenshotHeader {
     padding: 30px 0;
     min-height: 25%;
   }
-
   .ContainerWrapperScreenshotHeaderInfoH h2 {
     font-size: 1em;
   }
   .ContainerWrapperScreenshotHeaderInfoH h1 {
     font-size: 2.8em;
   }
-
   .ContainerWrapperScreenshotHeaderEmblem {
     height: 150px;
   }
   .ContainerWrapperScreenshotHeaderEmblem img {
     width: 140px;
   }
-
   .Content {
     height: 70%;
     margin-top: 0;
@@ -135,7 +131,6 @@
   .ContainerWrapper {
     font-size: 12px;
   }
-
   .Content {
     display: flex;
     flex-wrap: nowrap;
@@ -147,16 +142,18 @@
   .ContainerWrapperScreenshotHeader {
     padding: 15px 0;
   }
-
   .ContainerWrapperScreenshotHeaderInfoH h1 {
     margin: 10px 0;
   }
-
   .ContainerWrapper {
     font-size: 8px;
   }
-
   .Content {
     margin-top: 1.5vh;
   }
 }
+/* blue:#94979e
+white-blue:#eaedf5
+white-red:#f07b7f
+grey:#bbbec4
+text:#8992a4 *//*# sourceMappingURL=Statistic.module.css.map */

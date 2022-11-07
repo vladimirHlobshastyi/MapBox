@@ -5,7 +5,7 @@
     background-image: url('./img/bg_image1.png');
     background-size: cover;
   
-    &:before {
+    :before {
       background-color: #363e40;
     }
   
@@ -192,3 +192,10 @@
     }
   
   }
+
+
+  /* blue:#94979e
+  white-blue:#eaedf5
+  white-red:#f07b7f
+  grey:#bbbec4
+  text:#8992a4 */
