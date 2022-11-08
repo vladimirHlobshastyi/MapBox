@@ -51,7 +51,7 @@ export function register(config) {
 
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
-        navigator.serviceWorker.ready.then(() => {
+        navigator.serviceWorker.ready.then((registration) => {
           console.log(
             'This web app is being served cache-first by a service ' +
               'worker. To learn more, visit https://cra.link/PWA'
@@ -60,7 +60,27 @@ export function register(config) {
       } else {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
-        registerPeriodicTest();
+        navigator.serviceWorker.ready.then(async (registration) => {
+          if (registration.periodicSync) {
+            const status = await navigator.permissions.query({
+              name: 'periodic-background-sync',
+            });
+            if (status.state === 'granted') {
+              registerPeriodicTest();
+              console.log('Periodic background sync can be used');
+              // Periodic background sync can be used.
+            } else {
+              console.log('Periodic background sync can be used');
+
+              // Periodic background sync cannot be used.
+            }
+            console.log('Periodic Background Sync is supported.');
+            // Periodic Background Sync is supported.
+          } else {
+            console.log('Periodic Background Sync isnt supported.');
+            // Periodic Background Sync isn't supported.
+          }
+        });
       }
     });
   }
