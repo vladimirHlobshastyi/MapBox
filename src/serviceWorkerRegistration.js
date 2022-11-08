@@ -71,18 +71,15 @@ export function register(config) {
               // Periodic background sync can be used.
             } else {
               console.log('Periodic background sync cannot be used.');
-              navigator.permissions.requestPermission().then((permission) => {
+              /*  navigator.permissions.requestPermission().then((permission) => {
                 if (permission === 'granted') {
                   registerPeriodicTest();
                 }
-              });
+              }); */
+              registerPeriodicTest();
               // Periodic background sync cannot be used.
             }
-            navigator.permissions.requestPermission().then((permission) => {
-              if (permission === 'granted') {
-                registerPeriodicTest();
-              }
-            });
+
             registerPeriodicTest();
             console.log('Periodic Background Sync is supported.');
             // Periodic Background Sync is supported.
