@@ -83,12 +83,6 @@ registerRoute(
   })
 );
 
-navigator.serviceWorker.ready.then(function (registration) {
-  registration.periodicSync.permissionState().then(function (state) {
-    if (state === 'prompt') registerPeriodicTest();
-  });
-});
-
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
 self.addEventListener('message', (event) => {
