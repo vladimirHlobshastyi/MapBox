@@ -24,10 +24,10 @@ async function registerPeriodicTest() {
   const registration = await navigator.serviceWorker.ready;
   try {
     await registration.periodicSync.register('test', {
-      minInterval: 6000,
+      minInterval: 600,
     });
-  } catch {
-    console.log('Periodic Sync could not be registered!');
+  } catch (error) {
+    console.log('Periodic Sync could not be registered!>>>>' + error);
   }
 }
 
@@ -60,17 +60,6 @@ export function register(config) {
       } else {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
-        registerPeriodicTest();
-        navigator.serviceWorker.ready.then((registration) => {
-          registration.periodicSync.getTags().then((tags) => {
-            if (tags.includes('test')) {
-              console.log('YES!');
-            } else {
-              registerPeriodicTest();
-              console.log('NO!');
-            }
-          });
-        });
       }
     });
   }
@@ -95,7 +84,6 @@ function registerValidSW(swUrl, config) {
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://cra.link/PWA.'
               );
-              registerPeriodicTest();
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
@@ -109,7 +97,6 @@ function registerValidSW(swUrl, config) {
               // Execute callback
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
-                registerPeriodicTest();
               }
             }
           }
@@ -142,7 +129,6 @@ function checkValidServiceWorker(swUrl, config) {
       } else {
         // Service worker found. Proceed as normal.
         registerValidSW(swUrl, config);
-        registerPeriodicTest();
       }
     })
     .catch(() => {
