@@ -74,6 +74,6 @@ self.addEventListener('message', (event) => {
 
 self.addEventListener('periodicsync', (event) => {
   if (event.tag === 'test') {
-    event.waitUntil(console.log('it`s work'));
+    event.waitUntil(alert('it`s work'));
   }
 });
