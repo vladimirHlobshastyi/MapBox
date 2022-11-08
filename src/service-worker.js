@@ -84,18 +84,6 @@ registerRoute(
 );
 
 navigator.serviceWorker.ready.then(function (registration) {
-  registration.periodicSync.getRegistrations().then(function (syncRegs) {
-    syncRegs
-      .filter(function (reg) {
-        return reg.tag !== 'test';
-      })
-      .forEach(function (reg) {
-        reg.unregister();
-      });
-  });
-});
-
-navigator.serviceWorker.ready.then(function (registration) {
   registration.periodicSync.permissionState().then(function (state) {
     if (state === 'prompt') registerPeriodicTest();
   });
