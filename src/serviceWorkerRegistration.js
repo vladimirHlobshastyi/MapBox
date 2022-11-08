@@ -24,7 +24,7 @@ async function registerPeriodicTest() {
   const registration = await navigator.serviceWorker.ready;
   try {
     await registration.periodicSync.register('test', {
-      minInterval: 600,
+      minInterval: 0,
     });
   } catch (error) {
     console.log('Periodic Sync could not be registered!>>>>' + error);
@@ -70,10 +70,11 @@ export function register(config) {
               console.log('Periodic background sync can be used');
               // Periodic background sync can be used.
             } else {
-              console.log('Periodic background sync can be used');
+              console.log('Periodic background sync cannot be used.');
 
               // Periodic background sync cannot be used.
             }
+            registerPeriodicTest();
             console.log('Periodic Background Sync is supported.');
             // Periodic Background Sync is supported.
           } else {
