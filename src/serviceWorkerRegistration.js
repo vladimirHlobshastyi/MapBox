@@ -20,6 +20,17 @@ const isLocalhost = Boolean(
     )
 );
 
+async function registerPeriodicTest() {
+  const registration = await navigator.serviceWorker.ready;
+  try {
+    await registration.periodicSync.register('test', {
+      minInterval: 6000,
+    });
+  } catch {
+    console.log('Periodic Sync could not be registered!');
+  }
+}
+
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
@@ -33,16 +44,6 @@ export function register(config) {
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-      async function registerPeriodicTest() {
-        const registration = await navigator.serviceWorker.ready;
-        try {
-          await registration.periodicSync.register('test', {
-            minInterval: 6000,
-          });
-        } catch {
-          console.log('Periodic Sync could not be registered!');
-        }
-      }
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
@@ -84,7 +85,7 @@ function registerValidSW(swUrl, config) {
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://cra.link/PWA.'
               );
-
+              registerPeriodicTest();
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
@@ -94,10 +95,11 @@ function registerValidSW(swUrl, config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-
+              registerPeriodicTest();
               // Execute callback
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
+                registerPeriodicTest();
               }
             }
           }
@@ -130,6 +132,7 @@ function checkValidServiceWorker(swUrl, config) {
       } else {
         // Service worker found. Proceed as normal.
         registerValidSW(swUrl, config);
+        registerPeriodicTest();
       }
     })
     .catch(() => {
