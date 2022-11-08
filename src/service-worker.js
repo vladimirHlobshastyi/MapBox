@@ -82,24 +82,6 @@ registerRoute(
     ],
   })
 );
-navigator.serviceWorker.ready.then(function (registration) {
-  registration.periodicSync
-    .register({
-      tag: 'test', // default: ''
-      minPeriod: 5000, // default: 0
-      powerState: 'avoid-draining', // default: 'auto'
-      networkState: 'avoid-cellular', // default: 'online'
-    })
-    .then(
-      function (periodicSyncReg) {
-        registerPeriodicTest();
-        // success
-      },
-      function () {
-        // failure
-      }
-    );
-});
 
 navigator.serviceWorker.ready.then(function (registration) {
   registration.periodicSync.getRegistrations().then(function (syncRegs) {
