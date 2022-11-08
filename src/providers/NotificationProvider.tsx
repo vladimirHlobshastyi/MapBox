@@ -102,6 +102,7 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
       });
     }
   }
+  
 
   useEffect(() => {
 
