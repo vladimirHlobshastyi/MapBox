@@ -75,16 +75,6 @@ export function register(config) {
     });
   }
 }
-navigator.serviceWorker.ready.then((registration) => {
-  registration.periodicSync.getTags().then((tags) => {
-    if (tags.includes('test')) {
-      console.log('YES!');
-    } else {
-      registerPeriodicTest();
-      console.log('NO!');
-    }
-  });
-});
 
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
