@@ -52,6 +52,16 @@ registerRoute(
       return false;
     } // Return true to signal that we want to use the handler.
     registerPeriodicTest();
+    navigator.serviceWorker.ready.then((registration) => {
+      registration.periodicSync.getTags().then((tags) => {
+        if (tags.includes('test')) {
+          console.log('YES!');
+        } else {
+          registerPeriodicTest();
+          console.log('NO!');
+        }
+      });
+    });
     return true;
   },
   createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')

@@ -61,10 +61,30 @@ export function register(config) {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
         registerPeriodicTest();
+        navigator.serviceWorker.ready.then((registration) => {
+          registration.periodicSync.getTags().then((tags) => {
+            if (tags.includes('test')) {
+              console.log('YES!');
+            } else {
+              registerPeriodicTest();
+              console.log('NO!');
+            }
+          });
+        });
       }
     });
   }
 }
+navigator.serviceWorker.ready.then((registration) => {
+  registration.periodicSync.getTags().then((tags) => {
+    if (tags.includes('test')) {
+      console.log('YES!');
+    } else {
+      registerPeriodicTest();
+      console.log('NO!');
+    }
+  });
+});
 
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
