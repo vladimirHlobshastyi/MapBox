@@ -1,7 +1,6 @@
 .Container {
   display: flex;
   justify-content: center;
-  font-family: "Digital-Italic";
   background-color: rgba(253, 253, 253, 0.7098039216);
   color: #606060;
   width: 90vw;
@@ -83,7 +82,7 @@
   padding-left: 5px;
 }
 .Container .rightWrapperInfoContentUa {
-  font-family: Strict;
+  font-weight: bolder;
   font-size: 1.7em;
   color: rgba(0, 0, 0, 0.8549019608);
 }

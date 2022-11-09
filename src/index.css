@@ -1,24 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Roboto:wght@300&display=swap");
-
-@font-face {
-  font-family: 'Digital-Bold-Italic';
-  src: url('./fonts/digital/DS-bold-italic.TTF');
-}
-
-@font-face {
-  font-family: 'Digital-Italic';
-  src: url('./fonts/digital/DS-italic.TTF');
-}
-
-@font-face {
-  font-family: 'Strict';
-  src: url('./fonts/digital/Strict.ttf');
-}
-
-@font-face {
-  font-family: 'Attentica';
-  src: url('./fonts/digital/Attentica 4F UltraLight.otf');
-}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Roboto:wght@100;300;400;&display=swap');
 
 @font-face {
   font-family: 'Roboto';
