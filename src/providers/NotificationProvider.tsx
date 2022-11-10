@@ -16,6 +16,8 @@ const NotificationProvider = ({ children }: ChildrenPropTypes) => {
   const [whenDidAlertChange, setWhenDidAlertChange] = useState<string | 'panding'>('panding');
   const { alerts } = useContext(EventsContext);
 
+
+
   const getGeolocation = () =>
     navigator.geolocation.getCurrentPosition(function (position) {
       const userGeoposition = {

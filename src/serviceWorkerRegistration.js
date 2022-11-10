@@ -67,27 +67,17 @@ export function register(config) {
   }
 }
 const testFu = async () => {
-  const status = await navigator.permissions.query({
-    name: 'periodic-background-sync',
-  });
-  if (status.state === 'granted') {
-    console.log('Periodic background sync can be used.');
-    const registration = await navigator.serviceWorker.ready;
-    if ('periodicSync' in registration) {
-      try {
-        await registration.periodicSync.register('test', {
-          // An interval of one day.
-          minInterval: 200,
-        });
-        console.log('its work');
-      } catch (error) {
-        // Periodic background sync cannot be used.
-      }
+  const registration = await navigator.serviceWorker.ready;
+  if ('periodicSync' in registration) {
+    try {
+      await registration?.periodicSync.register('test', {
+        // An interval of one day.
+        minInterval: 200,
+      });
+      console.log('its work');
+    } catch (error) {
+      // Periodic background sync cannot be used.
     }
-    // Periodic background sync can be used.
-  } else {
-    console.log('Periodic background sync cannot be used.');
-    // Periodic background sync cannot be used.
   }
 };
 
