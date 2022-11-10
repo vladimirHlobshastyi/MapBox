@@ -65,11 +65,14 @@ export function register(config) {
             const status = await navigator.permissions.query({
               name: 'periodic-background-sync',
             });
+
             if (status.state === 'granted') {
               console.log('Periodic background sync can be used.');
               // Periodic background sync can be used.
             } else {
-              console.log('Periodic background sync cannot be used.');
+              console.log(
+                'Periodic background sync cannot be used.' + status.state
+              );
               // Periodic background sync cannot be used.
             }
 
