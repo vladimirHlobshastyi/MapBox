@@ -60,29 +60,7 @@ export function register(config) {
       } else {
         // Is not localhost. Just register service worker
         console.log('Is not localhost. Just register service worker');
-        navigator.serviceWorker.ready.then(async (registration) => {
-          if (registration.periodicSync) {
-            const status = await navigator.permissions.query({
-              name: 'periodic-background-sync',
-            });
 
-            if (status.state === 'granted') {
-              console.log('Periodic background sync can be used.');
-              // Periodic background sync can be used.
-            } else {
-              console.log(
-                'Periodic background sync cannot be used.' + status.state
-              );
-              // Periodic background sync cannot be used.
-            }
-
-            console.log('Periodic Background Sync is supported.');
-            // Periodic Background Sync is supported.
-          } else {
-            console.log('Periodic Background Sync isn t supported.');
-            // Periodic Background Sync isn't supported.
-          }
-        });
         registerValidSW(swUrl, config);
       }
     });
@@ -98,7 +76,7 @@ function registerValidSW(swUrl, config) {
         if (installingWorker == null) {
           return;
         }
-        installingWorker.onstatechange = () => {
+        installingWorker.onstatechange = async () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
               // At this point, the updated precached content has been fetched,
@@ -117,7 +95,28 @@ function registerValidSW(swUrl, config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-
+              const status = await navigator.permissions.query({
+                name: 'periodic-background-sync',
+              });
+              if (status.state === 'granted') {
+                console.log('Periodic background sync can be used.');
+                const registration = await navigator.serviceWorker.ready;
+                if ('periodicSync' in registration) {
+                  try {
+                    await registration.periodicSync.register('test', {
+                      // An interval of one day.
+                      minInterval: 200,
+                    });
+                    console.log('its work');
+                  } catch (error) {
+                    // Periodic background sync cannot be used.
+                  }
+                }
+                // Periodic background sync can be used.
+              } else {
+                console.log('Periodic background sync cannot be used.');
+                // Periodic background sync cannot be used.
+              }
               // Execute callback
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
