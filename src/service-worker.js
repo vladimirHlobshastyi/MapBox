@@ -75,6 +75,6 @@ self.addEventListener('message', (event) => {
 self.addEventListener('periodicsync', (event) => {
   if (event.tag === 'test') {
     console.log(event);
-    event.waitUntil();
+    event.waitUntil(event);
   }
 });
