@@ -76,6 +76,7 @@ const testFu = async () => {
       });
       console.log('its work');
     } catch (error) {
+      console.log(error);
       // Periodic background sync cannot be used.
     }
   }
