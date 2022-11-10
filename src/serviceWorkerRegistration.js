@@ -60,6 +60,15 @@ export function register(config) {
       } else {
         // Is not localhost. Just register service worker
         console.log('Is not localhost. Just register service worker');
+        navigator.serviceWorker.ready.then((registration) => {
+          if (registration.periodicSync) {
+            console.log('Periodic Background Sync is supported.');
+            // Periodic Background Sync is supported.
+          } else {
+            console.log('Periodic Background Sync isn t supported.');
+            // Periodic Background Sync isn't supported.
+          }
+        });
         registerValidSW(swUrl, config);
       }
     });
