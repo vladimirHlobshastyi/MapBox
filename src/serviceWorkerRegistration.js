@@ -60,8 +60,19 @@ export function register(config) {
       } else {
         // Is not localhost. Just register service worker
         console.log('Is not localhost. Just register service worker');
-        navigator.serviceWorker.ready.then((registration) => {
+        navigator.serviceWorker.ready.then(async (registration) => {
           if (registration.periodicSync) {
+            const status = await navigator.permissions.query({
+              name: 'periodic-background-sync',
+            });
+            if (status.state === 'granted') {
+              console.log('Periodic background sync can be used.');
+              // Periodic background sync can be used.
+            } else {
+              console.log('Periodic background sync cannot be used.');
+              // Periodic background sync cannot be used.
+            }
+
             console.log('Periodic Background Sync is supported.');
             // Periodic Background Sync is supported.
           } else {
