@@ -49,7 +49,8 @@
       justify-content: flex-end;
       align-items: center;
       width: 100%;
-      font-size: 4.5em;
+      font-size: 3.6em;
+      font-weight: 400;
       margin-left: 5px;
       color:#000000;
   
@@ -97,13 +98,13 @@
   
   
     .rightWrapperInfoContentUa {
-      font-weight: bolder;
-      font-size: 1.7em;
+      font-weight: 500;
+      font-size: 1.6em;
       color: #000000da;
     }
   
     .rightWrapperInfoContentEn {
-      font-size: 1.4em;
+      font-size: 1em;
     }
   
   }
@@ -130,7 +131,7 @@
       }
       .rightWrapperInfoContentUa {
         
-        font-size: 1.6em;
+        font-size: 1.5em;
       
       }
   
@@ -197,12 +198,12 @@
   
       .rightWrapperInfoContentUa {
   
-        font-size: 1.4em;
+        font-size: 1.3em;
   
       }
   
       .rightWrapperInfoContentEn {
-        font-size: 1.2em;
+        font-size: 0.9em;
   
       }
     }

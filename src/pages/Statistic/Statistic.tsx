@@ -9,7 +9,7 @@ import { IsIosEventsContext } from '../../providers/IsIosProvaider';
 const Statistic: FC<{}> = (): JSX.Element => {
   const { date, statsData } = useContext(StatisticContext);
   const { isIosProviderProp } = useContext(IsIosEventsContext);
-  let reverseDate = date?.split('-').reverse().join('-');
+  let reverseDate = date?.split('-').reverse().join('.');
   const myRef = React.useRef<HTMLDivElement>(null);
 
   if (!statsData?.stats) {
