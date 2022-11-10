@@ -3,7 +3,7 @@ import { getLatestStatistic } from "../api/getLatestStatistic"
 import { ChildrenPropTypes } from "./AlertProvider.types"
 import {
   StatisticDataType,
-  
+
   statsDataTypes
 } from "./StatisticProvider.types"
 
@@ -19,7 +19,7 @@ const StatisticProvider = ({ children }: ChildrenPropTypes) => {
   )
 
   const getStatistic = async () => {
-    
+
     try {
       if (errorMessage) {
         setErrorMessage("")
@@ -38,12 +38,13 @@ const StatisticProvider = ({ children }: ChildrenPropTypes) => {
       }
     }
   }
+  
 
-  const setStats =async () => {
-    let { stats,increase } = statsResponse
-    let statsData =await Object.entries(stats)
-    let increaseData =await Object.entries(increase)
-    setStatsData({stats:statsData,increase:increaseData})
+  const setStats = async () => {
+    let { stats, increase } = statsResponse
+    let statsData = await Object.entries(stats)
+    let increaseData = await Object.entries(increase)
+    setStatsData({ stats: statsData, increase: increaseData })
   }
 
   useEffect(() => {

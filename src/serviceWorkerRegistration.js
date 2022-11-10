@@ -20,7 +20,7 @@ const isLocalhost = Boolean(
     )
 );
 
-async function registerPeriodicTest() {
+/* async function registerPeriodicTest() {
   const registration = await navigator.serviceWorker.ready;
   try {
     await registration.periodicSync.register('test', {
@@ -29,7 +29,7 @@ async function registerPeriodicTest() {
   } catch (error) {
     console.log('Periodic Sync could not be registered!>>>>' + error);
   }
-}
+} */
 
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
@@ -60,34 +60,6 @@ export function register(config) {
       } else {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
-        navigator.serviceWorker.ready.then(async (registration) => {
-          if (registration.periodicSync) {
-            const status = await navigator.permissions.query({
-              name: 'periodic-background-sync',
-            });
-            if (status.state === 'granted') {
-              registerPeriodicTest();
-              console.log('Periodic background sync can be used');
-              // Periodic background sync can be used.
-            } else {
-              console.log('Periodic background sync cannot be used.');
-              /*  navigator.permissions.requestPermission().then((permission) => {
-                if (permission === 'granted') {
-                  registerPeriodicTest();
-                }
-              }); */
-              registerPeriodicTest();
-              // Periodic background sync cannot be used.
-            }
-
-            registerPeriodicTest();
-            console.log('Periodic Background Sync is supported.');
-            // Periodic Background Sync is supported.
-          } else {
-            console.log('Periodic Background Sync isnt supported.');
-            // Periodic Background Sync isn't supported.
-          }
-        });
       }
     });
   }
@@ -121,11 +93,10 @@ function registerValidSW(swUrl, config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-              registerPeriodicTest();
+
               // Execute callback
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
-                registerPeriodicTest();
               }
             }
           }
@@ -158,7 +129,7 @@ function checkValidServiceWorker(swUrl, config) {
       } else {
         // Service worker found. Proceed as normal.
         registerValidSW(swUrl, config);
-        registerPeriodicTest();
+        console.log('Service worker found. Proceed as normal.');
       }
     })
     .catch(() => {
