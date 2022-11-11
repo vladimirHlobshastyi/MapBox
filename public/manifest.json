@@ -31,11 +31,11 @@
   "screenshots": [
     {
       "src": "./screenshots/screenshot_mob_map.webp",
-      "sizes": "1280x613",
+      "sizes": "1280x600",
       "type": "image/webp"
     },{
       "src": "./screenshots/screenshot_mob_stat.webp",
-      "sizes": "1280x611",
+      "sizes": "1280x600",
       "type": "image/webp"
     },{
       "src": "./screenshots/Screenshot from 2022-11-11 statistic.webp",
