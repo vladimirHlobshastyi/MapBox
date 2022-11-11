@@ -23,27 +23,27 @@
   "shortcuts" : [
     {}
   ],
-  "orientation": "portrait-primary",
+  "orientation": "portrait",
   "start_url": "/",
   "display": "fullscreen",
   "theme_color": "#000000",
-  "background_color": "#d6d6d6",
+  "background_color": "#94979e53",
   "screenshots": [
     {
-      "src": "./screenshots/Screenshot_from_2022-10-10_11-30-06.webp",
-      "sizes": "1600x900",
+      "src": "./screenshots/screenshot_mob_map.webp",
+      "sizes": "1280x613",
       "type": "image/webp"
     },{
-      "src": "./screenshots/Screenshot_from_2022-10-10_11-30-06.webp",
-      "sizes": "1600x900",
+      "src": "./screenshots/screenshot_mob_stat.webp",
+      "sizes": "1280x611",
       "type": "image/webp"
     },{
-      "src": "./screenshots/Screenshot_2022-10-10-11-30-39-534_com.android.chrome.webp",
-      "sizes": "1280x2340",
+      "src": "./screenshots/Screenshot from 2022-11-11 statistic.webp",
+      "sizes": "900x1600",
       "type": "image/webp"
     },{
-      "src": "./screenshots/Screenshot_2022-10-10-11-30-44-979_com.android.chrome.webp",
-      "sizes": "1280x2340",
+      "src": "./screenshots/Screenshot from 2022-11-11.webp",
+      "sizes": "900x1600",
       "type": "image/webp"
     },{
       "src": "./screenshots/screenshot.webp",
