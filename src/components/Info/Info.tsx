@@ -15,12 +15,11 @@ const Info: FC<InfoPropsTypes> = ({ stats, name, increase }): JSX.Element => {
         <div className={style.leftWrapperSvg}>
           <img src={InfoData[name].png} alt="logo"></img>
         </div>
-        <div className={style.leftWrapperValue}>
+        <div className={`${style.leftWrapperValue} ${increase ? style.isIncrease : ''}`}>
           <div className={style.leftWrapperValueIncrease}>
             <div className={style.leftWrapperValueIncreaseUp}> {isUnits()}</div>
             <div className={style.leftWrapperValueIncreaseDown}>
-              {' '}
-              {isIncrease()}
+              <span>{isIncrease()}</span>
             </div>
           </div>
           {stats}
@@ -34,7 +33,7 @@ const Info: FC<InfoPropsTypes> = ({ stats, name, increase }): JSX.Element => {
           <span>{InfoData[name].en.toUpperCase()}</span>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

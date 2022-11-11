@@ -1,11 +1,10 @@
+
 .NavbarBackgroundImage {
     height: 100vh;
     width: 100vw;
-    background-color: #363e40;
-    background-image: url('./img/bg_image1.png');
     background-size: cover;
   
-    &:before {
+    :before {
       background-color: #363e40;
     }
   
@@ -25,57 +24,43 @@
     width: 100%;
     height: 100%;
     z-index: 22;
+    background-color: #94979e53;
   }
   
   .ContainerWrapperScreenshotHeader {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-family: 'Digital-Italic';
-    padding: 10px 0;
-    color: rgb(255, 255, 255);
+    padding: 6px 0;
+    color:#000000;
     width: 100%;
   
   }
   
-  .ContainerWrapperScreenshotHeaderEmblem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    width: 50%;
-    height: auto;
-  
-    img {
-  
-      width: 60px;
-  
-      &:hover {
-        width: calc(100% - 5px)
-      }
-    }
-  }
   
   .ContainerWrapperScreenshotHeaderInfo {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 50%;
+    padding-bottom: 10px;
+    border-bottom: 2px solid grey;
+    width: 70vw;
   
     .ContainerWrapperScreenshotHeaderInfoH {
       h2 {
         display: flex;
         justify-content: center;
-        font-size: 1em;
+        font-size: 1.3em;
+        font-weight: 400;
       }
   
       h1 {
         display: flex;
         justify-content: center;
-        font-size: 45px;
         font-family: 'Roboto';
-        font-size: 2em;
-        margin: 5px 0;
+        font-size: 2.2em;
+        font-weight: 400;
+        margin: 3px 0;
       }
     }
   
@@ -89,8 +74,8 @@
       align-items: center;
   
       h2 {
-        color: rgb(255, 242, 0);
-  
+       color: #b73a67;;
+       font-weight: 500;
       }
     }
   
@@ -100,6 +85,7 @@
         justify-content: center;
         align-items: baseline;
         margin: 2.5px 0;
+        font-size: 1.3em;
       }
     }
   }
@@ -142,25 +128,19 @@
   
     }
   
-    .ContainerWrapperScreenshotHeaderEmblem {
-      height: 150px;
-  
-      img {
-  
-        width: 140px;
-      }
-    }
-  
     .Content {
       height: 70%;
       margin-top: 0;
     }
   }
-  
   @media(min-width: 768px) and (max-width: 1023px) {
   
     .ContainerWrapper {
       font-size: 12px;
+      .ContainerWrapperScreenshotHeader {
+        padding: 20px 0;
+     
+      }
     }
   
     .Content {
@@ -172,8 +152,17 @@
   }
   
   @media(min-width: 375px) and (max-width: 767px) {
+
+    .ContainerWrapper {
+      font-size: 8px;
+    }
+  
+    .Content {
+      margin-top: 1.5vh;
+    }
+  
     .ContainerWrapperScreenshotHeader {
-      padding: 15px 0;
+      padding: 10px 0;
   
     }
   
@@ -183,12 +172,7 @@
       }
     }
   
-    .ContainerWrapper {
-      font-size: 8px;
-    }
-  
-    .Content {
-      margin-top: 1.5vh;
-    }
-  
   }
+
+
+

@@ -1,15 +1,14 @@
 .Container {
   display: flex;
   justify-content: center;
-  font-family: "Digital-Italic";
-  color: white;
+  background-color: rgba(253, 253, 253, 0.7098039216);
+  color: #606060;
   width: 90vw;
   height: 4.3vh;
   padding: 0;
   border: none;
   margin-bottom: 5px;
   border-radius: 15px;
-  box-shadow: rgba(161, 165, 104, 0.3) 30vw 0px 35px -12px inset, rgba(54, 62, 64, 0.3) 0px 90px 0px -12px inset;
   font-size: 7px;
 }
 .Container .leftWrapper {
@@ -22,7 +21,7 @@
 .Container .leftWrapperSvg {
   max-width: 25px;
   max-height: 25px;
-  background: rgba(161, 165, 104, 0.25);
+  background: rgba(255, 255, 255, 0.6901960784);
   border-radius: 15px;
   display: flex;
   justify-content: center;
@@ -33,7 +32,8 @@
 .Container .leftWrapperSvg img {
   max-width: 50px;
   max-height: 25px;
-  object-fit: scale-down;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
   width: 25px;
   height: 25px;
 }
@@ -42,8 +42,13 @@
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  font-size: 4.5em;
+  font-size: 3.6em;
+  font-weight: 400;
   margin-left: 5px;
+  color: #000000;
+}
+.Container .isIncrease {
+  color: #b73a67;
 }
 .Container .leftWrapperValueIncrease {
   display: flex;
@@ -51,6 +56,9 @@
   font-size: 0.5em;
   width: 31px;
   padding-top: 5px;
+}
+.Container .leftWrapperValueIncrease span {
+  color: #000000;
 }
 .Container .leftWrapperValueIncreaseUp {
   height: 5px;
@@ -75,12 +83,12 @@
   padding-left: 5px;
 }
 .Container .rightWrapperInfoContentUa {
-  font-family: Strict;
-  font-size: 1.7em;
-  color: #fff200;
+  font-weight: 500;
+  font-size: 1.6em;
+  color: rgba(0, 0, 0, 0.8549019608);
 }
 .Container .rightWrapperInfoContentEn {
-  font-size: 1.4em;
+  font-size: 1em;
 }
 
 @media (min-width: 375px) and (max-width: 1023px) {
@@ -97,9 +105,12 @@
   .Container img {
     max-height: 25px;
     max-width: 50px;
-    object-fit: scale-down;
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
   }
-
+  .Container .rightWrapperInfoContentUa {
+    font-size: 1.5em;
+  }
   .leftWrapperValue {
     font-size: 4.35em;
   }
@@ -110,8 +121,6 @@
     width: 40%;
     height: 10%;
     padding: 30px;
-    border: 1px solid #8b8b8b;
-    box-shadow: rgba(161, 165, 104, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     font-size: 13px;
   }
   .Container .leftWrapper {
@@ -146,9 +155,9 @@
     width: 45%;
   }
   .Container .rightWrapperInfoContentUa {
-    font-size: 1.4em;
+    font-size: 1.3em;
   }
   .Container .rightWrapperInfoContentEn {
-    font-size: 1.2em;
+    font-size: 0.9em;
   }
-}
+}/*# sourceMappingURL=Info.module.css.map */

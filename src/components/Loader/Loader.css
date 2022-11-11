@@ -7,13 +7,12 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: #363e40;
-  background-image: url('./../../pages/Statistic/img/bg_image1.png');
+  background: #94979e53;
   background-size: cover;
 }
 
 .loaderContainer::before {
-  background: #363e40;
+  background: #94979e53;
 }
 
 .loaderWrapper {

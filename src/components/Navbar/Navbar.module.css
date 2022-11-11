@@ -8,7 +8,7 @@
     top: 0;
     right: 0;
     z-index: 10;
-    border-radius: 9px;
+    border-radius: 5px;
     border: 1px solid #ffcd00;
 }
 
@@ -29,11 +29,10 @@
 }
 
 .navEl a {
-    padding: 10px;
+    padding: 6px;
     font-family: system-ui;
     text-decoration: none;
-    color: rgb(255, 255, 0);
-    text-shadow: #76797e 0.9px 0.9px 1px;
+    color: #000000cf;
 }
 
 
@@ -43,8 +42,8 @@
 
 .active {
     cursor: pointer;
-    border-radius: 5px;
-    box-shadow: rgba(161, 165, 104, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    border-radius: 10px;
+    border: 2px solid #80808091;
 }
 
 .noActive {
@@ -62,6 +61,12 @@
     object-fit: contain;
 }
 
+@media(min-width:350px) {
+    .navEl a {
+        padding: 10px;
+    }
+
+}
 
 @media(max-width:1300px) {
     .NavbarLogo {
