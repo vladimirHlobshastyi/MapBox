@@ -104,7 +104,17 @@ const registerPeriodicBackgroundSync = async (registration) => {
     console.log('ELSE' + status.state);
   }
 };
-registerPeriodicBackgroundSync();
+
+navigator?.serviceWorker?.ready.then((registration) => {
+  if (registration.periodicSync) {
+    // Periodic Background Sync is supported.
+    registerPeriodicBackgroundSync();
+    console.log('Periodic Background Sync is supported.');
+  } else {
+    // Periodic Background Sync isn't supported.
+    console.log('Periodic Background Sync isn t supported.');
+  }
+});
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
