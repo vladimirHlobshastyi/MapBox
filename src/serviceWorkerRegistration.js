@@ -66,7 +66,7 @@ export function register(config) {
     });
   }
 }
-const testFu = async () => {
+/* const test2 = `const testFu = async () => {
   const registration = await navigator.serviceWorker.ready;
   if ('periodicSync' in registration) {
     try {
@@ -80,7 +80,7 @@ const testFu = async () => {
       // Periodic background sync cannot be used.
     }
   }
-};
+};`; */
 
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
@@ -110,7 +110,17 @@ function registerValidSW(swUrl, config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-              testFu();
+              navigator.serviceWorker.ready.then(async (registration) => {
+                try {
+                  console.log('try register');
+                  await registration.periodicSync.register('test', {
+                    interval: 10,
+                  });
+                } catch (e) {
+                  console.log('alarm!  ' + e);
+                  window.alert('alarm!  ' + e);
+                }
+              });
               // Execute callback
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
