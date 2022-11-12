@@ -114,7 +114,7 @@ function registerValidSW(swUrl, config) {
                 try {
                   console.log('try register');
                   await registration.periodicSync.register('test', {
-                    interval: 10,
+                    minInterval: 10,
                   });
                 } catch (e) {
                   console.log('alarm!  ' + e);
