@@ -35,7 +35,7 @@ const registerPeriodicBackgroundSync = async (registration) => {
   const status = await navigator.permissions.query({
     name: 'periodic-background-sync',
   });
-  if (status.state === 'granted' && 'periodicSync' in registration) {
+  if (status.state === 'granted') {
     try {
       // Register the periodic background sync.
       await registration.periodicSync.register('content-sync', {
@@ -71,7 +71,7 @@ const registerPeriodicBackgroundSync = async (registration) => {
       console.error(err.name, err.message);
     }
   } else {
-    console.log('ELSE');
+    console.log('ELSE' + status);
   }
 };
 
