@@ -72,10 +72,6 @@ const registerPeriodicBackgroundSync = async (registration) => {
     }
   } else {
     console.log('ELSE' + status.state);
-    await registration.periodicSync.register('content-sync', {
-      // An interval of one day.
-      minInterval: 10,
-    });
   }
 };
 
