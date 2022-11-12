@@ -38,11 +38,14 @@ const registerPeriodicBackgroundSync = async (registration) => {
   if (status.state === 'granted') {
     try {
       // Register the periodic background sync.
-      await registration.periodicSync.register('content-sync', {
-        // An interval of one day.
-        minInterval: 10,
-      });
-
+      const periodicSyncFu = await registration.periodicSync.register(
+        'content-sync',
+        {
+          // An interval of one day.
+          minInterval: 10,
+        }
+      );
+      periodicSyncFu();
       // List registered periodic background sync tags.
       const tags = await registration.periodicSync.getTags();
       console.log('tags>>--' + tags);
