@@ -31,6 +31,50 @@ const isLocalhost = Boolean(
   }
 } */
 
+const registerPeriodicBackgroundSync = async (registration) => {
+  const status = await navigator.permissions.query({
+    name: 'periodic-background-sync',
+  });
+  if (status.state === 'granted' && 'periodicSync' in registration) {
+    try {
+      // Register the periodic background sync.
+      await registration.periodicSync.register('content-sync', {
+        // An interval of one day.
+        minInterval: 10,
+      });
+
+      // List registered periodic background sync tags.
+      const tags = await registration.periodicSync.getTags();
+      console.log('tags>>--' + tags);
+
+      // Update the user interface with the last periodic background sync data.
+      /*  const backgroundSyncCache = await caches.open('periodic-background-sync');
+      if (backgroundSyncCache) {
+        const backgroundSyncResponse =
+          backgroundSyncCache.match('/last-updated');
+        if (backgroundSyncResponse) {
+          lastUpdated.textContent = `${await fetch('/last-updated').then(
+            (response) => response.text()
+          )} (periodic background-sync)`;
+        }
+      } */
+
+      // Listen for incoming periodic background sync messages.
+
+      navigator.serviceWorker.addEventListener('periodicsync', (event) => {
+        if (event.tag === 'test') {
+          console.log(event);
+          event.waitUntil(event);
+        }
+      });
+    } catch (err) {
+      console.error(err.name, err.message);
+    }
+  } else {
+    console.log('ELSE');
+  }
+};
+
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
@@ -62,6 +106,7 @@ export function register(config) {
         console.log('Is not localhost. Just register service worker');
 
         registerValidSW(swUrl, config);
+        registerPeriodicBackgroundSync();
       }
     });
   }
@@ -156,6 +201,7 @@ function checkValidServiceWorker(swUrl, config) {
       } else {
         // Service worker found. Proceed as normal.
         registerValidSW(swUrl, config);
+        registerPeriodicBackgroundSync();
         console.log('Service worker found. Proceed as normal.');
       }
     })

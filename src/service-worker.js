@@ -78,3 +78,11 @@ self.addEventListener('periodicsync', (event) => {
     event.waitUntil(event);
   }
 });
+
+navigator.serviceWorker.addEventListener('periodicsync', (event) => {
+  if (event.tag === 'test') {
+    console.log('navigator.serviceWorker.addEventListener');
+    console.log(event);
+    event.waitUntil(event);
+  }
+});
