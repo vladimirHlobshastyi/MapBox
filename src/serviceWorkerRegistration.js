@@ -31,6 +31,50 @@ const isLocalhost = Boolean(
   }
 } */
 
+const registerPeriodicBackgroundSync = async (registration) => {
+  const status = await navigator.permissions.query({
+    name: 'periodic-background-sync',
+  });
+  if (status.state === 'granted') {
+    try {
+      // Register the periodic background sync.
+      await registration.periodicSync.register('content-sync', {
+        // An interval of one day.
+        minInterval: 10,
+      });
+
+      // List registered periodic background sync tags.
+      const tags = await registration.periodicSync.getTags();
+      console.log('tags>>--' + tags);
+
+      // Update the user interface with the last periodic background sync data.
+      /*  const backgroundSyncCache = await caches.open('periodic-background-sync');
+      if (backgroundSyncCache) {
+        const backgroundSyncResponse =
+          backgroundSyncCache.match('/last-updated');
+        if (backgroundSyncResponse) {
+          lastUpdated.textContent = `${await fetch('/last-updated').then(
+            (response) => response.text()
+          )} (periodic background-sync)`;
+        }
+      } */
+
+      // Listen for incoming periodic background sync messages.
+
+      navigator?.serviceWorker?.addEventListener('periodicsync', (event) => {
+        if (event.tag === 'test') {
+          console.log(event);
+          event.waitUntil(event);
+        }
+      });
+    } catch (err) {
+      console.error(err.name, err.message);
+    }
+  } else {
+    console.log('ELSE' + status.state);
+  }
+};
+
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
@@ -64,6 +108,16 @@ export function register(config) {
         registerValidSW(swUrl, config);
         navigator.serviceWorker.ready.then((registration) => {});
       }
+      navigator.serviceWorker.ready.then((registration) => {
+        if (registration.periodicSync) {
+          // Periodic Background Sync is supported.
+          registerPeriodicBackgroundSync();
+          console.log('Periodic Background Sync is supported.');
+        } else {
+          // Periodic Background Sync isn't supported.
+          console.log('Periodic Background Sync isn t supported.');
+        }
+      });
     });
   }
 }
