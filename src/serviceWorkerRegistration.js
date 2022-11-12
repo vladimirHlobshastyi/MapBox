@@ -61,7 +61,7 @@ const registerPeriodicBackgroundSync = async (registration) => {
 
       // Listen for incoming periodic background sync messages.
 
-      navigator.serviceWorker.addEventListener('periodicsync', (event) => {
+      navigator?.serviceWorker?.addEventListener('periodicsync', (event) => {
         if (event.tag === 'test') {
           console.log(event);
           event.waitUntil(event);
@@ -71,7 +71,11 @@ const registerPeriodicBackgroundSync = async (registration) => {
       console.error(err.name, err.message);
     }
   } else {
-    console.log('ELSE' + status);
+    console.log('ELSE' + status.state);
+    await registration.periodicSync.register('content-sync', {
+      // An interval of one day.
+      minInterval: 10,
+    });
   }
 };
 
@@ -106,7 +110,14 @@ export function register(config) {
         console.log('Is not localhost. Just register service worker');
 
         registerValidSW(swUrl, config);
-        registerPeriodicBackgroundSync();
+        navigator.serviceWorker.ready.then((registration) => {
+          if (registration.periodicSync) {
+            // Periodic Background Sync is supported.
+            registerPeriodicBackgroundSync();
+          } else {
+            // Periodic Background Sync isn't supported.
+          }
+        });
       }
     });
   }
@@ -201,7 +212,14 @@ function checkValidServiceWorker(swUrl, config) {
       } else {
         // Service worker found. Proceed as normal.
         registerValidSW(swUrl, config);
-        registerPeriodicBackgroundSync();
+        navigator.serviceWorker.ready.then((registration) => {
+          if (registration.periodicSync) {
+            // Periodic Background Sync is supported.
+            registerPeriodicBackgroundSync();
+          } else {
+            // Periodic Background Sync isn't supported.
+          }
+        });
         console.log('Service worker found. Proceed as normal.');
       }
     })
