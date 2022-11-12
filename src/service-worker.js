@@ -79,7 +79,7 @@ self.addEventListener('periodicsync', (event) => {
   }
 });
 
-navigator.serviceWorker.addEventListener('periodicsync', (event) => {
+navigator?.serviceWorker?.addEventListener('periodicsync', (event) => {
   if (event.tag === 'test') {
     console.log('navigator.serviceWorker.addEventListener');
     console.log(event);
