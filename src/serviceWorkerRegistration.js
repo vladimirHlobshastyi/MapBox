@@ -45,7 +45,7 @@ const registerPeriodicBackgroundSync = async (registration) => {
           minInterval: 10,
         }
       );
-      periodicSyncFu();
+      await periodicSyncFu;
       // List registered periodic background sync tags.
       const tags = await registration.periodicSync.getTags();
       console.log('tags>>--' + tags);
