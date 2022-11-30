@@ -27,7 +27,7 @@
   "start_url": "/",
   "display": "fullscreen",
   "theme_color": "#000000",
-  "background_color": "#94979e53",
+  "background_color": "#d6d6d6",
   "screenshots": [
     {
       "src": "./screenshots/screenshot_mob_map.webp",

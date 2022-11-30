@@ -12,7 +12,7 @@ const AlertsInRegionsLayer = ({
 }: AlertsInRegionsLayerPropTypes) => {
   const geoJson: any = geoData; // replace any
   const layerStyle = (id: number, alert: boolean): LayerProps => {
-    const color = !alert ? '#3e4247' : '#f60909';
+    const color = !alert ? '#474c52' : '#f60909';
 
     return {
       id: ` ${id}/${alert}/Layer}`,
@@ -36,7 +36,7 @@ const AlertsInRegionsLayer = ({
         >
           <Layer {...layerStyle(activeRegion.id, activeRegion.alert)} />
 
-            <Layer
+          <Layer
             {...{
               id: `${activeRegion.id}`,
               key: `${activeRegion.id}`,
