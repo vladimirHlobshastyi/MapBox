@@ -48,7 +48,6 @@ export const AlertsMap = () => {
   if (isLoading) {
     return <IosLoader />;
   }
-
   return (
     <div className={style.Container}>
       <div className={style.ContainerWrapper} ref={myRef}>
@@ -84,9 +83,8 @@ export const AlertsMap = () => {
           <NavigationControl
             showCompass={false}
             showZoom={true}
-            position={`${
-              window.innerWidth > 450 ? 'bottom-right' : 'top-right'
-            }`}
+            position={`${window.innerWidth > 450 ? 'bottom-right' : 'top-right'
+              }`}
             visualizePitch={true}
             style={{
               position: 'inherit',

@@ -15,6 +15,29 @@
   z-index: 2;
 }
 
+.LegendRefresh {
+  z-index: 2;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 29px;
+  height: 29px;
+  background: #fff;
+}
+
+.LegendRefresh img {
+  max-width: 17px;
+  margin-bottom: 1px;
+
+}
+
+.LegendRefresh img:hover {
+  cursor: pointer;
+}
+
 .RefreshMessage {
   margin-top: 10px;
 }

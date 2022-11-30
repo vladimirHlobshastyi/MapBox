@@ -13,9 +13,9 @@ const ErrorComponent: FC<errorComponentProps> = ({ typeError }) => {
         alt="Loading"
       />
       {typeError === 'technical' ? (
-        <h2>Зачекайте, проводяться технічні роботи</h2>
+        <span>Проводяться технічні роботи</span>
       ) : (
-        <h2>Нема зв'язку з інтернетом...</h2>
+        <span>Нема зв'язку з інтернетом...</span>
       )}
     </div>
   );
