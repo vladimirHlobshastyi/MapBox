@@ -33,16 +33,14 @@ root.render(
       <IsIosProvider>
         <AlertProvider>
           <StatisticProvider>
-            <NotificationProvider>
-              <BrowserRouter>
-                <Navbar />
-                <Routes>
-                  <Route path="/map" element={<AlarmsMap />} />
-                  <Route path="statisctic" element={<Statistic />} />
-                  <Route path="*" element={<Navigate to="/map" replace />} />
-                </Routes>
-              </BrowserRouter>{' '}
-            </NotificationProvider>
+            <BrowserRouter>
+              <Navbar />
+              <Routes>
+                <Route path="/map" element={<AlarmsMap />} />
+                <Route path="statisctic" element={<Statistic />} />
+                <Route path="*" element={<Navigate to="/map" replace />} />
+              </Routes>
+            </BrowserRouter>
           </StatisticProvider>
         </AlertProvider>
       </IsIosProvider>
