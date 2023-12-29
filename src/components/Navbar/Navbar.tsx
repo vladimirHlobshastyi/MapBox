@@ -18,11 +18,6 @@ const Navbar = () => {
             Карта
           </NavLink>
         </div>
-        <div className={style.navEl}>
-          <NavLink to={'/statisctic'} className={isActive}>
-            Втрати ворога
-          </NavLink>
-        </div>
       </div>
     </div>
   );
